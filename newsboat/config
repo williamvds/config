@@ -1,0 +1,47 @@
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+reload-threads 5
+
+datetime-format "%d %b"
+selecttag-title-format "Tags"
+selectfilter-title-format "Formats"
+dialogs-title-format "Dialogs"
+feedlist-title-format "All feeds%?T? tagged '%T'? - %u unread"
+feedlist-format "%4i  %t"
+articlelist-title-format "%T - %u unread"
+articlelist-format "%4i  %D  %t"
+itemview-title-format "%T"
+
+color listnormal white default
+color listnormal_unread red default
+color listfocus white color235
+color listfocus_unread red color235
+color info white default bold
+color article cyan default
+
+external-url-viewer "firefox-nightly"
+browser firefox-nightly
+macro o open-in-browser-and-mark-read
+macro m set browser "i3 exec mpv"; open-in-browser-and-mark-read ; set browser linkhandler
+macro y set browser "spawndl"; open-in-browser-and-mark-read ; set browser linkhandler
+macro w set browser "w3m"; open-in-browser-and-mark-read ; set browser linkhandler
+macro p set browser "rofi -dmenu"; open-in-browser-and-mark-read ; set browser linkhandler
+macro c set browser "xclip -sel c -in <<< "; open-in-browser-and-mark-read ; set browser linkhandler
+macro t set browser "transmission-remote -a"; open-in-browser-and-mark-read ; set browser linkhandler

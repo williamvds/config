@@ -1,0 +1,61 @@
+[global]
+  follow = mouse
+  geometry = 300x5-30+20
+  indicate_hidden = yes
+  shrink = no
+  transparency = 0
+  notification_height = 0
+  separator_height = 2
+  padding = 12
+  horizontal_padding = 12
+  frame_width = 0
+  separator_color = "#e42c2d"
+  sort = yes
+  idle_threshold = 120
+  font = Noto Sans 11
+  line_height = 0
+  markup = full
+  format = <b>%s</b>\n%b<big><b>%n</b></big>
+  alignment = left
+  show_age_threshold = 60
+  word_wrap = yes
+  ellipsize = middle
+  ignore_newline = no
+  stack_duplicates = true
+  hide_duplicate_count = true
+  show_indicators = yes
+  icon_position = left
+  max_icon_size = 64
+  icon_path = /usr/share/icons/Papirus-Dark/symbolic/status:/usr/share/icons/Papirus-Dark/symbolic/devices/
+  sticky_history = yes
+  history_length = 20
+  browser = /usr/bin/firefox-nightly -new-tab
+  always_run_script = true
+  title = Dunst
+  class = Dunst
+  dmenu = /usr/bin/rofi -dmenu
+
+[experimental]
+  per_monitor_dpi = true
+
+[shortcuts]
+  close = mod4+ctrl+space
+  close_all = mod4+ctrl+a
+  history = mod4+ctrl+l
+  context = mod4+ctrl+m
+
+[urgency_low]
+  background = "#282828"
+  foreground = "#ffffff"
+  timeout = 1
+
+[urgency_normal]
+  background = "#282828"
+  foreground = "#ffffff"
+  timeout = 10
+
+[urgency_critical]
+  background = "#282828"
+  foreground = "#ffffff"
+  timeout = 0
+# vim: ft=cfg

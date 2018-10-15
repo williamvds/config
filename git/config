@@ -1,0 +1,31 @@
+[user]
+	email = william@williamvds.me
+	name = williamvds
+	signingkey = 7A4DF5A8CDBD49C7
+[credential]
+	helper = /usr/lib/git-core/git-credential-gnome-keyring
+[commit]
+	gpgsign = true
+[alias]
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an> %C(yellow)%G? %C(dim yellow)%GS %Creset'
+	stash-all = stash save --include-untracked
+	undo = reset --soft HEAD^
+	prune = fetch --prune
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+	sign-commits = filter-branch -f --commit-filter 'git commit-tree -S "$@"' HEAD
+[merge]
+	ff = only
+[push]
+	followtags = true
+	default = simple
+[branch]
+	autosetuprebase = always
+[status]
+	showUntrackedFiles = all
+[review "review.lineageos.org"]
+	username = williamvds
+[gpg]
+	program = gpg2
+[core]
+	autocrlf = input
+	whitespace = cr-at-eol

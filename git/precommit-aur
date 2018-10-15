@@ -1,0 +1,12 @@
+#!/bin/bash
+# ensure .SRCINFO has been modified and staged
+# update md5sums if PKGBUILD is staged
+
+[[ ! -z $(git diff --name-only --cached PKGBUILD) ]] \
+  && updpkgsums \
+  && git add PKGBUILD
+
+[[ -z "$(git diff --name-only --cached .SRCINFO)" ]] || exit 0
+
+makepkg --printsrcinfo >.SRCINFO
+git add .SRCINFO

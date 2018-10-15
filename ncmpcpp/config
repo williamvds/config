@@ -1,0 +1,36 @@
+ncmpcpp_directory = ~/.config/ncmpcpp
+lyrics_directory  = ~/.cache/lyrics
+
+# behaviour
+user_interface     = alternative
+playlist_display_mode = columns
+message_delay_time = 1
+autocenter_mode    = yes
+default_find_mode  = wrapped
+external_editor    = nvim
+incremental_seeking = yes
+allow_for_physical_item_deletion = yes
+
+# appearance
+header_visibility = no
+titles_visibility = no
+color1 = 10
+color2 = 10
+current_item_prefix = $(10_235)
+current_item_suffix = $9
+current_item_inactive_column_prefix = $(10_235)$b
+current_item_inactive_column_suffix = $/b$9
+now_playing_prefix = $b
+now_playing_suffix = $/b
+main_window_color = white
+window_border_color = 10
+active_window_border = 10
+empty_tag_color = 10
+song_columns_list_format = (45)[white]{t} (25)[10]{a} (25)[10]{b} $R(7)[10]{l}
+song_list_format = "     {%70t}|{%70f}{ • $(10)%a$9}$R$8%l$9     "
+progressbar_color = 1
+progressbar_elapsed_color = white
+progressbar_look = ━🌑
+alternative_ui_separator_color = 237
+alternative_header_first_line_format = $b{%t}|{%f}{ • $(10)%a$9}$/b
+alternative_header_second_line_format = {{%b}{ (%y)}}|{%D}

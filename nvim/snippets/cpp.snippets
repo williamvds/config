@@ -1,0 +1,30 @@
+snippet cout
+	std::cout << ${1} << std::endl;
+
+snippet cerr
+	std::cerr << ${1} << std::endl;
+
+snippet cin
+	std::cin >> ${1};
+
+snippet			fore
+options			head
+abbr				for (:) {}
+		for (${1:auto&& }${2:var} : ${3:container}) {
+				${0:TARGET}
+		}
+
+snippet			forec
+options			head
+abbr				for (const :) {}
+		for (const auto& ${1:var} : ${2:container}) {
+				${0:TARGET}
+		}
+
+snippet minval
+abbr		limits<>::min()
+	std::numeric_limits<${1:type}>::min()
+
+snippet maxval
+abbr		limits<>::max()
+	std::numeric_limits<${1:type}>::max()

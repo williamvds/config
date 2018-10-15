@@ -1,0 +1,169 @@
+[colors]
+bg = #00000000
+fg = #fff
+fgAlt = #aaa
+warn = #ffb52a
+err = #e42c2d
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/bottom]
+monitor = HDMI1
+bottom = true
+width = 100%
+height = 22
+fixed-center = true
+
+foreground = ${colors.fg}
+background = ${colors.bg}
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Noto Sans:size=12;2
+font-1 = Noto Sans:size=12:style=bold;2
+font-2 = Material Design Icons:style=solid:size=14;2
+
+modules-left = i3 music
+modules-center = date
+modules-right = cputemp rss updates audio wifi
+
+tray-position = right
+tray-detached = false
+tray-maxsize = 22
+tray-padding = 4
+tray-transparent = true
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+strip-wsnumbers = true
+wrapping-scroll = false
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-foreground = ${colors.warn}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;?
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+label-focused = %icon%
+label-focused-font = 3
+label-focused-padding = 2
+label-focused-foreground = ${colors.fg}
+
+label-unfocused = %icon%
+label-unfocused-font = 3
+label-unfocused-padding = 2
+label-unfocused-foreground = ${colors.fgAlt}
+
+label-urgent = %icon%
+label-urgent-font = 3
+label-urgent-padding = 2
+label-urgent-foreground = ${colors.warn}
+
+label-visible = %icon%
+label-visible-font = 3
+label-visible-padding = 2
+label-visible-foreground = ${colors.fg}
+
+[module/date]
+type = internal/date
+interval = 5
+date-alt = %A %e %B
+time = %l:%M %p
+time-alt = %l:%M %p
+label = %date% %time%
+format-prefix-foreground = ${colors.fg}
+
+[module/music]
+type = internal/mpd
+inverval = 2
+format-playing =  <label-song>
+format-paused =
+format-stopped =
+label-song =  %title:0:25:…% • %artist:0:30:…%
+label-offline =
+
+[module/cputemp]
+type = internal/temperature
+interval = 2
+thermal-zone = 2
+warn-temperature = 60
+units = false
+format =
+format-warn =  <label-warn>
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.err}
+
+[module/updates]
+type = custom/script
+interval = 1200
+exec = ~/.config/polybar/updates.sh
+exec-if = ping -c1 1.1.1.1
+
+[module/rss]
+type = custom/script
+interval = 1200
+exec = ~/.config/polybar/rss.sh
+
+[module/audio]
+type = internal/pulseaudio
+format-volume = <ramp-volume>
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/wifi]
+type = internal/network
+interface = wlp6s0
+interval = 2
+label-disconnected = 來
+format-connected = <ramp-signal>
+label-connected =
+ramp-signal-0 = 冷
+ramp-signal-1 = 爛
+ramp-signal-2 = 嵐
+ramp-signal-3 = 蠟
+
+[module/power]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+format-charging = <ramp-capacity><label-charging>
+format-charging-foreground = ${colors.warn}
+label-charging =
+format-discharging = <ramp-capacity><label-discharging>
+label-discharging =
+label-discharging-foreground = ${colors.fgAlt}
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.err}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.err}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-10 = 
+; vim:ft=dosini
