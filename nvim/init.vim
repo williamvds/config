@@ -36,6 +36,7 @@ if dein#load_state('~/.local/share/nvim/dein')
 	call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
 	call dein#add('jsfaint/gen_tags.vim')
 	call dein#add('udalov/kotlin-vim')
+	call dein#add('godlygeek/tabular')
 
 	call dein#end()
 	call dein#save_state()
