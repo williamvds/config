@@ -3,8 +3,11 @@ let mapleader = "\<space>"
 source ~/.config/nvim/colors/predawn.vim
 
 set rtp+=/usr/share/vim/vimfiles
-if dein#load_state('~/.local/share/nvim/dein')
-	call dein#begin('~/.local/share/nvim/dein')
+if $_OS_MACOS
+ \|set rtp+=$DEIN_DIR/repos/github.com/Shougo/dein.vim
+ \|endif
+if dein#load_state($DEIN_DIR)
+	call dein#begin($DEIN_DIR)
 
 	call dein#add('Shougo/deoplete.nvim')
 	call dein#add('Shougo/neosnippet')
@@ -12,7 +15,6 @@ if dein#load_state('~/.local/share/nvim/dein')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('blindFS/vim-taskwarrior')
 	call dein#add('itchyny/lightline.vim')
-	call dein#add('lervag/vimtex')
 	call dein#add('mileszs/ack.vim')
 	call dein#add('plasticboy/vim-markdown')
 	call dein#add('tpope/vim-commentary')
@@ -21,22 +23,19 @@ if dein#load_state('~/.local/share/nvim/dein')
 	call dein#add('tpope/vim-vinegar')
 	call dein#add('w0rp/ale')
 	call dein#add('alvan/vim-closetag', {'on_ft': ['html', 'xml', 'php']})
-	call dein#add('artur-shaik/vim-javacomplete2', {'on_ft': 'java'})
-	call dein#add('chrisbra/unicode.vim', {'on_ft': ['markdown', 'text']})
-	call dein#add('davidhalter/jedi', {'on_ft': 'python'})
-	call dein#add('derekwyatt/vim-scala', {'on_ft': 'scala'})
-	call dein#add('digitaltoad/vim-pug', {'on_ft': ['jade', 'pug']})
-	call dein#add('shawncplus/phpcomplete.vim', {'on_ft': 'php'})
 	call dein#add('tmhedberg/matchit', {'on_ft': ['html', 'xml', 'php']})
-	call dein#add('tobyS/pdv', {'on_ft': 'php'})
-	call dein#add('tobyS/vmustache', {'on_ft': 'php'})
 	call dein#add('tweekmonster/deoplete-clang2', {'on_ft': ['c', 'cpp']})
-	call dein#add('xolox/vim-lua-ftplugin', {'on_ft': 'lua'})
-	call dein#add('xolox/vim-misc', {'on_ft': 'lua'})
-	call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
 	call dein#add('jsfaint/gen_tags.vim')
-	call dein#add('udalov/kotlin-vim')
 	call dein#add('godlygeek/tabular')
+
+	if $_USE_PERSONAL
+		call dein#add('artur-shaik/vim-javacomplete2', {'on_ft': 'java'})
+		call dein#add('chrisbra/unicode.vim', {'on_ft': ['markdown', 'text']})
+		call dein#add('davidhalter/jedi', {'on_ft': 'python'})
+		call dein#add('lervag/vimtex')
+		call dein#add('udalov/kotlin-vim')
+		call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
+	endif
 
 	call dein#end()
 	call dein#save_state()

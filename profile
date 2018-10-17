@@ -24,6 +24,7 @@ export TASKRC=$TASKDATA/config
 export PASSWORD_STORE_DIR=$XDG_CONFIG_HOME/pass
 export PASSWORD_STORE_GENERATED_LENGTH=100
 export MOZ_USE_XINPUT2=1
+export DEIN_DIR=$HOME/.local/share/nvim/dein
 
 if [[ $_OS_GNU_LINUX && ! -z $XDG_RUNTIME_DIR ]]; then
 	SSH_AUTH_SOCK=$(find "$XDG_RUNTIME_DIR"/gnupg -name S.gpg-agent.ssh |head -n 1)
