@@ -4,6 +4,8 @@
 [[ $(uname -r) =~ ARCH$ ]]									 && export _OS_ARCH_LINUX=1
 [[ $(uname) == 'Darwin' ]]									 && export _OS_MACOS=1
 
+[[ -r "$CONFIG/local" ]] && . "$CONFIG/local"
+
 CONFIG="$HOME"/.config
 export XDG_CONFIG_HOME="$CONFIG"
 export DEV_ID=WDS
@@ -145,5 +147,3 @@ alias sd='svn di'
 alias sclean="xargs -a <(s --ignore-externals |awk '/^?/ {print \$2}') rm -rI"
 alias sls='svn ls'
 alias stree='svn ls --depth=infinity'
-
-[[ -r "$CONFIG/local" ]] && . "$CONFIG/local"
