@@ -117,7 +117,7 @@ prompt_versioncontrol() {
 
 	elif (svn info &>/dev/null); then
 		(svn status --ignore-externals 2>/dev/null \
-      | command grep -Eq '^\s*[ACDIM!?L]'); dirty=$((1 -$?))
+      | command grep -Eq '^\s*[ACDIM!?L]'); dirty=$?
 		ref=$(LANG=C svn info 2> /dev/null | \
 		awk -F/ \
 				'/^URL:/ {
@@ -144,9 +144,9 @@ prompt_dir() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+=("$(ansi_single "$(fg_color red)")")
-  [[ $UID -eq 0 ]] && symbols+=("$(ansi_single "$(fg_color yellow)")")
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+=("$(ansi_single "$(fg_color cyan)")")
+  [[ $RETVAL -ne 0 ]] && symbols+=("$(ansi_single "$(fg_color red)")✘")
+  [[ $UID -eq 0 ]] && symbols+=("$(ansi_single "$(fg_color yellow)")⚡")
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+=("$(ansi_single "$(fg_color cyan)")⚙")
 
   [[ -n "${symbols[*]}" ]] && prompt_segment black default "${symbols[*]}"
 }
