@@ -1,8 +1,8 @@
 #!/bin/bash
 
-[[ $(uname -o) == 'GNU/Linux' ]]	&& export _OS_GNU_LINUX
-[[ $(uname -r) =~ ARCH$ ]]				&& export _OS_ARCH_LINUX
-[[ $(uname -o) == 'Darwin' ]]			&& export _OS_MACOS
+[[ $(uname -o 2>/dev/null) == 'GNU/Linux' ]] && export _OS_GNU_LINUX=1
+[[ $(uname -r) =~ ARCH$ ]]									 && export _OS_ARCH_LINUX=1
+[[ $(uname) == 'Darwin' ]]									 && export _OS_MACOS=1
 
 CONFIG="$HOME"/.config
 export XDG_CONFIG_HOME="$CONFIG"
