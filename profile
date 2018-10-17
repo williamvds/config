@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [[ $(uname -o 2>/dev/null) == 'GNU/Linux' ]] && export _OS_GNU_LINUX=1
 [[ $(uname -r) =~ ARCH$ ]]									 && export _OS_ARCH_LINUX=1
