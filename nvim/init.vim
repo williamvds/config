@@ -236,3 +236,7 @@ fu! TrimWhiteSpace()
 endfu
 au FileWritePre,FileAppendPre,FilterWritePre,BufWritePre * :call TrimWhiteSpace()
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |exe "normal! g'\"" |endif
+
+if $_USE_WORK
+	set ts=4 sw=4 noet
+endif
