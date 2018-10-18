@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if git diff --staged --diff-filter=ACMR -G 'NOCOMMIT'; then
+	echo
+	echo "Error: a change labelled as nocommit is staged"
+	echo "To ignore this, use git commit's -n option"
+	exit 1
+fi
