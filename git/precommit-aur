@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ensure .SRCINFO has been modified and staged
 # update md5sums if PKGBUILD is staged
 

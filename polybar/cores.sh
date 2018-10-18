@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cpu=$(($(cat /sys/class/hwmon/hwmon*/temp*_input 2>/dev/null |sort -nr |head -n1) /1000))
 if command -v nvidia-smi &>/dev/null && nvidia-smi &>/dev/null
