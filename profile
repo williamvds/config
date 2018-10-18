@@ -4,12 +4,13 @@
 [[ $(uname -r) =~ ARCH$ ]]									 && export _OS_ARCH_LINUX=1
 [[ $(uname) == 'Darwin' ]]									 && export _OS_MACOS=1
 
+CONFIG="$HOME"/.config
+
 [[ -r "$CONFIG/local" ]] && . "$CONFIG/local"
 
-CONFIG="$HOME"/.config
-export XDG_CONFIG_HOME="$CONFIG"
 export DEV_ID=WDS
 
+export XDG_CONFIG_HOME="$CONFIG"
 export ANDROID_TOOLS=/opt/android-sdk
 export MAILDIR=$HOME/.local/mail
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch
