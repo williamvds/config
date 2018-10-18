@@ -146,6 +146,7 @@ alias su='svn up'
 alias sud='svn up --parents --set-depth'
 alias sr='svn revert -R'
 alias sd='svn di'
-alias sclean="xargs -a <(s --ignore-externals |awk '/^?/ {print \$2}') rm -rI"
+alias sclean="xargs -d '\\n' -a <(s --ignore-externals | \
+	awk '/^?/ {print substr(\$0, 9)}') rm -r"
 alias sls='svn ls'
 alias stree='svn ls --depth=infinity'
