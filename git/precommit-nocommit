@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-if git diff --staged --diff-filter=ACMR -G 'NOCOMMIT'; then
+res=$(git diff --staged --diff-filter=ACMR -G NOCOMMIT)
+if [[ $(wc -l <<< "$res") -gt 1 ]]; then
+	echo "$res"
 	echo
 	echo "Error: a change labelled as nocommit is staged"
 	echo "To ignore this, use git commit's -n option"
