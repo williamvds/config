@@ -8,7 +8,7 @@
 
 HISTFILE=$HOME/.cache/bash_history
 HISTCONTROL=ignoreboth:erasedups HISTSIZE='' HISTFILESIZE=''
-PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 cd() {
   builtin cd "$@" && ls
