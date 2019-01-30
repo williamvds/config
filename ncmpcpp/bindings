@@ -18,8 +18,6 @@ def_key "K"
   scroll_up
 
 def_key "l"
-  enter_directory
-def_key "l"
   next_column
 def_key "l"
   slave_screen
