@@ -7,7 +7,7 @@ window:
     x: 0
     y: 0
 
-  decorations: false
+  decorations: none
 
 tabspaces: 2
 
@@ -27,8 +27,6 @@ font:
   italic:
     family: monospace
     style: Italic
-
-custom_cursor_colors: false
 
 colors:
   primary:
@@ -76,11 +74,12 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 250 }
   triple_click: { threshold: 250 }
+  hide_when_typing: true
+  url:
+    launcher: open
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-hide_cursor_when_typing: false
 
 live_config_reload: true
 
@@ -95,14 +94,21 @@ shell:
 key_bindings:
   - { key: V,        mods: Control|Shift,    action: Paste               }
   - { key: C,        mods: Control|Shift,    action: Copy                }
-  - { key: V,        mods: Command,          action: Paste               }
-  - { key: C,        mods: Command,          action: Copy                }
+  - { key: V,        mods: Command, action: Paste                        }
+  - { key: C,        mods: Command, action: Copy                         }
+  - { key: Paste,                   action: Paste                        }
+  - { key: Copy,                    action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
   - { key: Insert,   mods: Shift,   action: PasteSelection               }
-  - { key: Key0,     mods: Control, action: ResetFontSize                }
+  - { key: Equals,   mods: Command, action: IncreaseFontSize             }
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
-  - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: Key0,     mods: Command, action: ResetFontSize                }
+  - { key: Key0,     mods: Control, action: ResetFontSize                }
+  - { key: Minus,    mods: Command, action: DecreaseFontSize             }
+  - { key: Minus,    mods: Control, action: DecreaseFontSize             }
+  - { key: L,        mods: Control, action: ClearLogNotice               }
+  - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
