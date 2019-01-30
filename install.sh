@@ -41,7 +41,7 @@ if [[ $_USE_PERSONAL ]]; then
 fi
 
 if [[ $_OS_ARCH_LINUX ]]; then
-	INSTALL='pacman -Syy --needed'
+	INSTALL='sudo pacman -Syy --needed'
 
 elif [[ $_OS_MACOS ]]; then
 	INSTALL='brew install'
@@ -66,5 +66,9 @@ elif [[ $_OS_MACOS ]]; then
 	fi
 fi
 
+if [ -z "$INSTALL" ]; then
+	>&2 echo "No installation command set for this operating system"
+fi
+
 echo "Installing: ${packages[*]}"
-sudo "${INSTALL[*]}" "${packages[@]}"
+"${INSTALL[*]}" "${packages[@]}"
