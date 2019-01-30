@@ -25,7 +25,9 @@
 [review "review.lineageos.org"]
 	username = williamvds
 [gpg]
-	program = gpg2
+	program = gpg
 [core]
 	autocrlf = input
 	whitespace = cr-at-eol
+[diff]
+	algorithm = patience
