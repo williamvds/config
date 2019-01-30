@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [[ -n $WAYLAND_DISPLAY ]]; then
+	wl-copy
+elif [[ $_OS_GNU_LINUX ]]; then
+	xclip -i -sel c
+else
+	/usr/bin/pbcopy
+fi

@@ -27,6 +27,11 @@ linkHome() {
 	done
 }
 
+link() {
+	echo "Linking '$2' to '$1'"
+	ln -s "$1" "$2"
+}
+
 private() {
 	echo "Installing private data: $*"
 	for path in "$@"; do
@@ -35,6 +40,7 @@ private() {
 }
 
 linkHome "${homedot[@]}"
+link "../.config/bin" "$HOME/.local/bin"
 
 if [[ $_USE_PERSONAL ]]; then
 	private pass transmission-daemon gpg offlineimap mutt/public newsboat/urls
