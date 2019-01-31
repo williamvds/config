@@ -1,0 +1,51 @@
+/* Theming browser elements */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+:root {
+  --theme-bg: #282828;
+  --theme-fg: #fff;
+  --theme-primary: #cd3c1b;
+
+  --sidebar-width: 30px;
+  --sidebar-expanded: 230px;
+
+  --toolbar-bgcolor: var(--theme-bg) !important;
+  --chrome-content-separator-color: none !important;
+  --chrome-background-color: var(--theme-bg) !important;
+  --chrome-secondary-background-color: var(--theme-bg) !important;
+  --toolbox-border-bottom-color: transparent !important; /* below toolbox bar */
+  --tabs-border-color: transparent !important; /* below menu bar */
+}
+
+/* toolbox */
+#tabbrowser-tabs {
+  visibility: collapse !important;
+}
+
+#back-button, #forward-button, .urlbar-history-dropmarker {
+  display: none;
+}
+
+#urlbar {
+  text-align: center;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+/* sidebar */
+
+#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] {
+  overflow: hidden;
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
+  z-index: 2;
+}
+
+#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] #sidebar-header,
+#sidebar #topmenu, #sidebar #topshadow, #sidebar-box ~ #sidebar-splitter {
+  display: none;
+}
+
+#sidebar-box #sidebar {
+  height: 100vh;
+}
