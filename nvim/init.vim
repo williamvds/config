@@ -223,20 +223,17 @@ map <silent> [h :GitGutterPrevHunk<cr>
 map <silent> ]h :GitGutterNextHunk<cr>
 
 au SwapExists * let v:swapchoice = expand('%:t') == 'COMMIT_EDITMSG'? 'd' : 'e'
-au FileType gitcommit startinsert
-" set shortmess
 
-au FileType * if index(['markdown', 'text', 'gitcommit'], &ft) >= 0
+au FileType * if index(['markdown', 'text', 'gitcommit', 'svn'], &ft) >= 0
 	\ |:setl spell
+	\ |:setl tw=80
 	\ |else |:setl nospell |endif
 
 fu! TrimWhiteSpace()
-	if &ft == "markdown" |return |endif
+	if &ft == "markdown" || &ro || !&mod |return |endif
 	%s/\s\+$//e
 endfu
 au FileWritePre,FileAppendPre,FilterWritePre,BufWritePre * :call TrimWhiteSpace()
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |exe "normal! g'\"" |endif
-
-if $_USE_WORK
-	set ts=4 sw=4 noet
-endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+	\ && index(['gitcommit', 'svn'], &ft) < 0
+	\ |exe "normal! g'\"" |endif
