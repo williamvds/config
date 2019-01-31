@@ -162,7 +162,7 @@ set swf udf " hist
 set sm nu cul cole=2 cc=80 fdc=0 so=5 rnu cocu=ncv " visual
 set ic scs hls is magic " searching
 set wmnu wic " wildmenu
-set ts=2 sw=2 ai si noet sta " indent
+set ts=4 sw=4 ai si noet sta " indent
 set wrap ww+=<,> bs=indent,eol,start " movement
 
 let g:netrw_list_hide='\.(o|plist|pyc|class|png|jpg|gif|svg)$,__pycache__,\.git,build'
