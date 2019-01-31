@@ -1,0 +1,54 @@
+{
+	"layer": "bottom",
+	"position": "bottom",
+	"height": 24,
+	"modules-left": ["sway/workspaces", "sway/mode", "custom/mpd"],
+	"modules-center": ["clock"],
+	"modules-right": ["custom/updates", "custom/rss", "pulseaudio", "network", "battery", "tray"],
+	"sway/workspaces": {
+		"all-outputs": true,
+		"format": "{icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "?",
+			"4": "",
+			"8": "",
+			"9": "",
+			"10": ""
+		}
+	},
+	"clock": {
+		"format": "{:%l:%M %p}",
+		"format-alt": "{:%A %e %B %l:%M %p}"
+	},
+	"battery": {
+		"format": "{icon}",
+		"format-icons": ["", "", "", "", "", "", "", "", ""]
+	},
+	"network": {
+		"format-wifi": "蠟",
+		"format-ethernet": "",
+		"format-disconnected": "來"
+	},
+	"pulseaudio": {
+		"format": "{icon}",
+		"format-bluetooth": "{icon}",
+		"format-muted": "",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+	"custom/rss": {
+		"format": "{}",
+		"interval": 1200,
+		"exec": "$HOME/.config/waybar/rss.sh"
+	},
+	"custom/updates": {
+		"format": "{}",
+		"interval": 1200,
+		"exec": "$HOME/.config/waybar/updates.sh"
+	}
+}
+
+// vim: ft=javascript :
