@@ -7,7 +7,7 @@
 [commit]
 	gpgsign = true
 [alias]
-	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an> %C(yellow)%G? %C(dim yellow)%GS %Creset'
+	glog = log --pretty=format:'%Cred%h %C(bold blue)%>(8,trunc)<%an> %Creset%<(100,trunc)%s %<(6,trunc)%Cgreen%cr %<(15,trunc)%C(yellow)%D %C(yellow)%G?'
 	stash-all = stash save --include-untracked
 	undo = reset --soft HEAD^
 	prune = fetch --prune
@@ -27,7 +27,10 @@
 [gpg]
 	program = gpg
 [core]
-	autocrlf = input
+	autocrlf = false
+	trustctime = false
 	whitespace = cr-at-eol
+[svn]
+	rmdir = true
 [diff]
 	algorithm = patience
