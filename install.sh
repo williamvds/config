@@ -3,22 +3,78 @@
 C=~/.config
 . "$C/profile"
 
-homedot=(
-	profile bash_profile bashrc editrc inputrc lldbinit ackrc tmux.conf
+makedirs=(
+	"$HOME/.local"
+	"$HOME/.cache"
 )
 
-if [[ $_OS_GNU_LINUX ]]; then
-	homedot+=(xinit Xresources)
+homedot=(
+	ackrc
+	bash_profile
+	bashrc
+	editrc
+	inputrc
+	profile
+)
+
+packages=(
+	bash
+	bash-completion
+	coreutils
+	neovim
+	rsync
+	tree
+)
+
+if [[ -z $_SERVER ]]; then
+	homedot+=(
+		lldbinit
+		tmux.conf
+	)
+	packages+=(
+		mpv
+		youtube-dl
+	)
 fi
 
-packages=(bash bash-completion coreutils rsync neovim mpv youtube-dl)
+if [[ $_OS_GNU_LINUX && -z $_SERVER ]]; then
+	homedot+=(
+		Xresources
+		xinit
+	)
+	packages+=(
+		mpv
+		youtube-dl
+	)
+fi
 
 if [[ $_OS_MACOS ]]; then
-	homedot+=(chunkwmrc skhdrc)
-	packages+=(findutils rename gnu-sed watch chunkwm skhd osxfuse)
+	packages+=(
+		findutils
+		gnu-sed
+		rename
+		watch
+	)
+
+	if [[ -z $_SERVER ]]; then
+		homedot+=(
+			chunkwmrc
+			skhdrc
+		)
+		packages+=(
+			chunkwm
+			osxfuse
+			skhd
+		)
+	fi
 fi
 
 # execute
+
+echo "Making directories ${makedirs[*]}"
+for dir in "${makedirs[@]}"; do
+	mkdir -p "$dir"
+done
 
 linkHome() {
 	echo "Linking to home directory: $*"
@@ -43,7 +99,16 @@ linkHome "${homedot[@]}"
 link "../.config/bin" "$HOME/.local/bin"
 
 if [[ $_USE_PERSONAL ]]; then
-	private pass transmission-daemon gpg offlineimap mutt/public newsboat/urls
+	private
+		pass \
+		transmission-daemon \
+		gpg \
+		offlineimap \
+		mutt/public \
+		newsboat/urls \
+		task/ca.cert.pem \
+		task/user.cert.pem \
+		task/user.key.pem
 fi
 
 if [[ $_OS_ARCH_LINUX ]]; then
@@ -66,10 +131,8 @@ elif [[ $_OS_MACOS ]]; then
 	brew ln bash
 	brew tap crisidev/homebrew-chunkwm
 	brew service start chunkwm skhd
-	if [[ $_USE_WORK ]]; then
-		brew tap jlhonora/lsusb osxfuse/osxfuse
-		brew install --HEAD ifuse ideviceinstaller
-	fi
+	brew tap jlhonora/lsusb osxfuse/osxfuse
+	brew install --HEAD ifuse ideviceinstaller
 fi
 
 if [ -z "$INSTALL" ]; then
