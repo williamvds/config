@@ -41,7 +41,7 @@ hi Label guifg=#bddcdc guibg=NONE guisp=NONE gui=NONE ctermfg=152 ctermbg=NONE c
 hi LineNr guifg=#8d8d8d guibg=#282828 guisp=#282828 gui=NONE ctermfg=245 ctermbg=235 cterm=NONE
 hi Macro guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
 hi MatchParen guifg=#f49d62 guibg=NONE guisp=NONE gui=underline ctermfg=215 ctermbg=NONE cterm=underline
-hi NonText guifg=#282828 guibg=#282828 guisp=#282828 gui=NONE ctermfg=235 ctermbg=235 cterm=NONE
+hi NonText ctermfg=240 ctermbg=NONE cterm=NONE
 hi Number guifg=#ecec89 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
 hi Operator guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
 hi PMenu guifg=#92bfbf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE
@@ -117,3 +117,5 @@ hi yamlalias guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NO
 hi yamlanchor guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
 hi yamldocumentheader guifg=#bddcdc guibg=NONE guisp=NONE gui=NONE ctermfg=152 ctermbg=NONE cterm=NONE
 hi yamlkey guifg=#92bfbf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE
+
+hi link Whitespace NonText
