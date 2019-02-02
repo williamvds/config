@@ -1,10 +1,7 @@
-"\C-l":clear-screen
-"\C-n":history-search-forward
-"\C-p":history-search-backward
-set completion-ignore-case on
-set show-all-if-ambiguous on
-set show-all-if-unmodified on
+set editing-mode vi
 set visible-stats on
 set colored-stats on
-set editing-mode vi
-set keymap vi
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set colored-completion-prefix on
+set completion-prefix-display-length 1
