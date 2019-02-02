@@ -24,7 +24,7 @@ export MOZ_USE_XINPUT2=1
 export DEIN_DIR=$HOME/.local/share/nvim/dein
 
 if [[ $_OS_GNU_LINUX && -n $XDG_RUNTIME_DIR ]]; then
-	SSH_AUTH_SOCK=$(find "$XDG_RUNTIME_DIR"/gnupg -name S.gpg-agent.ssh |head -n 1)
+	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	export SSH_AUTH_SOCK
 
 	if command -v sway &>/dev/null; then
