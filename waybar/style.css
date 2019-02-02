@@ -27,10 +27,24 @@ label {
 	color: #aaa;
 }
 
-#battery.charging {
+#battery.charging, #custom-tasks {
 	color: #ffb52a;
+}
+
+#custom-tasks {
+	animation-name: blink;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 #tray {
 	margin-right: 5px;
+}
+
+@keyframes blink {
+    to {
+        color: #fff;
+    }
 }

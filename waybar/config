@@ -4,7 +4,7 @@
 	"height": 24,
 	"modules-left": ["sway/workspaces", "sway/mode", "custom/mpd"],
 	"modules-center": ["clock"],
-	"modules-right": ["custom/updates", "custom/rss", "pulseaudio", "network", "battery", "tray"],
+	"modules-right": ["custom/tasks", "custom/updates", "custom/rss", "pulseaudio", "network", "battery", "tray"],
 	"sway/workspaces": {
 		"all-outputs": true,
 		"format": "{icon}",
@@ -48,7 +48,10 @@
 		"format": "{}",
 		"interval": 1200,
 		"exec": "$HOME/.config/waybar/updates.sh"
+	},
+	"custom/tasks": {
+		"format": "侮{}",
+		"interval": 1200,
+		"exec": "$HOME/.config/waybar/tasks.sh"
 	}
 }
-
-// vim: ft=javascript :
