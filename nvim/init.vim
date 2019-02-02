@@ -25,7 +25,6 @@ if dein#load_state($DEIN_DIR)
 	call dein#add('alvan/vim-closetag', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('tmhedberg/matchit', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('tweekmonster/deoplete-clang2', {'on_ft': ['c', 'cpp']})
-	call dein#add('jsfaint/gen_tags.vim')
 	call dein#add('godlygeek/tabular')
 
 	if $_USE_PERSONAL
@@ -35,6 +34,7 @@ if dein#load_state($DEIN_DIR)
 		call dein#add('lervag/vimtex')
 		call dein#add('udalov/kotlin-vim')
 		call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
+		call dein#add('leafgarland/typescript-vim')
 	endif
 
 	call dein#end()
@@ -103,70 +103,72 @@ let g:gitgutter_sign_removed = '┃'
 let g:gitgutter_sign_modified_removed = '┃'
 
 let g:lightline = {
-	\  'colorscheme': 'predawn',
-	\  'mode_map': {
-	\		 'n':			 'N ',
-	\		 'c':			 'N ',
-	\		 'i':			 'I ',
-	\		 'R':			 'R ',
-	\		 'v':			 'V ',
-	\		 'V':			 'VL',
-	\		 "\<C-v>": 'VB',
-	\		 's':			 'S ',
-	\		 'S':			 'SL',
-	\		 "\<C-s>": 'SB',
-	\		 't':			 'T ',
-	\		},
-	\  'component' : {
-	\		 'lineinfo': '%-2v/%L',
-	\		 'readonly': '%{&readonly||!&modifiable?"":""}',
-	\		 'modified': '%{&modified?"+":""}',
-	\  },
-	\  'component_function' : {
-	\		 'gitbranch': 'LightlineGitBranch',
-	\  },
-	\  'active': {
-	\		 'left':	[['mode', 'spell'], ['readonly'], ['relativepath', 'modified']],
-	\		 'right': [['filetype', 'lineinfo'], ['gitbranch']],
-	\  },
-	\  'inactive': {
-	\		 'left':	[['relativepath']],
-	\		 'right': [],
-	\  },
-	\ 'separator': { 'left': '', 'right': '' },
-	\ 'subseparator': { 'left': '', 'right': '' },
-	\ 'tabline': {
-	\		'right': [],
-	\ },
-	\}
+\	'colorscheme': 'predawn',
+\	'mode_map': {
+\		 'n':		'N ',
+\		 'c':		'N ',
+\		 'i':		'I ',
+\		 'R':		'R ',
+\		 'v':		'V ',
+\		 'V':		'VL',
+\		 "\<C-v>":	'VB',
+\		 's':		'S ',
+\		 'S':		'SL',
+\		 "\<C-s>":	'SB',
+\		 't':		'T ',
+\		},
+\  'component' : {
+\		 'lineinfo': '%-2v/%L',
+\		 'readonly': '%{&readonly||!&modifiable?"":""}',
+\		 'modified': '%{&modified?"+":""}',
+\	},
+\	'component_function' : {
+\		 'gitbranch': 'LightlineGitBranch',
+\	},
+\	'active': {
+\		 'left':	[['mode', 'spell'], ['readonly'], ['relativepath', 'modified']],
+\		 'right':	[['filetype', 'lineinfo'], ['gitbranch']],
+\	},
+\	'inactive': {
+\		 'left':	[['relativepath']],
+\		 'right': [],
+\  },
+\ 'separator': { 'left': '', 'right': '' },
+\ 'subseparator': { 'left': '', 'right': '' },
+\ 'tabline': {
+\		'right': [],
+\	},
+\}
 
 fu! LightlineGitBranch()
-	if exists('*fugitive#head')
-		let branch = fugitive#head()
+	if !exists('*fugitive#head') |return '' |endif
+
+	let branch = fugitive#head()
 		let diffcount = execute('echon ' . join(GitGutterGetHunkSummary(), '+'))
 		return branch !=# '' ? ' '. branch
-			\ . (diffcount > 0 ? ' ±' . diffcount : '')
-			\ : ''
-	endif
-	return ''
+		\ . (diffcount > 0 ? ' ±' . diffcount : '')
+		\ : ''
 endfu
 
-let g:gen_tags#ctags_opts='--exclude=build'
+if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
+
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_math = 1
 
 syntax enable
 
-set pa=.,*,** mouse=a ar lz hid ffs=unix,dos,mac spr sb secure ex fdm=indent ut=1000 " behaviour
+set pa=.,*,** mouse=a ar lz ffs=unix,dos,mac spr sb secure ex fdm=indent ut=1000 " behaviour
 set noeb novb " sounds
 set dir=~/.local/share/nvim/swap | let &udir=&dir | let &bdir=&dir
 set swf udf " hist
-set sm nu cul cole=2 cc=80 fdc=0 so=5 rnu cocu=ncv " visual
+set sm nu cul cole=2 cc=80 fdc=0 so=5 rnu cocu=ncv lcs=tab:»\ ,space:·,eol:¬ list " visual
 set ic scs hls is magic " searching
 set wmnu wic " wildmenu
 set ts=4 sw=4 ai si noet sta " indent
 set wrap ww+=<,> bs=indent,eol,start " movement
 
-let g:netrw_list_hide='\.(o|plist|pyc|class|png|jpg|gif|svg)$,__pycache__,\.git,build'
-set wig=*.o,*.plist,*.pyc,*.class,*.png,*.jpg,*.gif,*.svg,**/__pycache__/**,**/.git/**,**/node_modules/**,**/build/**
+let g:netrw_list_hide='\.(o|pyc|class|png|jpg|gif|svg)$,__pycache__,\.git,build'
+set wig=*.o,*.pyc,*.class,*.png,*.jpg,*.gif,*.svg,*.tga,**/__pycache__/**,**/.git/,**/node_modules/,**/build/**
 
 com! W w !sudo tee % >/dev/null
 com! Rel so ~/.config/nvim/init.vim
@@ -192,7 +194,7 @@ map <silent> <M-l> :call Focus("l")<cr>
 
 nno <C-f> <C-i>
 nno <C-b> <C-o>
-vno <silent> . :normal .<CR>
+vno <silent> . :normal .<cr>
 
 nmap <silent> <leader>w :w!<cr>
 nmap <silent> <leader>Q :q!<cr>
@@ -211,7 +213,7 @@ map <silent> <leader>tm :tabmove
 
 map <silent> g= :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 	\. synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-	\. synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+	\. synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 map <silent> ]q :cn!<cr>
 map <silent> [q :cp!<cr>
@@ -219,10 +221,20 @@ map <silent> [q :cp!<cr>
 map <silent> ]e <Plug>(ale_next_wrap)
 map <silent> [e <Plug>(ale_previous_wrap)
 
-map <silent> [h :GitGutterPrevHunk<cr>
-map <silent> ]h :GitGutterNextHunk<cr>
+nno <silent> [c :if !&diff \|GitGutterPrevHunk \|endif<cr>
+nno <silent> ]c :if !&diff \|GitGutterNextHunk \|endif<cr>
 
 au SwapExists * let v:swapchoice = expand('%:t') == 'COMMIT_EDITMSG'? 'd' : 'e'
+
+au FileType crontab setl nobk nowb
+au FileType taskreport setl nolist
+au BufNewFile,BufRead *.plist set ft=xml
+au BufNewFile,BufRead *.pch set ft=cpp
+
+au BufReadPost * nested
+	\ if !exists('b:reload_dos') && !&binary && &ff=='unix' && (0 < search('\r$', 'nc'))
+	\ |e ++ff=dos
+	\ |endif
 
 au FileType * if index(['markdown', 'text', 'gitcommit', 'svn'], &ft) >= 0
 	\ |:setl spell
@@ -231,9 +243,16 @@ au FileType * if index(['markdown', 'text', 'gitcommit', 'svn'], &ft) >= 0
 
 fu! TrimWhiteSpace()
 	if &ft == "markdown" || &ro || !&mod |return |endif
-	%s/\s\+$//e
+	let view = winsaveview()
+	keepjumps '[,']s/\s\+$//e
+	call winrestview(view)
 endfu
-au FileWritePre,FileAppendPre,FilterWritePre,BufWritePre * :call TrimWhiteSpace()
+
+aug TrimWhiteSpace
+	au!
+	au InsertLeave * call TrimWhiteSpace()
+aug end
+
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
 	\ && index(['gitcommit', 'svn'], &ft) < 0
 	\ |exe "normal! g'\"" |endif
