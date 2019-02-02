@@ -1,10 +1,17 @@
-[[ -r ~/.profile ]] && . ~/.profile
-[[ -r "$XDG_CONFIG_HOME"/theme.sh ]] && . "$XDG_CONFIG_HOME"/theme.sh
+include() {
+	for f in "$@"; do
+		[[ -r "$f" ]] && . "$f"
+	done
+}
 
-[[ -r /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
-[[ -r /usr/share/doc/pkgfile/command-not-found.bash ]] && \
-  . /usr/share/doc/pkgfile/command-not-found.bash
+include_first() {
+    for f in "$@"; do
+        [[ -r "$f" ]] && include "$f" && break
+    done
+}
+
+include "$XDG_CONFIG_HOME"/theme.sh /usr/share/doc/pkgfile/command-not-found.bash
+include_first /usr/{share,local/etc}/bash_completion
 
 HISTFILE=$HOME/.cache/bash_history
 HISTCONTROL=ignoreboth:erasedups HISTSIZE='' HISTFILESIZE=''
