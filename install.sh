@@ -15,6 +15,7 @@ homedot=(
 	editrc
 	inputrc
 	profile
+	subversion
 )
 
 packages=(
@@ -67,6 +68,12 @@ if [[ $_OS_MACOS ]]; then
 			skhd
 		)
 	fi
+
+	if [[ $_USE_WORK ]]; then
+		packages+=(
+			ios-deploy
+		)
+	fi
 fi
 
 # execute
@@ -94,6 +101,15 @@ private() {
 		ln -s "$C/private/$path" "$C/$path"
 	done
 }
+
+if [[ $_OS_MACOS ]]; then
+	default() {
+		for arg in {1..$*..2}; do
+			echo ${$@[$arg]}
+			defaults write "$1" ${$@[$arg]} ${$@[$arg+1]}
+		done
+	}
+fi
 
 linkHome "${homedot[@]}"
 link "../.config/bin" "$HOME/.local/bin"
@@ -132,7 +148,13 @@ elif [[ $_OS_MACOS ]]; then
 	brew tap crisidev/homebrew-chunkwm
 	brew service start chunkwm skhd
 	brew tap jlhonora/lsusb osxfuse/osxfuse
+
 	brew install --HEAD ifuse ideviceinstaller
+	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
+	screenshots="~/Pictures/screens"
+	mkdir -p "$screenshots"
+	default com.apple.screencapture location "$screenshots"
 fi
 
 if [ -z "$INSTALL" ]; then
