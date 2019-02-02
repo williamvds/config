@@ -38,7 +38,7 @@ yts() {
   mpv --no-video --load-unsafe-playlists --shuffle "ytdl://ytsearch30:$*"
 }
 
-shopt -s autocd nocaseglob globstar extglob histappend direxpand checkwinsize \
+shopt -s autocd nocaseglob globstar extglob histappend checkwinsize \
   cdable_vars
 
 set -o vi
