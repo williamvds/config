@@ -1,0 +1,8 @@
+rofi.theme: ~/.config/rofi/theme.rasi
+rofi.show-icons: true
+rofi.lines: 4
+rofi.modi: combi
+rofi.combi-modi: drun,run
+rofi.run-list-command: compgen -A function -ac
+rofi.run-command: bash -i -c '{cmd}'
+rofi.parse-known-hosts: false

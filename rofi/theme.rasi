@@ -1,0 +1,37 @@
+* {
+	background-color:     @background;
+	background:           #282828;
+	font:                 "Noto Sans 14";
+	foreground:           #ffffff;
+	normal-foreground:    @foreground;
+	selected-foreground:  #e42c2d;
+	text-color:           @foreground;
+}
+
+#window {
+	padding:  15px;
+	width:    500px;
+}
+
+#message {
+	border-color:  @foreground;
+	border:        2px 0px 0px;
+	padding:       1px;
+}
+
+#listview {
+	spacing: 5px;
+}
+
+#element {
+	background-color:  @background;
+	text-color:        @foreground;
+}
+
+#element.selected, button.selected {
+	text-color:  @selected-foreground;
+}
+
+#prompt {
+	margin: 0 10px 10px 0;
+}
