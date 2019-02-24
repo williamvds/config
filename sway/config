@@ -1,0 +1,197 @@
+# appearance
+font pango:'Noto Sans' 10
+
+set $background #282828
+set $foreground #e0c2b0
+set $gray	#282828
+set $primary	#c03233
+set $secondary	#af1f37
+set $tertiary	#e0c2b0
+set $warning	#a03895
+
+# system
+output HDMI1 pos 0 0 res 1920x1080
+output * bg ~/.config/bg.img fill
+
+input * {
+    accel_profile flat
+    repeat_rate 15
+    repeat_delay 300
+    scroll_method two_finger
+    tap enabled
+    xkb_layout gb
+    xkb_options caps:swapescape
+}
+
+# startup
+set $gtkSet gsettings set org.gnome.desktop.interface
+
+exec_always {
+	$gtkSet gtk-theme Breeze
+	$gtkSet icon-theme Papirus-Dark
+	$gtkSet cursor-theme Materia-dark-compact
+}
+
+exec {
+	start-stop-daemon -Smbp /tmp/waybar.pid -- waybar
+	start-stop-daemon -Smbp $XDG_RUNTIME_DIR/transmission-daemon.pid -- transmission-daemon
+	start-stop-daemon -Smbp $XDG_RUNTIME_DIR/offlineimap.pid -- offlineimap -u quiet
+	dunst
+	gnome-keyring-daemon -sc pkcs11,secrets
+	gpg-agent --daemon --enable-ssh-support --sh
+	swayidle \
+		timeout 300 'lock' \
+		timeout 600 'swaymsg "output * dpms off"; lock' \
+		resume 'swaymsg "output * dpms on"' \
+		before-sleep 'lock'
+	udiskie -sAm flat
+	steam-native -silent %U
+	redshiftcmd =
+	mpd
+	$TERMINAL -t main
+}
+
+# custom binds
+set $mod Mod4
+floating_modifier $mod
+
+bindsym $mod+shift+q kill
+bindsym $mod+s sticky toggle
+bindsym $mod+Tab workspace back_and_forth
+
+bindsym $mod+Return exec $TERMINAL
+bindsym $mod+Escape exec ~/.local/bin/lock
+bindsym $mod+space exec rofi -show
+bindsym Print exec \
+  "maim -s |xclip -se c -t image/png"
+bindsym $mod+Print exec \
+  "maim -u |xclip -se c -t image/png"
+bindsym $mod+ctrl+Print exec \
+  "maim -ui $(xdotool getactivewindow) |xclip -se c -t image/png"
+
+# gaps
+gaps inner 6
+gaps outer 0
+
+# misc
+assign [class="Firefox|Nightly"] 1
+assign [title="^main$"] 2
+assign [class="mpv"] 3
+assign [class="jetbrains-studio"] 3
+assign [class="looking-glass-client"] 4
+assign [class="Steam"] 8
+assign [title="Steam"] 8
+assign [class="Steam" title="Friends List"] 9
+assign [class="TelegramDesktop"] 9
+assign [title="(?i)chat$"] 9
+assign [title="^music$"] 10
+
+for_window [class=".*"] border pixel 2
+for_window [class="Pavucontrol|Nm-connection-editor|Pinentry"] floating enable
+for_window [title="Steam Guard"] floating enable
+
+# focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym Mod1+Tab focus mode_toggle
+
+# move
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+v layout toggle split
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f floating toggle
+
+bindsym $mod+z layout stacking
+bindsym $mod+x layout tabbed
+bindsym $mod+c layout toggle split
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+bracketleft move workspace to output left
+bindsym $mod+Shift+bracketright move workspace to output right
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -4%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+
+bindsym $mod+Shift+r reload
+
+# resize
+mode resize {
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+
+	bindsym Shift+h resize shrink width 5 px or 5 ppt
+	bindsym Shift+j resize grow height 5 px or 5 ppt
+	bindsym Shift+k resize shrink height 5 px or 5 ppt
+	bindsym Shift+l resize grow width 5 px or 5 ppt
+
+	bindsym Return mode default
+	bindsym Escape mode default
+}
+bindsym $mod+r mode resize
+
+# application control
+mode app {
+	bindsym plus exec redshiftcmd =; mode default
+	bindsym 0 exec redshiftcmd 0; mode default
+	bindsym Shift+plus exec redshiftcmd +
+	bindsym minus exec redshiftcmd -
+
+	bindsym p exec 'killall waybar; waybar'; mode default
+	bindsym m exec $TERMINAL -t music -e ncmpcpp; mode default
+	bindsym c mode default; \
+		exec rofi -show calc -modi calc -no-show-match -no-sort
+	bindsym n mode default; \
+	  exec nmcli -t --fields NAME con \
+	    |rofi -i -p Network -dmenu \
+	  -mesg "$(nmcli -c no |ack '.+: (.*)$' -1 --output='$1')" -dmenu \
+	    |xargs -0d '\n' nmcli con up
+	bindsym q exec notify-send "DUNST_COMMAND_RESUME"; mode default
+	bindsym Shift+q exec notify-send "DUNST_COMMAND_PAUSE"; mode default
+
+	bindsym space exec rofi-pass; mode default
+
+	bindsym Return mode default
+	bindsym Escape mode default
+}
+bindsym $mod+a mode app
+
+# colors
+# class					border		  bg		  text			indicator
+client.focused			$primary	  $primary	  $background	$primary  $primary
+client.focused_inactive $grayCC		  $grayCC	  $foreground	$grayCC    $primary
+client.unfocused		$grayCC		  $grayCC	  $background	$grayCC  $grayCC
+client.urgent			$warning	  $warning	  $foreground	$warning  $warning
