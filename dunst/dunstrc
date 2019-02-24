@@ -8,8 +8,8 @@
   separator_height = 2
   padding = 12
   horizontal_padding = 12
-  frame_width = 0
-  separator_color = "#e42c2d"
+  frame_width = 2
+  separator_color = "#ffb52a"
   sort = yes
   idle_threshold = 120
   font = Noto Sans 11
@@ -26,7 +26,7 @@
   show_indicators = yes
   icon_position = left
   max_icon_size = 64
-  icon_path = /usr/share/icons/Papirus-Dark/symbolic/status:/usr/share/icons/Papirus-Dark/symbolic/devices/
+  icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/
   sticky_history = yes
   history_length = 20
   browser = /usr/bin/firefox-nightly -new-tab
@@ -45,16 +45,19 @@
   context = mod4+ctrl+m
 
 [urgency_low]
+  frame_color = "#ffb52a"
   background = "#282828"
   foreground = "#ffffff"
   timeout = 1
 
 [urgency_normal]
+  frame_color = "#ffb52a"
   background = "#282828"
   foreground = "#ffffff"
   timeout = 10
 
 [urgency_critical]
+  frame_color = "#ffb52a"
   background = "#282828"
   foreground = "#ffffff"
   timeout = 0
