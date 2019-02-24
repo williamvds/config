@@ -1,0 +1,61 @@
+#!/bin/bash
+[[ $(pgrep i3lock) ]] && exit 0
+
+FG='ffffffff'
+B='00000000'
+ALT='cd3c1bff'
+WAIT='ffb52aff'
+DISPLAY_RE="([0-9]+)x([0-9]+)\\+([0-9]+)\\+([0-9]+)"
+CACHE_FOLDER="$HOME/.cache/lock"
+IMG="$XDG_CONFIG_HOME/lock.img"
+
+MD5_BKG_IMG=$(md5sum "$IMG" |cut -d' ' -f1)
+MD5_SCREEN_CONFIG=$(xrandr |md5sum - |cut -d' ' -f1)
+OUTPUT_IMG="${CACHE_FOLDER}${MD5_SCREEN_CONFIG}.${MD5_BKG_IMG}.png"
+OUTPUT_IMG_WIDTH=0
+OUTPUT_IMG_HEIGHT=0
+
+if [ ! -e "$OUTPUT_IMG" ]; then
+	[[ ! -e "$CACHE_FOLDER" ]] && mkdir -p "$CACHE_FOLDER"
+
+	while read -r LINE; do
+		[[ ! $LINE =~ $DISPLAY_RE ]] && continue;
+		SCREEN_WIDTH=${BASH_REMATCH[1]}
+		SCREEN_HEIGHT=${BASH_REMATCH[2]}
+		SCREEN_X=${BASH_REMATCH[3]}
+		SCREEN_Y=${BASH_REMATCH[4]}
+
+		CACHE_IMG="$CACHE_FOLDER""$SCREEN_WIDTH"x"$SCREEN_HEIGHT"."$MD5_BKG_IMG".png
+		if ! [ -e "$CACHE_IMG" ]; then
+			eval convert '$IMG' '-resize' '${SCREEN_WIDTH}X${SCREEN_HEIGHT}^' \
+				'-gravity' 'Center' '-crop' '${SCREEN_WIDTH}X${SCREEN_HEIGHT}+0+0' \
+				'+repage' '$CACHE_IMG'
+		fi
+
+		[ $(( OUTPUT_IMG_WIDTH < SCREEN_WIDTH + SCREEN_X )) ] \
+			&& OUTPUT_IMG_WIDTH=$((SCREEN_WIDTH+SCREEN_X))
+		[ $(( OUTPUT_IMG_HEIGHT < SCREEN_HEIGHT + SCREEN_X )) ] \
+			&& OUTPUT_IMG_HEIGHT=$((SCREEN_HEIGHT+SCREEN_X))
+
+		PARAMS="$PARAMS $CACHE_IMG -geometry +$SCREEN_X+$SCREEN_Y -composite "
+	done <<<"$(xrandr)"
+
+	eval convert -size "${OUTPUT_IMG_WIDTH}x${OUTPUT_IMG_HEIGHT}" 'xc:black' \
+		"$OUTPUT_IMG"
+	eval convert "$OUTPUT_IMG" "$PARAMS" "$OUTPUT_IMG"
+fi
+
+i3lock \
+  -i "$OUTPUT_IMG" \
+  --radius=40 --indpos='x+w/2:y+h*.9' \
+  --ringcolor=$FG --ringvercolor=$WAIT --ringwrongcolor=$FG \
+  --keyhlcolor=$ALT --bshlcolor=$ALT \
+  --insidecolor=$B --insidevercolor=$B --insidewrongcolor=$B \
+  --line-uses-inside \
+  --veriftext= --wrongtext= --wrongcolor=$FG --modifpos='ix:iy +r +20' \
+  --clock \
+  --timecolor=$FG --timesize=60 --time-align=1 --timestr='%-I:%M %P' \
+  --timepos='x+50:h-100' \
+  --datecolor=$FG --datesize=40 --date-align=1 --datestr='%A %e %B' \
+  --datepos='tx:ty+50' \
+  --redraw-thread --screen 1
