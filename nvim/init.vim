@@ -82,10 +82,6 @@ au FileType php
 let g:ale_c_build_dir = '~/.local/share/nvim/swap'
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
-au ColorScheme * hi ALEErrorSign ctermfg=167
-au ColorScheme * hi ALEError ctermfg=167 cterm=underline
-au ColorScheme * hi ALEWarningSign ctermfg=228
-au ColorScheme * hi ALEWarning ctermfg=228 cterm=underline
 let g:ale_echo_msg_on_ftmat = '%s [%linter%]'
 let g:ale_fixers = {
 	\ 'cpp': ['clang-on_ftmat']
@@ -101,6 +97,14 @@ let g:gitgutter_sign_added = '┃'
 let g:gitgutter_sign_modified = '┃'
 let g:gitgutter_sign_removed = '┃'
 let g:gitgutter_sign_modified_removed = '┃'
+au ColorScheme *
+\ hi GitGutterAdd ctermfg=2
+\|hi GitGutterDelete ctermfg=9
+\|hi GitGutterChange ctermfg=11
+\|hi ALEErrorSign ctermfg=167
+\|hi ALEError ctermfg=167 cterm=underline
+\|hi ALEWarningSign ctermfg=228
+\|hi ALEWarning ctermfg=228 cterm=underline
 
 let g:lightline = {
 \	'colorscheme': 'predawn',
