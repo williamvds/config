@@ -122,9 +122,7 @@ if [[ $_USE_PERSONAL ]]; then
 		offlineimap \
 		mutt/public \
 		newsboat/urls \
-		task/ca.cert.pem \
-		task/user.cert.pem \
-		task/user.key.pem
+		task
 fi
 
 if [[ $_OS_ARCH_LINUX ]]; then
