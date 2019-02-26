@@ -14,13 +14,13 @@ output HDMI1 pos 0 0 res 1920x1080
 output * bg ~/.config/bg.img fill
 
 input * {
-    accel_profile flat
-    repeat_rate 15
-    repeat_delay 300
-    scroll_method two_finger
-    tap enabled
-    xkb_layout gb
-    xkb_options caps:swapescape
+	accel_profile flat
+	repeat_rate 15
+	repeat_delay 300
+	scroll_method two_finger
+	tap enabled
+	xkb_layout gb
+	xkb_options caps:swapescape
 }
 
 # startup
@@ -63,11 +63,11 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Escape exec ~/.local/bin/lock
 bindsym $mod+space exec rofi -show
 bindsym Print exec \
-  "maim -s |xclip -se c -t image/png"
+	"maim -s |xclip -se c -t image/png"
 bindsym $mod+Print exec \
-  "maim -u |xclip -se c -t image/png"
+	"maim -u |xclip -se c -t image/png"
 bindsym $mod+ctrl+Print exec \
-  "maim -ui $(xdotool getactivewindow) |xclip -se c -t image/png"
+	"maim -ui $(xdotool getactivewindow) |xclip -se c -t image/png"
 
 # gaps
 gaps inner 6
@@ -175,10 +175,10 @@ mode app {
 	bindsym c mode default; \
 		exec rofi -show calc -modi calc -no-show-match -no-sort
 	bindsym n mode default; \
-	  exec nmcli -t --fields NAME con \
-	    |rofi -i -p Network -dmenu \
-	  -mesg "$(nmcli -c no |ack '.+: (.*)$' -1 --output='$1')" -dmenu \
-	    |xargs -0d '\n' nmcli con up
+		exec nmcli -t --fields NAME con \
+		|rofi -i -p Network -dmenu \
+			-mesg "$(nmcli -c no |ack '.+: (.*)$' -1 --output='$1')" -dmenu \
+		|xargs -0d '\n' nmcli con up
 	bindsym q exec notify-send "DUNST_COMMAND_RESUME"; mode default
 	bindsym Shift+q exec notify-send "DUNST_COMMAND_PAUSE"; mode default
 
@@ -190,8 +190,8 @@ mode app {
 bindsym $mod+a mode app
 
 # colors
-# class					border		  bg		  text			indicator
-client.focused			$primary	  $primary	  $background	$primary  $primary
-client.focused_inactive $grayCC		  $grayCC	  $foreground	$grayCC    $primary
-client.unfocused		$grayCC		  $grayCC	  $background	$grayCC  $grayCC
-client.urgent			$warning	  $warning	  $foreground	$warning  $warning
+# class                 border   bg       text        indicator
+client.focused          $primary $primary $background $primary $primary
+client.focused_inactive $grayCC  $grayCC  $foreground $grayCC  $primary
+client.unfocused        $grayCC  $grayCC  $background $grayCC  $grayCC
+client.urgent           $warning $warning $foreground $warning $warning
