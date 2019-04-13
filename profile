@@ -113,7 +113,7 @@ if [[ $_OS_MACOS ]]; then
 fi
 
 alias g='git'
-alias G='git status'
+alias G='git status -s'
 alias gitls='git ls-tree --name-only HEAD'
 alias gittree='git ls-tree --name-only HEAD -r'
 
