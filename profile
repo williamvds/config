@@ -66,10 +66,10 @@ if [[ $_OS_GNU_LINUX ]]; then
 fi
 
 if [[ $_OS_ARCH_LINUX ]]; then
-	alias p='pacaur'
+	alias p='yay'
 	alias P='sudo pacman'
-	alias update='pacaur -Qqet |grep -- -git |xargs pacaur --needed --noconfirm -Syyu'
-	alias orphans='pacaur -Rnsd $(pacaur -Qtdq)'
+	alias update='yay -Qqet |grep -- -git |xargs yay --needed --noconfirm -Syyu'
+	alias orphans='yay -Rnsd $(yay -Qtdq)'
 	alias mirrorlist='curl https://www.archlinux.org/mirrorlist/?country=AU\&country=BE\&country=CZ\&country=DK\&country=FI\&country=FR\&country=DE\&country=IE\&country=IT\&country=LU\&country=NL\&country=NO\&country=ES\&country=SE\&country=CH\&country=GB\&protocol=https\&ip_version=4\&ip_version=6 |sudo tee /etc/pacman.d/mirrorlist.tmp >/dev/null && sudo sed -i "s/^#Server/Server/" /etc/pacman.d/mirrorlist.tmp && sudo rankmirrors -n 12 /etc/pacman.d/mirrorlist.tmp |sudo tee /etc/pacman.d/mirrorlist'
 fi
 
