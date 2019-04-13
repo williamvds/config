@@ -41,7 +41,7 @@ exec {
 	gpg-agent --daemon --enable-ssh-support --sh
 	swayidle \
 		timeout 300 'lock' \
-		timeout 600 'swaymsg "output * dpms off"; lock' \
+		timeout 600 'swaymsg "output * dpms off"' \
 		resume 'swaymsg "output * dpms on"' \
 		before-sleep 'lock'
 	udiskie -sAm flat
@@ -75,10 +75,10 @@ gaps outer 0
 
 # misc
 assign [class="Firefox|Nightly"] 1
-assign [title="^main$"] 2
+assign [app_id="Alacritty"] 2
 assign [class="mpv"] 3
 assign [class="jetbrains-studio"] 3
-assign [class="looking-glass-client"] 4
+assign [app_id="looking-glass-client"] 4
 assign [class="Steam"] 8
 assign [title="Steam"] 8
 assign [class="Steam" title="Friends List"] 9
