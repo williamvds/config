@@ -25,22 +25,6 @@ mkcd() {
   builtin mkdir "$@" && builtin cd "${@: -1}" || return
 }
 
-yt() {
-  mpv --ytdl-format='bestvideo[height>=?1080][height<=?1440]+bestaudio' "$@"
-}
-
-ytlow() {
-  mpv --ytdl-format='bestvideo[height<=?480]+bestaudio' "$@"
-}
-
-yta() {
-  mpv --no-video "$@"
-}
-
-ytp() {
-  mpv --no-video --load-unsafe-playlists "https://youtube.com/playlist?list=$1"
-}
-
 yts() {
   mpv --no-video --load-unsafe-playlists --shuffle "ytdl://ytsearch30:$*"
 }
