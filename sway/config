@@ -33,9 +33,9 @@ exec_always {
 }
 
 exec {
-	start-stop-daemon -Smbp /tmp/waybar.pid -- waybar
-	start-stop-daemon -Smbp $XDG_RUNTIME_DIR/transmission-daemon.pid -- transmission-daemon
-	start-stop-daemon -Smbp $XDG_RUNTIME_DIR/offlineimap.pid -- offlineimap -u quiet
+	waybar
+	transmission-daemon
+	offlineimap -u quiet
 	dunst
 	gnome-keyring-daemon -sc pkcs11,secrets
 	gpg-agent --daemon --enable-ssh-support --sh

@@ -6,5 +6,4 @@ fi
 
 [[ $_OS_GNU_LINUX && $(tty) = '/dev/tty1' ]] || return
 
-export GTK_THEME=Materia-dark-compact
-ck-launch-session dbus-launch --sh-syntax --exit-with-session sway
+GTK_THEME=Materia-dark-compact WLR_DRM_NO_ATOMIC=1 sway

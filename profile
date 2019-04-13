@@ -59,19 +59,10 @@ alias 4..='../../../..'
 alias 5..='../../../../..'
 
 if [[ $_OS_GNU_LINUX ]]; then
-	alias open='mimeo'
-
-	if command -v openrc &>/dev/null; then
-		alias reboot='\sudo openrc-shutdown -r'
-		alias shutdown='\sudo openrc-shutdown -p'
-		alias hibernate='\sudo pm-hibernate'
-		alias suspend='\sudo pm-suspend'
-	else
-		alias reboot='\sudo systemctl restart'
-		alias shutdown='\sudo systemctl shutdown'
-		alias hibernate='\sudo systemctl hibernate'
-		alias suspend='\sudo systemctl suspend'
-	fi
+	alias reboot='systemctl restart'
+	alias shutdown='systemctl shutdown'
+	alias hibernate='systemctl hibernate'
+	alias suspend='systemctl suspend'
 fi
 
 if [[ $_OS_ARCH_LINUX ]]; then
