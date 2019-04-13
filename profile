@@ -123,3 +123,4 @@ alias S='svn status'
 alias sclean="xargs -d '\\n' -a <(s --ignore-externals | \
 	awk '/^?/ {print substr(\$0, 9)}') rm -r"
 alias stree='svn ls --depth=infinity'
+# vim: ft=sh
