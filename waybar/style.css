@@ -27,11 +27,11 @@ label {
 	color: #aaa;
 }
 
-#battery.charging, #custom-tasks {
+#battery.charging, #custom-emails, #custom-tasks {
 	color: #ffb52a;
 }
 
-#custom-tasks {
+#custom-emails, #custom-tasks {
 	animation-name: blink;
 	animation-duration: 1.5s;
 	animation-timing-function: ease-in;

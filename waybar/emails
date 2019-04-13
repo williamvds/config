@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+num=$(find "$MAILDIR"/*/inbox/{new,cur} -type f |wc -l)
+
+((num < 1)) && exit 1
+
+echo "$num"
