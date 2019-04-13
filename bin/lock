@@ -1,6 +1,4 @@
 #!/bin/bash
-[[ $(pgrep i3lock) ]] && exit 0
-
 FG='ffffffff'
 B='00000000'
 ALT='cd3c1bff'
@@ -45,17 +43,13 @@ if [ ! -e "$OUTPUT_IMG" ]; then
 	eval convert "$OUTPUT_IMG" "$PARAMS" "$OUTPUT_IMG"
 fi
 
-i3lock \
-  -i "$OUTPUT_IMG" \
-  --radius=40 --indpos='x+w/2:y+h*.9' \
-  --ringcolor=$FG --ringvercolor=$WAIT --ringwrongcolor=$FG \
-  --keyhlcolor=$ALT --bshlcolor=$ALT \
-  --insidecolor=$B --insidevercolor=$B --insidewrongcolor=$B \
-  --line-uses-inside \
-  --veriftext= --wrongtext= --wrongcolor=$FG --modifpos='ix:iy +r +20' \
-  --clock \
-  --timecolor=$FG --timesize=60 --time-align=1 --timestr='%-I:%M %P' \
-  --timepos='x+50:h-100' \
-  --datecolor=$FG --datesize=40 --date-align=1 --datestr='%A %e %B' \
-  --datepos='tx:ty+50' \
-  --redraw-thread --screen 1
+swaylock \
+	-i "$OUTPUT_IMG" \
+	--indicator-radius=40 \
+	--text-color=$FG --text-ver-color=$FG --text-clear-color=$FG \
+	--text-caps-lock-color=$FG --text-wrong-color=$FG \
+	--ring-color=$FG --ring-ver-color=$WAIT --ring-clear-color=$WAIT --ring-wrong-color=$FG \
+	--key-hl-color=$ALT --bs-hl-color=$ALT \
+	--inside-color=$B --inside-ver-color=$B --inside-wrong-color=$B \
+	--inside-clear-color=$B \
+	--line-uses-inside
