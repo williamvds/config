@@ -19,12 +19,21 @@ homedot=(
 )
 
 packages=(
+	alacritty
 	bash
 	bash-completion
 	coreutils
+	mpv
 	neovim
+	newsboat
+	nftables
 	rsync
+	sway
+	swayidle
+	swaylock
+	sxiv
 	tree
+	youtube-dl
 )
 
 if [[ -z $_SERVER ]]; then
@@ -39,10 +48,6 @@ if [[ -z $_SERVER ]]; then
 fi
 
 if [[ $_OS_GNU_LINUX && -z $_SERVER ]]; then
-	homedot+=(
-		Xresources
-		xinit
-	)
 	packages+=(
 		mpv
 		youtube-dl
@@ -83,22 +88,22 @@ for dir in "${makedirs[@]}"; do
 	mkdir -p "$dir"
 done
 
+link() {
+	[[ "$(readlink -f "$1")" == "$(readlink -f "$2")" ]] && return
+	ln -ns "$1" "$2" --backup --suffix=".old"
+}
+
 linkHome() {
 	echo "Linking to home directory: $*"
 	for file in "$@"; do
-		ln -s "$C/$file" "$HOME/.$file"
+		link "$C/$file" "$HOME/.$file"
 	done
-}
-
-link() {
-	echo "Linking '$2' to '$1'"
-	ln -s "$1" "$2"
 }
 
 private() {
 	echo "Installing private data: $*"
 	for path in "$@"; do
-		ln -s "$C/private/$path" "$C/$path"
+		link "$C/private/$path" "$C/$path"
 	done
 }
 
@@ -111,22 +116,33 @@ if [[ $_OS_MACOS ]]; then
 	}
 fi
 
+if [[ $_USE_PERSONAL ]]; then
+	homedot+=(
+		ssh
+	)
+
+	private \
+		gpg \
+		mutt/public \
+		newsboat/urls \
+		offlineimap \
+		pass \
+		ssh \
+		task \
+		transmission-daemon
+fi
+
 linkHome "${homedot[@]}"
 link "../.config/bin" "$HOME/.local/bin"
 
-if [[ $_USE_PERSONAL ]]; then
-	private
-		pass \
-		transmission-daemon \
-		gpg \
-		offlineimap \
-		mutt/public \
-		newsboat/urls \
-		task
-fi
-
 if [[ $_OS_ARCH_LINUX ]]; then
 	INSTALL='sudo pacman -Syy --needed'
+
+	if ! command -v yay &>/dev/null; then
+		echo Installing yay
+		git clone https://aur.archlinux.org/yay-bin.git /tmp/yay
+		(cd /tmp/yay && makepkg -si)
+	fi
 
 elif [[ $_OS_MACOS ]]; then
 	INSTALL='brew install'
@@ -150,7 +166,7 @@ elif [[ $_OS_MACOS ]]; then
 	brew install --HEAD ifuse ideviceinstaller
 	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
-	screenshots="~/Pictures/screens"
+	screenshots="$HOME/Pictures/screens"
 	mkdir -p "$screenshots"
 	default com.apple.screencapture location "$screenshots"
 fi
@@ -160,4 +176,4 @@ if [ -z "$INSTALL" ]; then
 fi
 
 echo "Installing: ${packages[*]}"
-"${INSTALL[*]}" "${packages[@]}"
+eval "$INSTALL" "${packages[@]}"
