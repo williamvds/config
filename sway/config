@@ -3,7 +3,7 @@ font pango:'Noto Sans' 10
 
 set $background #282828
 set $foreground #e0c2b0
-set $gray	#282828
+set $gray		#282828
 set $primary	#c03233
 set $secondary	#af1f37
 set $tertiary	#e0c2b0
@@ -21,6 +21,10 @@ input * {
 	tap enabled
 	xkb_layout gb
 	xkb_options caps:swapescape
+}
+
+input 1739:0:Synaptics_TM3127-001 {
+	natural_scroll enabled
 }
 
 # startup
@@ -140,9 +144,12 @@ bindsym $mod+Shift+bracketright move workspace to output right
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -4%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 bindsym $mod+Shift+r reload
 
