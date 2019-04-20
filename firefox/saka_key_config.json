@@ -2,7 +2,8 @@
   "activeProfiles": {
     "General": "custom",
     "Keybindings": "custom",
-    "Appearance": "custom"
+    "Appearance": "custom",
+    "Blacklist": "default"
   },
   "profiles": {
     "General": {
@@ -22,6 +23,7 @@
         "ignoreModifierKeys": false,
         "toggleHelpMenu": [],
         "toggleSaka": [],
+        "hintChars": "qwertasdfgxcvb",
         "openLink": [
           [
             {
@@ -61,18 +63,6 @@
           ]
         ],
         "downloadLink": [],
-        "focusLink": [
-          [
-            {
-              "code": "KeyF",
-              "key": "f",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": true,
-              "metaKey": false
-            }
-          ]
-        ],
         "focusInput": [
           [
             {
@@ -93,107 +83,18 @@
             }
           ]
         ],
-        "hintChars": "qwertasdfcv",
-        "scrollDown": [
+        "focusLink": [
           [
             {
-              "code": "KeyJ",
-              "key": "j"
-            }
-          ]
-        ],
-        "scrollUp": [
-          [
-            {
-              "code": "KeyK",
-              "key": "k"
-            }
-          ]
-        ],
-        "scrollLeft": [
-          [
-            {
-              "code": "KeyH",
-              "key": "h",
+              "code": "KeyF",
+              "key": "f",
               "shiftKey": false,
               "ctrlKey": false,
-              "altKey": false,
+              "altKey": true,
               "metaKey": false
             }
           ]
         ],
-        "scrollRight": [
-          [
-            {
-              "code": "KeyL",
-              "key": "l",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "scrollPageDown": [
-          [
-            {
-              "code": "KeyD",
-              "key": "d",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "scrollPageUp": [
-          [
-            {
-              "code": "KeyU",
-              "key": "u",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "scrollHalfPageDown": [],
-        "scrollHalfPageUp": [],
-        "scrollToBottom": [
-          [
-            {
-              "code": "KeyG",
-              "key": "G",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "scrollToTop": [
-          [
-            {
-              "code": "KeyG",
-              "key": "g",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            },
-            {
-              "code": "KeyG",
-              "key": "g",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "scrollToLeft": [],
-        "scrollToRight": [],
         "goBack": [
           [
             {
@@ -296,6 +197,244 @@
             }
           ]
         ],
+        "scrollDown": [
+          [
+            {
+              "code": "KeyJ",
+              "key": "j"
+            }
+          ]
+        ],
+        "scrollUp": [
+          [
+            {
+              "code": "KeyK",
+              "key": "k"
+            }
+          ]
+        ],
+        "scrollRight": [
+          [
+            {
+              "code": "KeyL",
+              "key": "l",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "scrollLeft": [
+          [
+            {
+              "code": "KeyH",
+              "key": "h",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "scrollPageDown": [
+          [
+            {
+              "code": "KeyD",
+              "key": "d",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "scrollPageUp": [
+          [
+            {
+              "code": "KeyU",
+              "key": "u",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "scrollHalfPageDown": [],
+        "scrollHalfPageUp": [],
+        "scrollToBottom": [
+          [
+            {
+              "code": "KeyG",
+              "key": "G",
+              "shiftKey": true,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "scrollToTop": [
+          [
+            {
+              "code": "KeyG",
+              "key": "g",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            },
+            {
+              "code": "KeyG",
+              "key": "g",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "scrollToLeft": [],
+        "scrollToRight": [],
+        "zoomIn": [
+          [
+            {
+              "code": "KeyZ",
+              "key": "z"
+            }
+          ]
+        ],
+        "zoomOut": [
+          [
+            {
+              "code": "KeyZ",
+              "key": "Z",
+              "shiftKey": true
+            }
+          ]
+        ],
+        "zoomReset": [
+          [
+            {
+              "code": "KeyZ",
+              "key": "Ω",
+              "altKey": true
+            }
+          ],
+          [
+            {
+              "code": "KeyZ",
+              "key": "¸",
+              "altKey": true,
+              "shiftKey": true
+            }
+          ]
+        ],
+        "newTab": [
+          [
+            {
+              "code": "KeyT",
+              "key": "t"
+            }
+          ]
+        ],
+        "restoreTab": [
+          [
+            {
+              "code": "KeyX",
+              "key": "X",
+              "shiftKey": true,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "duplicateTab": [
+          [
+            {
+              "code": "KeyY",
+              "key": "Y",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            },
+            {
+              "code": "KeyT",
+              "key": "T",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "newWindow": [
+          [
+            {
+              "code": "KeyN",
+              "key": "n",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "newIncognitoWindow": [
+          [
+            {
+              "code": "KeyN",
+              "key": "N",
+              "shiftKey": true,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "closeTab": [
+          [
+            {
+              "code": "KeyX",
+              "key": "x",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "closeOtherTabs": [],
+        "closeRightTabs": [],
+        "closeLeftTabs": [],
+        "refreshTab": [
+          [
+            {
+              "code": "KeyR",
+              "key": "r",
+              "shiftKey": false,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
+        "refreshAllTabs": [],
+        "hardRefreshTab": [
+          [
+            {
+              "code": "KeyR",
+              "key": "r",
+              "shiftKey": true,
+              "ctrlKey": false,
+              "altKey": false,
+              "metaKey": false
+            }
+          ]
+        ],
         "nextTab": [
           [
             {
@@ -384,152 +523,7 @@
         ],
         "moveTabFirst": [],
         "moveTabLast": [],
-        "closeTab": [
-          [
-            {
-              "code": "KeyX",
-              "key": "x",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "closeOtherTabs": [],
-        "closeLeftTabs": [],
-        "closeRightTabs": [],
-        "newTab": [
-          [
-            {
-              "code": "KeyT",
-              "key": "t"
-            }
-          ]
-        ],
-        "restoreTab": [
-          [
-            {
-              "code": "KeyX",
-              "key": "X",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "duplicateTab": [
-          [
-            {
-              "code": "KeyY",
-              "key": "Y",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            },
-            {
-              "code": "KeyT",
-              "key": "T",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "newWindow": [
-          [
-            {
-              "code": "KeyW",
-              "key": "w",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "newIncognitoWindow": [
-          [
-            {
-              "code": "KeyW",
-              "key": "W",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "switchWindow": [
-          [
-            {
-              "code": "Digit5",
-              "key": "%"
-            }
-          ]
-        ],
-        "zoomIn": [
-          [
-            {
-              "code": "KeyZ",
-              "key": "z"
-            }
-          ]
-        ],
-        "zoomOut": [
-          [
-            {
-              "code": "KeyZ",
-              "key": "Z",
-              "shiftKey": true
-            }
-          ]
-        ],
-        "zoomReset": [
-          [
-            {
-              "code": "KeyZ",
-              "key": "Ω",
-              "altKey": true
-            }
-          ],
-          [
-            {
-              "code": "KeyZ",
-              "key": "¸",
-              "altKey": true,
-              "shiftKey": true
-            }
-          ]
-        ],
-        "refreshTab": [
-          [
-            {
-              "code": "KeyR",
-              "key": "r",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "refreshAllTabs": [],
-        "hardRefreshTab": [
-          [
-            {
-              "code": "KeyR",
-              "key": "r",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
+        "moveTabNewWindow": [],
         "toggleMuteTab": [
           [
             {
@@ -559,12 +553,20 @@
             }
           ]
         ],
+        "switchWindow": [
+          [
+            {
+              "code": "Digit5",
+              "key": "%"
+            }
+          ]
+        ],
         "passOneKey": [],
         "passAllKeys": [
           [
             {
-              "code": "KeyS",
-              "key": "s",
+              "code": "Backquote",
+              "key": "`",
               "shiftKey": false,
               "ctrlKey": false,
               "altKey": false,
@@ -575,10 +577,10 @@
         "exitPassMode": [
           [
             {
-              "code": "KeyS",
-              "key": "S",
-              "shiftKey": true,
-              "ctrlKey": false,
+              "code": "Backquote",
+              "key": "`",
+              "shiftKey": false,
+              "ctrlKey": true,
               "altKey": false,
               "metaKey": false
             }
@@ -650,17 +652,17 @@
     "Appearance": {
       "custom": {
         "hintUseTargetSize": true,
+        "hintFontSize": 10,
         "hintHorizontalPlacement": "center",
-        "hintHorizontalTranslation": 0,
-        "hintVerticalTranslation": 0,
         "hintVerticalPlacement": "center",
         "hintUseCustomCSS": false,
+        "hintHorizontalTranslation": 0,
+        "hintVerticalTranslation": 0,
         "hintTextColor": "#282828",
         "hintBackgroundColor": "#cd3c1b",
         "hintBorderColor": "#cd3c1b",
         "hintOpacity": 1,
         "hintFontFamily": "Roboto, sans-serif",
-        "hintFontSize": 10,
         "hintFontWeight": "600",
         "hintHorizontalPadding": 0.4,
         "hintVerticalPadding": 0.1,
@@ -670,6 +672,11 @@
         "hintCSS": "font-family: Roboto, sans-serif;\nfont-size: 0.8rem;\npadding: 0.15rem 0.25rem;\ncolor: #3f51F5;\nbackground-color: rgb(255, 255, 255);\nborder-radius: 4px;\ntext-align: center;\ntext-decoration: none;\ntext-transform: uppercase;\nvertical-align: middle;\nbox-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.25);\ntransform: translate3d(0, -50%, 0);\nfont-weight: bold;",
         "hintNormalCharCSS": "",
         "hintActiveCharCSS": "opacity: 0.5;"
+      }
+    },
+    "Blacklist": {
+      "default": {
+        "blacklist": ""
       }
     }
   }
