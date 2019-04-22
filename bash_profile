@@ -4,6 +4,10 @@ fi
 
 [[ $- == *i* && -r ~/.bashrc ]] && . ~/.bashrc
 
-[[ $_OS_GNU_LINUX && $(tty) = '/dev/tty1' ]] || return
+if [[ -z $TMUX ]] && [[ -n $SSH_CONNECTION ]]; then
+	tmux new -A -s main
+fi
 
-GTK_THEME=Materia-dark-compact sway
+if [[ $_OS_GNU_LINUX && $(tty) = '/dev/tty1' ]]; then
+	GTK_THEME=Materia-dark-compact sway
+fi
