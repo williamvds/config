@@ -104,7 +104,7 @@ alias vi='$EDITOR'
 alias vim='$EDITOR'
 alias watch='watch -c '
 
-alias yt='mpv --ytdl-format="bestvideo[height<=1440]+bestaudio"'
+alias yt='mpv --ytdl-format="bestvideo[height<=?1080]+bestaudio"'
 alias ytlow='mpv --ytdl-format="bestvideo[height<=?480]+bestaudio"'
 alias yta='mpv --no-video'
 
