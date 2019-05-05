@@ -79,6 +79,7 @@ gaps outer 0
 
 # misc
 assign [class="Firefox|Nightly"] 1
+assign [title="^main$"] 2
 assign [app_id="Alacritty"] 2
 assign [class="mpv"] 3
 assign [class="jetbrains-studio"] 3
@@ -91,8 +92,11 @@ assign [title="(?i)chat$"] 9
 assign [title="^music$"] 10
 
 for_window [class=".*"] border pixel 2
+for_window [class="Firefox|Nightly"] inhibit_idle fullscreen
 for_window [class="Pavucontrol|Nm-connection-editor|Pinentry"] floating enable
 for_window [title="Steam Guard"] floating enable
+for_window [app_id="looking-glass-client"] inhibit_idle focus
+for_window [class="mpv"] inhibit_idle focus
 
 # focus
 bindsym $mod+h focus left
