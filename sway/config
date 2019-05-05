@@ -195,6 +195,9 @@ mode app {
 
 	bindsym space exec rofi-pass; mode default
 
+	bindsym i inhibit_idle focus; mode default
+	bindsym Shift+i inhibit_idle none; mode default
+
 	bindsym Return mode default
 	bindsym Escape mode default
 }
