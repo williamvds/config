@@ -33,8 +33,8 @@ label {
 
 #custom-emails, #custom-tasks {
 	animation-name: blink;
-	animation-duration: 1.5s;
-	animation-timing-function: ease-in;
+	animation-duration: .7s;
+	animation-timing-function: steps(2, start);
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 }
@@ -44,7 +44,7 @@ label {
 }
 
 @keyframes blink {
-    to {
-        color: #fff;
-    }
+	to {
+	color: #fff;
+	}
 }
