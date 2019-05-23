@@ -19,15 +19,18 @@ bind-key x pb-delete
 
 reload-threads 5
 
-datetime-format "%d %b"
-selecttag-title-format "Tags"
-selectfilter-title-format "Formats"
-dialogs-title-format "Dialogs"
-feedlist-title-format "All feeds%?T? tagged '%T'? - %u unread"
-feedlist-format "%4i  %t"
-articlelist-title-format "%T - %u unread"
 articlelist-format "%4i  %D  %t"
+articlelist-title-format "%T - %u unread"
+datetime-format "%d %b"
+dialogs-title-format "Dialogs"
+feed-sort-order unreadarticlecount-asc
+feedlist-format "%4i  %t"
+feedlist-title-format "All feeds%?T? tagged '%T'? - %u unread"
 itemview-title-format "%T"
+selectfilter-title-format "Formats"
+selecttag-title-format "Tags"
+show-read-articles no
+show-read-feeds no
 
 color listnormal white default
 color listnormal_unread red default
