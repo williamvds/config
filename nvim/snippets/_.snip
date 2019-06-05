@@ -1,7 +1,11 @@
 snippet todo
 abbr TODO
-  `expand("$DEV_ID")` TODO: ${0}
+	`expand("$DEV_ID")` TODO
 
-snippet nocommit
+snippet ncm
 abbr NOCOMMIT
-  `expand("$DEV_ID")` NOCOMMIT
+	`expand("$DEV_ID")` NOCOMMIT
+
+snippet com
+abbr $ID $DATE
+	`expand("$DEV_ID")` `strftime("%d-%b-%Y")` - ${0}
