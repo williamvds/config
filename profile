@@ -1,10 +1,10 @@
-[[ $(uname -o 2>/dev/null) == 'GNU/Linux' ]] && export _OS_GNU_LINUX=1
-[[ $(uname -r) =~ ARCH$ ]]									 && export _OS_ARCH_LINUX=1
-[[ $(uname) == 'Darwin' ]]									 && export _OS_MACOS=1
+[ "$(uname -o 2>/dev/null)" = 'GNU/Linux' ]	&& export _OS_GNU_LINUX=1
+[ $(uname -r |grep -Eq 'ARCH$') ]			&& export _OS_ARCH_LINUX=1
+[ "$(uname)" = 'Darwin' ]					&& export _OS_MACOS=1
 
 CONFIG="$HOME"/.config
 
-[[ -r "$CONFIG/local" ]] && . "$CONFIG/local"
+[ -r "$CONFIG/local" ] && . "$CONFIG/local"
 
 export XDG_CONFIG_HOME="$CONFIG"
 export ANDROID_TOOLS=/opt/android-sdk
@@ -15,21 +15,23 @@ export ICEAUTHORITY=$XDG_CONFIG_HOME/ICEauthority
 export LESSHISTFILE=$XDG_CONFIG_HOME/less/history
 export LESSKEY=$XDG_CONFIG_HOME/less/keys
 export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0
-export PYLINTRC=$XDG_CONFIG_HOME/pylintrc
-export TASKDATA=$XDG_CONFIG_HOME/task
+export PYLINTRC="$XDG_CONFIG_HOME/pylintrc"
+export TASKDATA="$XDG_CONFIG_HOME/task"
 export TASKRC=$TASKDATA/config
 export PASSWORD_STORE_DIR=$XDG_CONFIG_HOME/pass
 export PASSWORD_STORE_GENERATED_LENGTH=100
 export MOZ_USE_XINPUT2=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export DEIN_DIR=$HOME/.local/share/nvim/dein
+export WINEPREFIX=$HOME/.local/wine
+export WINEPATH="$HOME/.local/bin"
 
 if [[ $_OS_GNU_LINUX && -n $XDG_RUNTIME_DIR ]]; then
 	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	export SSH_AUTH_SOCK
 
 	if command -v sway &>/dev/null; then
-		SWAYSOCK=$(find "$XDG_RUNTIME_DIR" -name 'sway-*.sock' |head -n 1)
+		SWAYSOCK="$(find "$XDG_RUNTIME_DIR" -name 'sway-*.sock' |head -n 1)"
 		export SWAYSOCK
 	fi
 fi
@@ -37,7 +39,7 @@ fi
 export PATH=~/.local/bin:$PATH:$ANDROID_TOOLS/tools/bin/
 
 for editor in nvim vim vi; do
-	if command -v $editor &>/dev/null; then
+	if command -v $editor >/dev/null; then
 		export EDITOR=$editor
 		break;
 	fi
@@ -84,10 +86,11 @@ alias mail='neomutt'
 alias hl='ack --passthru'
 alias totp='oathtool --totp -b'
 
+alias rsync='rsync -h --info=progress2'
 alias df='df -h'
 alias lsblk='lsblk -o name,label,size,mountpoint'
 alias find='find -L'
-alias ls='ls -h --color=auto --group-directories-first'
+alias ls='ls -Lh --color=auto --group-directories-first'
 alias l='ls'
 alias ll='ls -l'
 alias L='l -A'
@@ -117,6 +120,7 @@ alias g='git'
 alias G='git status -s'
 alias gitls='git ls-tree --name-only HEAD'
 alias gittree='git ls-tree --name-only HEAD -r'
+alias gitrev='git svn find-rev'
 
 alias s='svn'
 alias S='svn status'
