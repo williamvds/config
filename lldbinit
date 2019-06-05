@@ -2,10 +2,13 @@ co al ti thread info
 co al un thread until
 co al S  thread step-over
 co al fi frame info
-co al fv frame variable --show-all-children
+co al f frame variable --show-all-children
+co al fr f -R
 se se prompt "> "
 se se experimental.use-modern-type-lookup true
 se se frame-format "${frame.index}:\t{ {${function.name-with-args}}}{ (${line.file.basename}:${line.number})}\n"
 se se thread-stop-format "#${thread.index}{, ${thread.stop-reason}}{, name: '${thread.name}'}{, queue: '${thread.queue}'}{, activity: '${thread.info.activity.name}'}{, ${thread.info.trace_messages} messages}{\nReturned: ${thread.return-value}}{\nCompleted expression: ${thread.completed-expression}}\n"
 se se target.max-children-count 9999
 se se target.process.thread.step-out-avoid-nodebug true
+
+ty fo a -f d uint8_t
