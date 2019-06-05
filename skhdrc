@@ -1,30 +1,43 @@
-shift + alt - r : sh ~/.chunkwmrc
-alt - f 		: chunkc tiling::window --toggle fullscreen
-shift + alt - f : chunkc tiling::window --toggle float
-shift + alt - q : chunkc tiling::window --close
+shift + ctrl + cmd - r : sh ~/.chunkwmrc
+ctrl + cmd - f         : chunkc tiling::window --toggle fullscreen
+shift + ctrl + cmd - f : chunkc tiling::window --toggle float
+ctrl + cmd - s : chunkc tiling::window --toggle sticky
 
-alt - v : chunkc tiling::desktop --rotate 90
-alt - x : chunkc tiling::desktop --layout bsp
-alt - c : chunkc tiling::desktop --layout monocle
+# change workspace mode
+ctrl + cmd - v : chunkc tiling::desktop --rotate 90
+ctrl + cmd - x : chunkc tiling::desktop --layout bsp
+ctrl + cmd - c : chunkc tiling::desktop --layout monocle
 
-alt - h : chunkc tiling::window --focus west
-alt - j : chunkc tiling::window --focus south
-alt - k : chunkc tiling::window --focus north
-alt - l : chunkc tiling::window --focus east
+# focus in workspace
+ctrl + cmd - h : chunkc tiling::window --focus west
+ctrl + cmd - j : chunkc tiling::window --focus south
+ctrl + cmd - k : chunkc tiling::window --focus north
+ctrl + cmd - l : chunkc tiling::window --focus east
 
-shift + alt - h : chunkc tiling::window --warp west
-shift + alt - j : chunkc tiling::window --warp south
-shift + alt - k : chunkc tiling::window --warp north
-shift + alt - l : chunkc tiling::window --warp east
+# move within workspace
+shift + ctrl + cmd - h : chunkc tiling::window --warp west
+shift + ctrl + cmd - j : chunkc tiling::window --warp south
+shift + ctrl + cmd - k : chunkc tiling::window --warp north
+shift + ctrl + cmd - l : chunkc tiling::window --warp east
 
-shift + ctrl + alt - h : chunkc tiling::window -r .05 -e west;  chunkc tiling::window -r -.05 -e east
-shift + ctrl + alt - j : chunkc tiling::window -r .05 -e south; chunkc tiling::window -r -.05 -e north
-shift + ctrl + alt - k : chunkc tiling::window -r .05 -e north; chunkc tiling::window -r -.05 -e south
-shift + ctrl + alt - l : chunkc tiling::window -r .05 -e east;  chunkc tiling::window -r -.05 -e west
+# move to workspace
+shift + cmd - 1 : chunkc tiling::window -d 1
+shift + cmd - 2 : chunkc tiling::window -d 2
+shift + cmd - 3 : chunkc tiling::window -d 3
+shift + cmd - 4 : chunkc tiling::window -d 4
+shift + cmd - 5 : chunkc tiling::window -d 5
+shift + cmd - 6 : chunkc tiling::window -d 6
 
-shift + alt - 1 : chunkc tiling::window -d 1
-shift + alt - 2 : chunkc tiling::window -d 2
-shift + alt - 3 : chunkc tiling::window -d 3
-shift + alt - 4 : chunkc tiling::window -d 4
-shift + alt - 5 : chunkc tiling::window -d 5
-shift + alt - 6 : chunkc tiling::window -d 6
+:: resize
+resize < return ; default
+resize < escape ; default
+
+resize < h : chunkc tiling::window -r .05 -e west;  chunkc tiling::window -r -.05 -e east
+resize < j : chunkc tiling::window -r .05 -e south; chunkc tiling::window -r -.05 -e north
+resize < k : chunkc tiling::window -r .05 -e north; chunkc tiling::window -r -.05 -e south
+resize < l : chunkc tiling::window -r .05 -e east;  chunkc tiling::window -r -.05 -e west
+
+resize < i : chunkc tiling::desktop -p dec
+resize < o : chunkc tiling::desktop -p inc
+
+alt + cmd - r ; resize
