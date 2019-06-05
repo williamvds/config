@@ -11,6 +11,7 @@ chunkc core::load tiling.so
 
 chunkc set global_desktop_mode           bsp
 chunkc set 2_desktop_mode                monocle
+chunkc set 3_desktop_mode                monocle
 
 chunkc set global_desktop_offset_top     4
 chunkc set global_desktop_offset_bottom  4
@@ -47,6 +48,5 @@ chunkc set focused_border_skip_floating  0
 chunkc tiling::rule -o 'Firefox Nightly' -d 1
 chunkc tiling::rule -o iTerm2 -d 2
 chunkc tiling::rule -o Xcode -d 3
-chunkc tiling::rule -o '.*Total War.*' -d 4
-chunkc tiling::rule -o '.*Tropico.*' -d 4
-chunkc tiling::rule -o FrameReplayer -d 4
+chunkc tiling::rule -o iTunes -d 4
+chunkc tiling::rule -o '?' -d 4
