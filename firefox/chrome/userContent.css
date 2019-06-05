@@ -70,3 +70,86 @@
     color: var(--theme-primary) !important;
   }
 }
+
+@-moz-document domain("open.rocket.chat") {
+	:root {
+		/* thinner sidebar */
+		--sidebar-default-padding: 8px !important;
+
+		/* thinner member list */
+		--flex-tab-width: 300px !important;
+
+		/* shorter header */
+		--header-padding: 8px !important;
+
+		/* smaller user list entries */
+		--sidebar-account-thumb-size: 16px !important;
+	}
+
+	/* fixed-width names */
+	.message .user {
+		width: 120px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	/* hide @username */
+	.message-alias {
+		display: none;
+	}
+
+	/* move message edits and time to the right */
+	.info {
+		float: right;
+		margin-right: 40px !important; /* leave some space for the hover items */
+	}
+
+	/* not-so-big emojis */
+	.emoji.big, .emojione.big {
+		height: inherit !important;
+	}
+
+	/* shorter room topic */
+	.announcement {
+		height: 24px !important;
+	}
+
+	/* smaller sidebar buttons */
+	.sidebar__toolbar-button {
+		font-size: 14px !important;
+	}
+
+	/* less margin next to profile picture in sidebar */
+	sidebar__header-thumb {
+		margin: 0 0 0 8px !important;
+	}
+
+	/* smaller user list entries */
+	.rc-member-list__user {
+		padding 4px 0 !important;
+	}
+	.rc-member-list__username {
+		font-size: 13px !important;
+	}
+
+	/* hide formatting bar */
+	.rc-message-box__toolbar-markdown {
+		display: none;
+	}
+
+	/* fix position of date dividers */
+	.message::before, .message::after {
+		position: unset !important;
+		border-top: none !important;
+	}
+
+	.message {
+		margin-top: 8px !important;
+	}
+
+	/* fix position of unread dividers */
+	.body::before, .body::after {
+		top: -5px !important;
+	}
+}
