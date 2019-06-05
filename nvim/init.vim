@@ -41,10 +41,11 @@ if dein#load_state($DEIN_DIR)
 	call dein#save_state()
 endif
 
-
 let g:task_highlight_field = 0
 let g:task_default_prompt  = ['project', 'tag', 'description']
 au FileType taskreport set fdm=manual
+
+let g:sleuth_automatic = 0
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
@@ -93,8 +94,6 @@ let g:ale_cpp_clangtidy_checks = ['*',
 	\ '-fuchsia-default-arguments',
 	\ '-fuchsia-overloaded-operator',]
 
-map <leader>c :Commentary<cr>
-
 let g:gitgutter_sign_added = '┃'
 let g:gitgutter_sign_modified = '┃'
 let g:gitgutter_sign_removed = '┃'
@@ -107,6 +106,9 @@ au ColorScheme *
 \|hi ALEError ctermfg=167 cterm=underline
 \|hi ALEWarningSign ctermfg=228
 \|hi ALEWarning ctermfg=228 cterm=underline
+
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_math = 1
 
 let g:lightline = {
 \	'colorscheme': 'predawn',
@@ -150,8 +152,8 @@ fu! LightlineGitBranch()
 	if !exists('*fugitive#head') |return '' |endif
 
 	let branch = fugitive#head()
-		let diffcount = execute('echon ' . join(GitGutterGetHunkSummary(), '+'))
-		return branch !=# '' ? ' '. branch
+	let diffcount = execute('echon ' . join(GitGutterGetHunkSummary(), '+'))
+	return branch !=# '' ? ' '. branch
 		\ . (diffcount > 0 ? ' ±' . diffcount : '')
 		\ : ''
 endfu
@@ -207,6 +209,7 @@ nmap <silent> <leader>Q :q!<cr>
 map <silent> <leader>/ :noh<cr>
 map <silent> <leader>ss :setlocal spell!<cr>
 map <silent> <leader>m :make<cr>
+map <silent> <leader>c :Commentary<cr>
 map <leader>y "+y
 map <leader>p "+p
 
@@ -246,6 +249,20 @@ au FileType * if index(['markdown', 'text', 'gitcommit', 'svn'], &ft) >= 0
 	\ |:setl spell
 	\ |:setl tw=80
 	\ |else |:setl nospell |endif
+
+au BufNewFile,BufRead *.plist set ft=xml
+au BufNewFile,BufRead *.pch set ft=cpp
+au FileType crontab setl nobk nowb
+au FileType taskreport setl nolist
+
+let g:taskwarrior_notes_dir="$HOME/tasknotes"
+let g:taskwarrior_notes_extension=".md"
+fu! OpenTaskNotes()
+	let uuid = substitute(system('task '.taskwarrior#data#get_uuid().' _uuids'), '\n', '', '')
+	execute 'sp '.g:taskwarrior_notes_dir.'/'.uuid.g:taskwarrior_notes_extension
+endfu
+au FileType taskreport
+	\ nmap <silent> <buffer> n :call OpenTaskNotes()<cr>
 
 fu! TrimWhiteSpace()
 	if &ft == "markdown" || &ro || !&mod |return |endif
