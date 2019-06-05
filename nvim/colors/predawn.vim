@@ -10,7 +10,6 @@ let g:colors_name = "predawn"
 
 hi Normal guifg=#f1f1f1 guibg=#282828 guisp=#282828 gui=NONE ctermfg=255 ctermbg=235 cterm=NONE
 
-hi SpellBad ctermbg=160
 hi Boolean guifg=#ecec89 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
 hi Character guifg=#ecec89 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
 hi Comment guifg=#777777 guibg=NONE guisp=NONE gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE
@@ -23,10 +22,10 @@ hi CursorLine guifg=NONE guibg=#3c3c3c guisp=#3c3c3c gui=NONE ctermfg=NONE cterm
 hi Debug guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi Define guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
-hi DiffAdd ctermbg=2 ctermfg=16 cterm=NONE
-hi DiffChange ctermbg=242 ctermfg=16 cterm=NONE
-hi DiffDelete ctermbg=1 ctermfg=16 cterm=NONE
-hi DiffText ctermbg=2 ctermfg=16 cterm=NONE
+hi DiffChange ctermbg=238 cterm=NONE
+hi DiffAdd ctermbg=238 cterm=NONE
+hi DiffDelete ctermbg=52 ctermfg=52 cterm=NONE
+hi DiffText ctermbg=28 cterm=NONE
 hi Directory guifg=#ecec89 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
 hi ErrorMsg guifg=#cf5340 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 hi Exception guifg=#92bfbf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE
@@ -56,6 +55,7 @@ hi Special guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE
 hi SpecialChar guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi SpecialComment guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi SpecialKey guifg=#f18260 guibg=#3c3c3c guisp=#3c3c3c gui=NONE ctermfg=209 ctermbg=237 cterm=NONE
+hi SpellBad ctermbg=160
 hi Statement guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
 hi StatusLine guifg=#f1f1f1 guibg=#626262 guisp=#626262 gui=bold ctermfg=255 ctermbg=241 cterm=bold
 hi StatusLineNC guifg=#f1f1f1 guibg=#626262 guisp=#626262 gui=NONE ctermfg=255 ctermbg=241 cterm=NONE
