@@ -67,6 +67,8 @@ let g:lua_complete_omni = 1
 hi! default link CompletePlaceHolder Comment
 hi! default link CompletePlaceHolderEnds Comment
 
+if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
+
 au FileType java
 	\ let g:ale_java_javac_classpath=$CLASSPATH
 	\|let g:JavaComplete_UsePython3 = 1
