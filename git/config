@@ -9,7 +9,6 @@
 [alias]
 	glog = log --pretty=format:'%Cred%h %C(bold blue)%>(8,trunc)<%an> %Creset%<(100,trunc)%s %<(6,trunc)%Cgreen%cr %<(15,trunc)%C(yellow)%D %C(yellow)%G?'
 	stash-all = stash save --include-untracked
-	undo = reset --soft HEAD^
 	prune = fetch --prune
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 	sign-commits = filter-branch -f --commit-filter 'git commit-tree -S "$@"' HEAD
