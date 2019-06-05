@@ -10,6 +10,7 @@ include_first() {
     done
 }
 
+set -a; include "$HOME/.profile"; set +a;
 include "$XDG_CONFIG_HOME"/theme.sh /usr/share/doc/pkgfile/command-not-found.bash
 include_first /usr/{share,local/etc}/bash_completion
 

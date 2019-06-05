@@ -1,7 +1,3 @@
-if [[ -r ~/.profile ]]; then
-	set -a; . ~/.profile; set +a
-fi
-
 [[ $- == *i* && -r ~/.bashrc ]] && . ~/.bashrc
 
 if [[ -z $TMUX ]] && [[ -n $SSH_CONNECTION ]]; then
