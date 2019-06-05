@@ -17,6 +17,12 @@
   --tabs-border-color: transparent !important; /* below menu bar */
 }
 
+@-moz-document url("chrome://browser/content/browser.xul") {
+  #TabsToolbar {
+    visibility: collapse !important;
+  }
+}
+
 /* toolbox */
 #tabbrowser-tabs {
   visibility: collapse !important;
