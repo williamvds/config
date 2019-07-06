@@ -62,8 +62,8 @@ alias 4..='../../../..'
 alias 5..='../../../../..'
 
 if [[ $_OS_GNU_LINUX ]]; then
-	alias reboot='systemctl restart'
-	alias shutdown='systemctl shutdown'
+	alias reboot='systemctl reboot'
+	alias shutdown='systemctl poweroff'
 	alias hibernate='systemctl hibernate'
 	alias suspend='systemctl suspend'
 fi
