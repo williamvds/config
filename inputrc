@@ -5,3 +5,7 @@ set show-all-if-ambiguous on
 set completion-ignore-case on
 set colored-completion-prefix on
 set completion-prefix-display-length 1
+set menu-complete-display-prefix on
+tab: menu-complete
+"\e\t": menu-complete-backward
+"\e[Z": menu-complete-backward
