@@ -241,8 +241,8 @@ au BufNewFile,BufRead *.plist set ft=xml
 au BufNewFile,BufRead *.pch set ft=cpp
 
 au BufReadPost * nested
-	\ if !exists('b:reload_dos') && !&binary && &ff=='unix' && (0 < search('\r$', 'nc'))
-	\ |e ++ff=dos
+	\ if &ft != "git" && !exists('b:reload_dos') && !&binary && &ff=='unix' && (0 < search('\r$', 'nc'))
+	\ |noa e ++ff=dos
 	\ |endif
 
 au FileType * if index(['markdown', 'text', 'gitcommit', 'svn'], &ft) >= 0
