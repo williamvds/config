@@ -23,17 +23,18 @@ input * {
 	xkb_options caps:swapescape
 }
 
-input 1739:0:Synaptics_TM3127-001 {
+input 2:7:SynPS/2_Synaptics_TouchPad {
 	natural_scroll enabled
+	scroll_factor 0.3
 }
 
 # startup
 set $gtkSet gsettings set org.gnome.desktop.interface
 
 exec_always {
-	$gtkSet gtk-theme Breeze
+	$gtkSet gtk-theme Materia-dark-compact
 	$gtkSet icon-theme Papirus-Dark
-	$gtkSet cursor-theme Materia-dark-compact
+	$gtkSet cursor-theme Breeze
 }
 
 exec {
