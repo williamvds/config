@@ -43,6 +43,7 @@ user_pref("reader.color_scheme", "dark");
 user_pref("reader.content_width", 7);
 user_pref("reader.font_size", 3);
 user_pref("reader.line_height", 2);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // startup
 user_pref("browser.laterrun.enabled", false);
@@ -270,7 +271,7 @@ user_pref("alerts.showFavicons", true);
 // protocols
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("security.OCSP.enabled", 1);
-user_pref("security.OCSP.require", true);
+user_pref("security.OCSP.require", false);
 user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("security.family_safety.mode", 0);
 user_pref("security.insecure_connection_icon.enabled", true);
