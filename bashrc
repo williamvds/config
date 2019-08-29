@@ -33,6 +33,6 @@ yts() {
 shopt -s autocd nocaseglob globstar extglob histappend checkwinsize \
   cdable_vars
 
-set -o vi
+set -o vi pipefail
 bind ':clear-screen'
 bind ': history-substring-search-forward' ':history-substring-search-backward'
