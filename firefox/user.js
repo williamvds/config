@@ -284,7 +284,7 @@ user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.ssl.errorReporting.automatic", false);
 user_pref("security.ssl.errorReporting.enabled", false);
 user_pref("security.ssl.errorReporting.url", "");
-user_pref("security.ssl.require_safe_negotiation", true);
+user_pref("security.ssl.require_safe_negotiation", false);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("security.ssl3.dhe_rsa_aes_128_sha", false);
 user_pref("security.ssl3.dhe_rsa_aes_256_sha", false);
