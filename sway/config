@@ -209,6 +209,12 @@ mode app {
 }
 bindsym $mod+a mode app
 
+# resize
+mode passthru {
+	bindsym $mod+Escape mode default
+}
+bindsym $mod+Shift+Escape mode passthru
+
 # colors
 # class                 border   bg       text        indicator
 client.focused          $primary $primary $background $primary $primary
