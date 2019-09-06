@@ -33,3 +33,5 @@
 	rmdir = true
 [diff]
 	algorithm = patience
+[diff "gpg"]
+	textconv = gpg --no-tty --decrypt
