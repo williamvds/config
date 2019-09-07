@@ -12,7 +12,9 @@ include_first() {
 
 set -a; include "$HOME/.profile"; set +a;
 include "$XDG_CONFIG_HOME"/theme.sh /usr/share/doc/pkgfile/command-not-found.bash
-include_first /usr/{share,local/etc}/bash_completion
+
+export BASH_COMPLETION_COMPAT_DIR='/usr/local/etc/bash_completion.d'
+include_first /usr/{share/bash_completion,local/etc/profile.d/bash_completion.sh}
 
 HISTFILE=$HOME/.cache/bash_history
 HISTCONTROL=ignoreboth:erasedups HISTSIZE='' HISTFILESIZE=''
