@@ -1,5 +1,5 @@
 [ "$(uname -o 2>/dev/null)" = 'GNU/Linux' ]	&& export _OS_GNU_LINUX=1
-[ $(uname -r |grep -Eq 'ARCH$') ]			&& export _OS_ARCH_LINUX=1
+[ "$(uname -r |grep -Eq 'ARCH$')" ]			&& export _OS_ARCH_LINUX=1
 [ "$(uname)" = 'Darwin' ]					&& export _OS_MACOS=1
 
 CONFIG="$HOME"/.config
@@ -26,17 +26,34 @@ export DEIN_DIR=$HOME/.local/share/nvim/dein
 export WINEPREFIX=$HOME/.local/wine
 export WINEPATH="$HOME/.local/bin"
 
-if [[ $_OS_GNU_LINUX && -n $XDG_RUNTIME_DIR ]]; then
+if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
 	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	export SSH_AUTH_SOCK
 
-	if command -v sway &>/dev/null; then
+	if command -v sway >/dev/null; then
 		SWAYSOCK="$(find "$XDG_RUNTIME_DIR" -name 'sway-*.sock' |head -n 1)"
 		export SWAYSOCK
 	fi
 fi
 
-export PATH=~/.local/bin:$PATH:$ANDROID_TOOLS/tools/bin/
+export PATH="$HOME/.local/bin:$PATH:$ANDROID_TOOLS/tools/bin/"
+
+if [ $_OS_MACOS ]; then
+export PATH="\
+/usr/local/opt/findutils/libexec/gnubin\
+:/usr/local/opt/gnu-sed/libexec/gnubin\
+:/usr/local/opt/coreutils/libexec/gnubin\
+:/usr/local/sbin\
+:/usr/local/bin\
+:$HOME/.local/bin\
+:$PATH\
+"
+
+export MANPATH="\
+/usr/local/opt/coreutils/libexec/gnuman\
+:$MANPATH\
+"
+fi
 
 for editor in nvim vim vi; do
 	if command -v $editor >/dev/null; then
@@ -61,14 +78,14 @@ alias 3..='../../..'
 alias 4..='../../../..'
 alias 5..='../../../../..'
 
-if [[ $_OS_GNU_LINUX ]]; then
+if [ $_OS_GNU_LINUX ]; then
 	alias reboot='systemctl reboot'
 	alias shutdown='systemctl poweroff'
 	alias hibernate='systemctl hibernate'
 	alias suspend='systemctl suspend'
 fi
 
-if [[ $_OS_ARCH_LINUX ]]; then
+if [ $_OS_ARCH_LINUX ]; then
 	alias p='yay'
 	alias P='sudo pacman'
 	alias update='yay -Qqet |grep -- -git |xargs yay --needed --noconfirm -Syyu'
@@ -76,7 +93,7 @@ if [[ $_OS_ARCH_LINUX ]]; then
 	alias mirrorlist='curl https://www.archlinux.org/mirrorlist/?country=AU\&country=BE\&country=CZ\&country=DK\&country=FI\&country=FR\&country=DE\&country=IE\&country=IT\&country=LU\&country=NL\&country=NO\&country=ES\&country=SE\&country=CH\&country=GB\&protocol=https\&ip_version=4\&ip_version=6 |sudo tee /etc/pacman.d/mirrorlist.tmp >/dev/null && sudo sed -i "s/^#Server/Server/" /etc/pacman.d/mirrorlist.tmp && sudo rankmirrors -n 12 /etc/pacman.d/mirrorlist.tmp |sudo tee /etc/pacman.d/mirrorlist'
 fi
 
-if [[ $_OS_MACOS ]]; then
+if [ $_OS_MACOS ]; then
 	alias suspend='\sudo /sbin/shutdown -s now'
 	alias shutdown='\sudo /sbin/shutdown -h now'
 fi
@@ -111,7 +128,7 @@ alias ytlow='mpv --ytdl-format="bestvideo[height<=?480]+bestaudio"'
 alias yta='mpv --no-video'
 alias play-yt='yt "$(pbpaste)"'
 
-if [[ $_OS_MACOS ]]; then
+if [ $_OS_MACOS ]; then
 	alias python='python3'
 	alias pip='pip3'
 fi
