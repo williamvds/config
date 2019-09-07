@@ -19,21 +19,11 @@ homedot=(
 )
 
 packages=(
-	alacritty
 	bash
-	bash-completion
 	coreutils
-	mpv
 	neovim
-	newsboat
-	nftables
 	rsync
-	sway
-	swayidle
-	swaylock
-	sxiv
 	tree
-	youtube-dl
 )
 
 if [[ -z $_SERVER ]]; then
@@ -44,18 +34,31 @@ if [[ -z $_SERVER ]]; then
 	packages+=(
 		mpv
 		youtube-dl
+		newsboat
 	)
 fi
 
-if [[ $_OS_GNU_LINUX && -z $_SERVER ]]; then
+if [[ $_OS_GNU_LINUX ]]; then
 	packages+=(
-		mpv
-		youtube-dl
+		bash-completion
+		nftables
 	)
+
+	if [[ -z $_SERVER ]]; then
+		packages+=(
+			alacritty
+			mpv
+			sway
+			swayidle
+			swaylock
+			sxiv
+		)
+	fi
 fi
 
 if [[ $_OS_MACOS ]]; then
 	packages+=(
+		bash-completion@2
 		findutils
 		gnu-sed
 		rename
@@ -69,7 +72,6 @@ if [[ $_OS_MACOS ]]; then
 		)
 		packages+=(
 			chunkwm
-			osxfuse
 			skhd
 		)
 	fi
@@ -107,15 +109,6 @@ private() {
 	done
 }
 
-if [[ $_OS_MACOS ]]; then
-	default() {
-		for arg in {1..$*..2}; do
-			echo ${$@[$arg]}
-			defaults write "$1" ${$@[$arg]} ${$@[$arg+1]}
-		done
-	}
-fi
-
 if [[ $_USE_PERSONAL ]]; then
 	homedot+=(
 		ssh
@@ -147,7 +140,7 @@ if [[ $_OS_ARCH_LINUX ]]; then
 elif [[ $_OS_MACOS ]]; then
 	INSTALL='brew install'
 
-	cp "$C"/UK.keylayout "$HOME/Library/Keyboard Layouts/UK.keylayout"
+	link "$C"/UK.keylayout "$HOME/Library/Keyboard Layouts/UK.keylayout"
 
 	git clone https://github.com/Shougo/dein.vim \
 		"$DEIN_DIR"/repos/github.com/Shougo/dein.vim
@@ -159,21 +152,40 @@ elif [[ $_OS_MACOS ]]; then
 	fi
 
 	brew ln bash
-	brew tap crisidev/homebrew-chunkwm
-	brew service start chunkwm skhd
-	brew tap jlhonora/lsusb osxfuse/osxfuse
+	brew tap \
+		koekeishiya/homebrew-chunkwm \
+		jlhonora/lsusb \
+		osxfuse/osxfuse
 
-	brew install --HEAD ifuse ideviceinstaller
+	brew cask install \
+		alacritty \
+		homebrew/cask-fonts/font-noto-mono-for-powerline \
+		homebrew/cask-versions/firefox-nightly \
+		osxfuse
+
+	brew services start chunkwm skhd
+
+	brew install --HEAD usbmuxd
+	brew install --HEAD libimobiledevice
+	brew install --HEAD ifuse
 	brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 	screenshots="$HOME/Pictures/screens"
 	mkdir -p "$screenshots"
+
+	default() {
+		for arg in {1..$*..2}; do
+			echo ${$@[$arg]}
+			defaults write "$1" ${$@[$arg]} ${$@[$arg+1]}
+		done
+	}
+
 	default com.apple.screencapture location "$screenshots"
 fi
 
 if [ -z "$INSTALL" ]; then
 	>&2 echo "No installation command set for this operating system"
+else
+	echo "Installing: ${packages[*]}"
+	eval "$INSTALL" "${packages[@]}"
 fi
-
-echo "Installing: ${packages[*]}"
-eval "$INSTALL" "${packages[@]}"
