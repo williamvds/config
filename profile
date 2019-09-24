@@ -73,6 +73,14 @@ export CFLAGS='-std=c11'
 export CPPFLAGS='-Wall -g -shared'
 export CXXFLAGS='-std=c++17'
 
+if command -v systemctl >/dev/null; then
+	systemctl --user import-environment \
+		PATH \
+		SSH_AUTH_SOCK \
+		GNUPGHOME \
+		PASSWORD_STORE_DIR
+fi
+
 alias 2..='../..'
 alias 3..='../../..'
 alias 4..='../../../..'

@@ -39,8 +39,6 @@ exec_always {
 
 exec {
 	waybar
-	transmission-daemon
-	offlineimap -u quiet
 	dunst
 	gnome-keyring-daemon -sc pkcs11,secrets
 	gpg-agent --daemon --enable-ssh-support --sh
@@ -52,7 +50,6 @@ exec {
 	udiskie -sAm flat
 	steam-native -silent %U
 	redshiftcmd =
-	mpd
 	$TERMINAL -t main
 }
 
