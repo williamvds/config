@@ -21,6 +21,7 @@ label {
 	padding: 0 5px 0 5px;
 	margin-bottom: 3px;
 	min-width: 20px;
+	color: #fff;
 }
 
 #workspaces button:not(.focused) label {
