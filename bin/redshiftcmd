@@ -1,0 +1,28 @@
+#!/bin/bash
+
+step=400
+if [ ! -f ~/.cache/redshift ]; then
+  current=6500;
+else
+  current=$(cat ~/.cache/redshift)
+fi
+
+case "$1" in
+  -)
+    current=$((current - step))
+    ;;
+  +)
+    current=$((current + step))
+    ;;
+  =)
+    current=3000
+    ;;
+  0)
+    current=6500
+esac
+
+pkill -x redshift
+echo "$current" > ~/.cache/redshift
+notify-send "Screen temperature" -h int:value:$(((current -1000)/55)) \
+  -h byte:urgency:0 -i weather-clear-symbolic -a redshift
+redshift -PO "$current"
