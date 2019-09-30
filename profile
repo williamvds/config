@@ -90,7 +90,7 @@ if [ $_OS_GNU_LINUX ]; then
 	alias reboot='systemctl reboot'
 	alias shutdown='systemctl poweroff'
 	alias hibernate='systemctl hibernate'
-	alias suspend='systemctl suspend'
+	alias suspend='systemctl suspend-then-hibernate'
 fi
 
 if [ $_OS_ARCH_LINUX ]; then
