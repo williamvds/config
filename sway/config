@@ -174,9 +174,9 @@ bindsym $mod+r mode resize
 
 # application control
 mode app {
-	bindsym plus exec redshiftcmd =; mode default
+	bindsym equal exec redshiftcmd =; mode default
 	bindsym 0 exec redshiftcmd 0; mode default
-	bindsym Shift+plus exec redshiftcmd +
+	bindsym Shift+equal exec redshiftcmd +
 	bindsym minus exec redshiftcmd -
 
 	bindsym p exec 'killall waybar; waybar'; mode default
