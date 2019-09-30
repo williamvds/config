@@ -24,12 +24,18 @@
 	},
 	"battery": {
 		"format": "{icon}",
-		"format-icons": ["", "", "", "", "", "", "", "", ""]
+		"format-charging": "{icon}",
+		"format-icons": ["", "", "", "", "", "", "", "", "", ""],
+		"states": {
+			"warning": 25,
+			"critical": 10
+		}
 	},
 	"network": {
 		"format-wifi": "蠟",
 		"format-ethernet": "",
-		"format-disconnected": "來"
+		"format-disconnected": "來",
+		"tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)"
 	},
 	"pulseaudio": {
 		"format": "{icon}",

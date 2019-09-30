@@ -27,8 +27,16 @@ label {
 	color: #aaa;
 }
 
-#battery.charging, #custom-emails, #custom-tasks {
+#battery.warning, #custom-emails, #custom-tasks {
 	color: #ffb52a;
+}
+
+#battery.critical {
+	color: #e74c3c;
+}
+
+#battery.charging {
+	color: #2ecc71;
 }
 
 #custom-emails, #custom-tasks {
