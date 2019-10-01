@@ -4,12 +4,12 @@ source ~/.config/nvim/colors/predawn.vim
 
 set rtp+=/usr/share/vim/vimfiles
 if $_OS_MACOS
- \|set rtp+=$DEIN_DIR/repos/github.com/Shougo/dein.vim
- \|endif
+	\|set rtp+=$DEIN_DIR/repos/github.com/Shougo/dein.vim
+	\|endif
+
 if dein#load_state($DEIN_DIR)
 	call dein#begin($DEIN_DIR)
 
-	call dein#add('Shougo/deoplete.nvim')
 	call dein#add('Shougo/neosnippet')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('airblade/vim-gitgutter')
@@ -21,23 +21,20 @@ if dein#load_state($DEIN_DIR)
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('tpope/vim-sleuth')
 	call dein#add('tpope/vim-vinegar')
-	call dein#add('w0rp/ale')
+	call dein#add('neoclide/coc.nvim', {'rev': 'release'})
 	call dein#add('alvan/vim-closetag', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('tmhedberg/matchit', {'on_ft': ['html', 'xml', 'php']})
-	call dein#add('tweekmonster/deoplete-clang2', {'on_ft': ['c', 'cpp']})
 	call dein#add('godlygeek/tabular')
 
 	if $_USE_PERSONAL
-		call dein#add('artur-shaik/vim-javacomplete2', {'on_ft': 'java'})
 		call dein#add('chrisbra/unicode.vim', {'on_ft': ['markdown', 'text']})
-		call dein#add('davidhalter/jedi', {'on_ft': 'python'})
 		call dein#add('lervag/vimtex')
-		call dein#add('udalov/kotlin-vim')
-		call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
-		call dein#add('leafgarland/typescript-vim')
 	endif
 
 	call dein#end()
+	if dein#check_install()
+		call dein#install()
+	endif
 	call dein#save_state()
 endif
 
@@ -47,69 +44,52 @@ au FileType taskreport set fdm=manual
 
 let g:sleuth_automatic = 0
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-
+" Neosnippet
 let g:neosnippet#snippets_directory='$XDG_CONFIG_HOME/nvim/snippets'
 
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr><tab>
-	\ pumvisible() ? "\<C-n>" :
-	\ neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-smap <expr><tab> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-ino <expr>) ")\<C-o>:silent! pc\<cr>"
+" Coc
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? coc#_select_confirm() :
+	\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
 
-let g:lua_check_syntax = 0
-let g:lua_complete_dynamic = 0
-let g:lua_complete_omni = 1
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>rn <Plug>(coc-rename)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 hi! default link CompletePlaceHolder Comment
 hi! default link CompletePlaceHolderEnds Comment
 
-if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
-
-au FileType java
-	\ let g:ale_java_javac_classpath=$CLASSPATH
-	\|let g:JavaComplete_UsePython3 = 1
-	\|setl makeprg="mvn package"
-	\|setl ofu=javacomplete#Complete
-
 au FileType tex setl makeprg="xelatex %"
 
-au FileType php
-	\setl ofu=phpcomplete#Complete
-	\|map <leader>d :call pdv#DocumentWithSnip()<cr>
-
-let g:ale_c_build_dir = '~/.local/share/nvim/swap'
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:ale_echo_msg_on_ftmat = '%s [%linter%]'
-let g:ale_fixers = {
-	\ 'cpp': ['clang-on_ftmat']
-\}
-let g:ale_cpp_clangtidy_checks = ['*',
-	\ '-misc-unused-parameters',
-	\ '-fuchsia-default-arguments',
-	\ '-fuchsia-overloaded-operator',]
-
+" vim-gitgutter
 let g:gitgutter_sign_added = '┃'
 let g:gitgutter_sign_modified = '┃'
 let g:gitgutter_sign_removed = '┃'
 let g:gitgutter_sign_modified_removed = '┃'
 au ColorScheme *
-\ hi GitGutterAdd ctermfg=2
-\|hi GitGutterDelete ctermfg=9
-\|hi GitGutterChange ctermfg=11
-\|hi ALEErrorSign ctermfg=167
-\|hi ALEError ctermfg=167 cterm=underline
-\|hi ALEWarningSign ctermfg=228
-\|hi ALEWarning ctermfg=228 cterm=underline
+	\ hi GitGutterAdd ctermfg=2
+	\|hi GitGutterDelete ctermfg=9
+	\|hi GitGutterChange ctermfg=11
 
+" vim-markdown
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_math = 1
 
+" lightline
 let g:lightline = {
 \	'colorscheme': 'predawn',
 \	'mode_map': {
@@ -132,10 +112,11 @@ let g:lightline = {
 \	},
 \	'component_function' : {
 \		 'gitbranch': 'LightlineGitBranch',
+\		 'cocstatus': 'coc#status'
 \	},
 \	'active': {
 \		 'left':	[['mode', 'spell'], ['readonly'], ['relativepath', 'modified']],
-\		 'right':	[['filetype', 'lineinfo'], ['gitbranch']],
+\		 'right':	[['filetype', 'lineinfo'], ['gitbranch', 'cocstatus']],
 \	},
 \	'inactive': {
 \		 'left':	[['relativepath']],
@@ -158,14 +139,14 @@ fu! LightlineGitBranch()
 		\ : ''
 endfu
 
-if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
+au User CocStatusChange,CocDiagnosticChange call lightline#update()
 
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_math = 1
+" ack.vim
+if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
 
 syntax enable
 
-set pa=.,*,** mouse=a ar lz ffs=unix,dos,mac spr sb secure ex fdm=indent ut=1000 " behaviour
+set pa=.,*,** mouse=a ar lz ffs=unix,dos,mac spr sb secure ex fdm=syntax ut=1000 " behaviour
 set noeb novb " sounds
 set dir=~/.local/share/nvim/swap | let &udir=&dir | let &bdir=&dir
 set swf udf " hist
