@@ -1,0 +1,155 @@
+folder-hook public/*   source $XDG_CONFIG_HOME/mutt/public
+folder-hook personal/* source $XDG_CONFIG_HOME/mutt/personal
+source $XDG_CONFIG_HOME/mutt/public
+
+auto_view text/html
+auto_view application/pdf
+alternative_order text/plain text/enriched text/html
+ignore *
+unignore date from to bcc cc subject
+
+set virtual_spoolfile
+set copy
+set date_format = '%e %b %l%p'
+set editor = $EDITOR
+set fast_reply
+set fcc_attach
+set forward_decode
+set forward_format = 'Fwd: %s'
+set forward_quote
+set include
+set index_format = '%2C %Z %?X?A& ? %D %-15.15F %s'
+set mail_check = 10
+set mail_check_stats
+set mailcap_path = $XDG_CONFIG_HOME/mutt/mailcap
+set mbox_type = Maildir
+set mime_forward
+set pager_stop
+set postpone
+set reverse_name
+set rfc2047_parameters
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/? %?S?%S?'
+set sidebar_next_new_wrap
+set sidebar_next_new_wrap
+set sidebar_short_path
+set sidebar_visible
+set sidebar_width = 20
+set sleep_time = 0
+set smtp_authenticators = 'gssapi:login'
+set sort = threads
+set sort_aux = reverse-last-date-received
+set ssl_force_tls
+set ssl_starttls
+set timeout = 5
+set delete = yes
+unset confirmappend
+unset mark_old
+unset markers
+unset mime_forward
+unset user_agent
+unset wait_key
+
+bind editor <space> noop
+bind attach,browser,index,pager g noop
+bind index,pager i noop
+bind pager,index d noop
+bind pager,index y noop
+
+bind attach <return> view-mailcap
+bind attach,browser,index G last-entry
+bind attach,browser,index gg first-entry
+bind attach,browser,index,pager  \Cu half-up
+bind attach,browser,index,pager \Cd half-down
+bind browser,pager,index N search-opposite
+bind browser,pager,index ? search-reverse
+bind browser,pager,index \C/ help
+bind index ( previous-thread
+bind index ) next-thread
+bind index J next-subthread
+bind index K previous-subthread
+bind index [ previous-unread
+bind index ] next-unread
+bind index u undelete-message
+bind index x toggle-new
+bind index zA  collapse-thread
+bind index zM  collapse-all
+bind index,pager I group-reply
+bind index,pager \Cj sidebar-next
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cn sidebar-next-new
+bind index,pager \Co sidebar-open
+bind index,pager \Cp sidebar-prev-new
+bind index,pager dd delete-message
+bind index,pager dt delete-thread
+bind index,pager DD purge-message
+bind index,pager DT purge-thread
+bind index,pager i reply
+bind pager G bottom
+bind pager H previous-thread
+bind pager L next-thread
+bind pager ZZ quit
+bind pager gg top
+bind pager gh display-toggle-weed
+bind pager h previous-entry
+bind pager j next-line
+bind pager k previous-line
+bind pager l next-entry
+bind index,pager yy modify-labels
+
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro index S "<shell-escape>offlineimap -oqa $my_profile<enter>" "sync all mail"
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+macro index A "<limit>all\n" "show all messages (undo limit)"
+
+color index white default '~A'
+color index_author red default '~A'
+
+color index brightwhite default "~N"
+color index_author brightred default "~N"
+
+color header color248 default ".*"
+color header brightwhite default "^(Subject)"
+color header brightwhite default "^(From)"
+
+mono bold bold
+mono underline underline
+mono indicator reverse
+mono error bold
+color normal default default
+color indicator brightwhite color235
+color sidebar_highlight brightwhite default
+color sidebar_divider default default
+color sidebar_new brightred default
+color normal white default
+color error red default
+color tilde black default
+color message cyan default
+color markers red white
+color attachment white default
+color search brightred default
+color status white black
+color hdrdefault brightgreen default
+color quoted green default
+color quoted1 brightgreen default
+color quoted2 green default
+color quoted3 brightgreen default
+color quoted4 green default
+color quoted5 brightgreen default
+color signature brightgreen default
+color bold black default
+color underline black default
+color normal default default
+
+color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # email
+color body brightblue default "([a-zA-Z]+://|www.)[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
+color body color109 default "\`[^\`]*\`" # code
+color body brightwhite default "^# \.*"
+color body brightwhite default "^## \.*"
+color body brightwhite default "^### \.*"
+color body color63 default "^(\t| )*(-|\\*) \.*" # list items
+color body red black "(BAD signature)"
+color body brightyellow default "^gpg: "
+color body brightyellow red "^gpg: BAD signature from.*"
+mono body bold "^gpg: Good signature"
+mono body bold "^gpg: BAD signature from.*"

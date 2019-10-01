@@ -1,0 +1,6 @@
+text/plain; $EDITOR '%s' ;
+text/html; $BROWSER '%s' ;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+image/*; termimg '%s'; copiousoutput;
+video/*; setsid nohup mpv --quiet '%s' & disown; copiousoutput;
+application/pdf; pdftotext '%s' -; copiousoutput;

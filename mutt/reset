@@ -1,0 +1,4 @@
+unmailboxes *
+unset my_profile realname folder postponed record trash sendmail header_cache message_cachedir certificate_file
+unalias *
+# vim: set ft=muttrc
