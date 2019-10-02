@@ -99,7 +99,7 @@ prompt_context() {
 	local user
 	user=$(whoami)
 	if [[ $user != "$DEFAULT_USER" ]]; then user+='@'; else unset user; fi
-	if [[ $user || -n $SSH_CLIENT ]]; then
+	if [[ $user || -n $SSH_CONNECTION ]]; then
 		prompt_segment black default "$user\\h"
 	fi
 }
