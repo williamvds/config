@@ -19,7 +19,6 @@ window {
 
 label {
 	padding: 0 5px 0 5px;
-	margin-bottom: 3px;
 	min-width: 20px;
 	color: #fff;
 }
@@ -49,7 +48,7 @@ label {
 }
 
 #tray {
-	margin-right: 5px;
+	margin: 0 5px 0 5px;
 }
 
 @keyframes blink {

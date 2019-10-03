@@ -1,6 +1,8 @@
 {
 	"layer": "bottom",
 	"position": "bottom",
+	"height": 24,
+	"margin": "0 0 1 0",
 	"modules-left": ["sway/workspaces", "sway/mode", "custom/mpd"],
 	"modules-center": ["clock"],
 	"modules-right": ["custom/emails", "custom/tasks", "custom/updates", "custom/rss", "pulseaudio", "network", "battery", "tray"],
@@ -44,6 +46,10 @@
 			"default": ["", "", ""]
 		},
 		"on-click": "pavucontrol"
+	},
+	"tray": {
+		"icon-size": 20,
+		"spacing": 10
 	},
 	"custom/rss": {
 		"format": "{}",
