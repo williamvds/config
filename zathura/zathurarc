@@ -1,0 +1,9 @@
+set scroll-step 100
+set scroll-hstep 100
+set statusbar-home-tilde true
+set recolor true
+set recolor-lightcolor \#282828
+set default-bg \#282828
+set inputbar-fg \#fff
+set inputbar-bg \#282828
+set statusbar-bg \#282828
