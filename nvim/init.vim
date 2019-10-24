@@ -156,8 +156,8 @@ set wmnu wic " wildmenu
 set ts=4 sw=4 ai si noet sta " indent
 set wrap ww+=<,> bs=indent,eol,start " movement
 
-let g:netrw_list_hide='\.(o|pyc|class|png|jpg|gif|svg)$,__pycache__,\.git,build'
-set wig=*.o,*.pyc,*.class,*.png,*.jpg,*.gif,*.svg,*.tga,**/__pycache__/**,**/.git/,**/node_modules/,**/build/**
+let g:netrw_list_hide='\.(o|pyc|class|hi|png|jpg|gif|svg)$,__pycache__,\.git,build'
+set wig=*.o,*.pyc,*.class,*.hi,*.png,*.jpg,*.gif,*.svg,*.tga,**/__pycache__/**,**/.git/,**/node_modules/,**/build/**
 
 com! W w !sudo tee % >/dev/null
 com! Rel so ~/.config/nvim/init.vim
