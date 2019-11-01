@@ -152,6 +152,7 @@ bindsym --locked XF86AudioPlay exec mpc toggle
 bindsym --locked XF86AudioNext exec mpc next
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym --locked XF86Display output eDP-1 toggle
 
 bindsym $mod+Shift+r reload
 
