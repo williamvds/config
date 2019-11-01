@@ -1,3 +1,4 @@
+set selection-clipboard clipboard
 set scroll-step 100
 set scroll-hstep 100
 set statusbar-home-tilde true
