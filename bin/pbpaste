@@ -2,7 +2,7 @@
 if [[ -n $WAYLAND_DISPLAY ]]; then
 	wl-paste
 elif [[ $_OS_GNU_LINUX ]]; then
-	xclip -o -sel c
+	xclip -o
 else
 	/usr/bin/pbpaste
 fi
