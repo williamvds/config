@@ -26,6 +26,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export DEIN_DIR=$HOME/.local/share/nvim/dein
 export WINEPREFIX=$HOME/.local/wine
 export WINEPATH="$HOME/.local/bin"
+export STACK_ROOT="$HOME/.local/share/stack"
 
 if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
 	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
