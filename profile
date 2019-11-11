@@ -1,5 +1,6 @@
+_release=$(uname -r)
 [ "$(uname -o 2>/dev/null)" = 'GNU/Linux' ]	&& export _OS_GNU_LINUX=1
-[ "$(uname -r |grep -Eq 'ARCH$')" ]			&& export _OS_ARCH_LINUX=1
+[ "${release#*arch}" != 'arch' ]			&& export _OS_ARCH_LINUX=1
 [ "$(uname)" = 'Darwin' ]					&& export _OS_MACOS=1
 
 CONFIG="$HOME"/.config
