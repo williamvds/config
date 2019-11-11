@@ -11,6 +11,12 @@
 	},
 	"python.jediEnabled": false,
 	"languageserver": {
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
+		},
 		"ccls": {
 			"command": "ccls",
 			"filetypes": ["c", "cpp", "objc", "objcpp"],
