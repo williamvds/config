@@ -194,8 +194,8 @@ map <silent> <leader>c :Commentary<cr>
 map <leader>y "+y
 map <leader>p "+p
 
-nmap <silent> <tab> :tabnext<cr>
-nmap <silent> <S-tab> :tabprevious<cr>
+nmap <silent> <C-n> :tabnext<cr>
+nmap <silent> <C-p> :tabprevious<cr>
 map <silent> <leader>tn :tabnew<cr>
 map <silent> <leader>to :tabonly<cr>
 map <silent> <leader>tc :tabclose<cr>
