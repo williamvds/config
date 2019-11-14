@@ -146,7 +146,8 @@ if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
 
 syntax enable
 
-set pa=.,*,** mouse=a ar lz ffs=unix,dos,mac spr sb secure ex fdm=syntax ut=1000 " behaviour
+set pa=.,*,** mouse=a ar lz ffs=unix,dos,mac spr sb secure ex fdm=syntax ut=1000
+	\ icm=nosplit " behaviour
 set noeb novb " sounds
 set dir=~/.local/share/nvim/swap | let &udir=&dir | let &bdir=&dir
 set swf udf " hist
