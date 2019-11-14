@@ -25,7 +25,7 @@ input * {
 
 input 2:7:SynPS/2_Synaptics_TouchPad {
 	natural_scroll enabled
-	scroll_factor 0.3
+	scroll_factor 0.4
 }
 
 # startup
