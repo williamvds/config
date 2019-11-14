@@ -109,7 +109,7 @@ if [ $_OS_MACOS ]; then
 fi
 
 alias rss='newsboat'
-alias mail='neomutt'
+alias mail='aerc'
 alias hl='ack --passthru'
 alias totp='oathtool --totp -b'
 
