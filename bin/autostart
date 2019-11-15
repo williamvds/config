@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if command -v gtk-launch >/dev/null; then
+	for f in "$XDG_CONFIG_HOME/autostart"; do
+		gtk-launch "$(basename "$f")"
+	done
+fi
