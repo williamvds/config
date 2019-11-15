@@ -49,7 +49,7 @@ exec {
 		before-sleep 'lock'
 	udiskie -sAm flat
 	steam-native -silent %U
-	redshiftcmd =
+	nextcloud
 	$TERMINAL -t main
 }
 
