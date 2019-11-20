@@ -27,7 +27,7 @@ label {
 	color: #aaa;
 }
 
-#battery.warning, #custom-emails, #custom-tasks {
+#battery.warning {
 	color: #ffb52a;
 }
 
@@ -40,19 +40,11 @@ label {
 }
 
 #custom-emails, #custom-tasks {
-	animation-name: blink;
-	animation-duration: .7s;
-	animation-timing-function: steps(2, start);
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+	background: #ffb52a;
+	border-top: solid #996c18 2px;
+	color: #111;
 }
 
 #tray {
 	margin: 0 5px 0 5px;
-}
-
-@keyframes blink {
-	to {
-	color: #fff;
-	}
 }

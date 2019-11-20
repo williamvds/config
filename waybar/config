@@ -1,8 +1,6 @@
 {
 	"layer": "bottom",
 	"position": "bottom",
-	"height": 24,
-	"margin": "0 0 1 0",
 	"modules-left": ["sway/workspaces", "sway/mode", "custom/mpd"],
 	"modules-center": ["clock"],
 	"modules-right": ["custom/emails", "custom/tasks", "custom/updates", "custom/rss", "pulseaudio", "network", "battery", "tray"],
@@ -63,12 +61,12 @@
 	},
 	"custom/emails": {
 		"format": "{}",
-		"interval": 1200,
+		"interval": 120,
 		"exec": "$HOME/.config/waybar/emails"
 	},
 	"custom/tasks": {
 		"format": "侮{}",
-		"interval": 1200,
+		"interval": 120,
 		"exec": "$HOME/.config/waybar/tasks"
 	}
 }
