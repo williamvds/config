@@ -74,6 +74,9 @@ bindsym $mod+ctrl+Print exec \
 # gaps
 gaps inner 6
 gaps outer 0
+smart_borders on
+default_border pixel 2
+default_floating_border pixel 2
 
 # misc
 assign [class="Firefox|Nightly"] 1
@@ -89,7 +92,6 @@ assign [class="TelegramDesktop"] 9
 assign [title="(?i)chat$"] 9
 assign [title="^music$"] 10
 
-for_window [class=".*"] border pixel 2
 for_window [class="Firefox|Nightly"] inhibit_idle fullscreen
 for_window [app_id="pavucontrol|Nm-connection-editor|Pinentry"] floating enable
 for_window [title="Steam Guard"] floating enable
