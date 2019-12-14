@@ -38,6 +38,12 @@ if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
 	fi
 fi
 
+if [ -n $WAYLAND_DISPLAY ]; then
+	export GDK_BACKEND=wayland
+	export CLUTTER_BACKEND=wayland
+	export SDL_VIDEODRIVER=wayland
+fi
+
 export PATH="$HOME/.local/bin:$PATH:$ANDROID_TOOLS/tools/bin/"
 
 if [ $_OS_MACOS ]; then
