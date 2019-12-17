@@ -6,11 +6,16 @@ window {
 }
 
 #workspaces button {
+	font-family: Material Design Icons;
 	padding: 0;
 }
 
 #workspaces button:focus {
 	border: none;
+}
+
+#workspaces button:not(.focused) label {
+	color: #aaa;
 }
 
 #clock {
@@ -23,8 +28,8 @@ label {
 	color: #fff;
 }
 
-#workspaces button:not(.focused) label {
-	color: #aaa;
+#network {
+	font-family: Material Design Icons;
 }
 
 #battery.warning {
