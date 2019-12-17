@@ -196,8 +196,8 @@ mode app {
 		|cut -d' ' -f2 \
 		|rofi -i -p Bluetooth -dmenu \
 		|xargs -0d '\n' bluetoothctl connect
-	bindsym q exec notify-send "DUNST_COMMAND_RESUME"; mode default
-	bindsym Shift+q exec notify-send "DUNST_COMMAND_PAUSE"; mode default
+	bindsym q       exec notify-send "DUNST_COMMAND_PAUSE";  mode default
+	bindsym Shift+q exec notify-send "DUNST_COMMAND_RESUME"; mode default
 
 	bindsym space exec rofi-pass; mode default
 
