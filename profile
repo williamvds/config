@@ -21,7 +21,6 @@ export TASKDATA="$XDG_CONFIG_HOME/task"
 export TASKRC=$TASKDATA/config
 export PASSWORD_STORE_DIR=$XDG_CONFIG_HOME/pass
 export PASSWORD_STORE_GENERATED_LENGTH=100
-export MOZ_USE_XINPUT2=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export DEIN_DIR=$HOME/.local/share/nvim/dein
 export WINEPREFIX=$HOME/.local/wine
