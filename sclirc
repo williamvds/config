@@ -1,0 +1,5 @@
+notification-command=notify-send -a signal -i signal-desktop 'Signal' 'New message from %s'
+enable-notifications=true
+save-history=true
+use-formatting=true
+contacts-autohide=true

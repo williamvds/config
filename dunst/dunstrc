@@ -26,7 +26,8 @@
   show_indicators = yes
   icon_position = left
   max_icon_size = 64
-  icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/
+  icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/actions/:/usr/share/icons/Papirus-Dark/16x16/apps/
+
   sticky_history = yes
   history_length = 20
   browser = /usr/bin/firefox-nightly -new-tab
@@ -43,6 +44,12 @@
   close_all = mod4+ctrl+a
   history = mod4+ctrl+l
   context = mod4+ctrl+m
+
+[message]
+  appname = signal
+  script = _notification_sound
+  timeout = 30
+  mouse_left = close_current
 
 [urgency_low]
   frame_color = "#ffb52a"

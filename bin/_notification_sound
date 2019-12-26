@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+aplay "$XDG_CONFIG_HOME/notification.wav"
