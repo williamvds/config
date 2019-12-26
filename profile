@@ -41,6 +41,7 @@ if [ -n $WAYLAND_DISPLAY ]; then
 	export GDK_BACKEND=wayland
 	export CLUTTER_BACKEND=wayland
 	export SDL_VIDEODRIVER=wayland
+	export QT_WAYLAND_FORCE_DPI=physical
 fi
 
 export PATH="$HOME/.local/bin:$PATH:$ANDROID_TOOLS/tools/bin/"
