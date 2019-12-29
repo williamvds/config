@@ -30,6 +30,7 @@ if [[ -z $_SERVER ]]; then
 	homedot+=(
 		lldbinit
 		tmux.conf
+		Xresources
 	)
 	packages+=(
 		mpv
