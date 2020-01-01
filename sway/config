@@ -2,7 +2,7 @@
 font pango:'Noto Sans' 10
 
 set $background #282828
-set $foreground #e0c2b0
+set $foreground #eeeeee
 set $gray		#282828
 set $primary	#c03233
 set $secondary	#af1f37
@@ -224,7 +224,7 @@ bindsym $mod+Shift+Escape mode passthru
 
 # colors
 # class                 border   bg       text        indicator
-client.focused          $primary $primary $background $primary $primary
+client.focused          $primary $primary $foreground $primary $primary
 client.focused_inactive $grayCC  $grayCC  $foreground $grayCC  $primary
-client.unfocused        $grayCC  $grayCC  $background $grayCC  $grayCC
+client.unfocused        $grayCC  $grayCC  $foreground $grayCC  $grayCC
 client.urgent           $warning $warning $foreground $warning $warning
