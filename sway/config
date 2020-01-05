@@ -120,6 +120,7 @@ bindsym $mod+z layout stacking
 bindsym $mod+x layout tabbed
 bindsym $mod+c layout toggle split
 
+bindsym $mod+grave scratchpad show
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -131,6 +132,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+bindsym $mod+Shift+grave move window to scratchpad
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
