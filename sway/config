@@ -107,10 +107,10 @@ bindsym $mod+l focus right
 bindsym Mod1+Tab focus mode_toggle
 
 # move
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left 50px
+bindsym $mod+Shift+j move down 50px
+bindsym $mod+Shift+k move up 50px
+bindsym $mod+Shift+l move right 50px
 
 bindsym $mod+v layout toggle split
 bindsym $mod+f fullscreen toggle
