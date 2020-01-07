@@ -1,3 +1,7 @@
+* {
+	font-family: "Noto Sans", "Material Design Icons";
+}
+
 window {
 	border: none;
 	background: none;
@@ -6,7 +10,6 @@ window {
 }
 
 #workspaces button {
-	font-family: Material Design Icons;
 	padding: 0;
 }
 
@@ -26,10 +29,6 @@ label {
 	padding: 0 5px 0 5px;
 	min-width: 20px;
 	color: #fff;
-}
-
-#network {
-	font-family: Material Design Icons;
 }
 
 #battery.warning {
