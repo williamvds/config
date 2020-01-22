@@ -98,6 +98,7 @@ for_window [app_id="pavucontrol|Nm-connection-editor|Pinentry"] floating enable
 for_window [title="Steam Guard"] floating enable
 for_window [app_id="looking-glass-client"] inhibit_idle focus
 for_window [class="mpv"] inhibit_idle focus
+for_window [class="Wine"] inhibit_idle fullscreen
 
 # focus
 bindsym $mod+h focus left
