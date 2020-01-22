@@ -90,6 +90,7 @@ assign [title="Steam"] 8
 assign [class="Steam" title="Friends List"] 9
 assign [class="TelegramDesktop"] 9
 assign [title="(?i)chat$"] 9
+assign [class="Signal*"] 9
 assign [title="^music$"] 10
 
 for_window [class="Firefox|Nightly"] inhibit_idle fullscreen
