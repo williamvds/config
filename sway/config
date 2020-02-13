@@ -39,8 +39,7 @@ exec_always {
 
 exec {
 	waybar
-	dunst
-	gnome-keyring-daemon -sc pkcs11,secrets
+	mako
 	gpg-agent --daemon --enable-ssh-support --sh
 	swayidle \
 		timeout 300 'lock' \
@@ -155,9 +154,6 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -4%
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym --locked XF86AudioPrev exec mpc prev
-bindsym --locked XF86AudioPlay exec mpc toggle
-bindsym --locked XF86AudioNext exec mpc next
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym --locked XF86Display output eDP-1 toggle
@@ -168,10 +164,8 @@ bindsym XF86Search exec grim -o \
 bindsym XF86LaunchA exec grim -g "$(slurp)" - \
 	| xclip -i -selection clipboard -t image/png
 
-
 bindsym $mod+Shift+r reload
 
-# resize
 mode resize {
 	bindsym h resize shrink width 100 px or 10 ppt
 	bindsym j resize grow height 100 px or 10 ppt
@@ -188,7 +182,6 @@ mode resize {
 }
 bindsym $mod+r mode resize
 
-# application control
 mode app {
 	bindsym equal exec redshiftcmd =; mode default
 	bindsym 0 exec redshiftcmd 0; mode default
@@ -212,8 +205,6 @@ mode app {
 	bindsym q       exec notify-send "DUNST_COMMAND_PAUSE";  mode default
 	bindsym Shift+q exec notify-send "DUNST_COMMAND_RESUME"; mode default
 
-	bindsym space exec rofi-pass; mode default
-
 	bindsym i inhibit_idle focus; mode default
 	bindsym Shift+i inhibit_idle none; mode default
 
@@ -222,11 +213,21 @@ mode app {
 }
 bindsym $mod+a mode app
 
-# resize
 mode passthru {
 	bindsym $mod+Escape mode default
 }
 bindsym $mod+Shift+Escape mode passthru
+
+mode notify {
+	bindsym Space exec makoctl dismiss
+	bindsym a exec makoctl dismiss -a; mode default
+	bindsym i exec makoctl invoke; mode default
+	bindsym m exec makoctl menu; mode default
+	bindsym Return mode default
+	bindsym Escape mode default
+}
+bindsym $mod+n mode notify
+bindsym $mod+Shift+n exec makoctl dismiss
 
 # colors
 # class                 border   bg       text        indicator

@@ -1,0 +1,10 @@
+font=sans-serif 10
+background-color=#282828cc
+text-color=#ffffff
+border-color=#ffb52a
+border-size=4
+margin=10,10,2
+padding=8,5
+icons=1
+group-by=app-name
+progress-color=source #ffb52acc
