@@ -22,6 +22,7 @@ export TASKRC=$TASKDATA/config
 export PASSWORD_STORE_DIR=$XDG_CONFIG_HOME/pass
 export PASSWORD_STORE_GENERATED_LENGTH=100
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true"
 export DEIN_DIR=$HOME/.local/share/nvim/dein
 export WINEPREFIX=$HOME/.local/wine
 export WINEPATH="$HOME/.local/bin"
