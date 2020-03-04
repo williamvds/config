@@ -18,8 +18,7 @@
 		}
 	},
 	"clock": {
-		"format": "{:%l:%M %p}",
-		"format-alt": "{:%A %e %B %l:%M %p}"
+		"format": "{:%a%e %B, %I:%M %p}"
 	},
 	"battery": {
 		"format": "{icon}",
