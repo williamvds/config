@@ -57,8 +57,8 @@ hi SpecialComment guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 cterm
 hi SpecialKey guifg=#f18260 guibg=#3c3c3c guisp=#3c3c3c gui=NONE ctermfg=209 ctermbg=237 cterm=NONE
 hi SpellBad ctermbg=160
 hi Statement guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
-hi StatusLine guifg=#f1f1f1 guibg=#626262 guisp=#626262 gui=bold ctermfg=255 ctermbg=241 cterm=bold
-hi StatusLineNC guifg=#f1f1f1 guibg=#626262 guisp=#626262 gui=NONE ctermfg=255 ctermbg=241 cterm=NONE
+hi StatusLine guifg=#f1f1f1 guibg=#626262 guisp=#626262 gui=bold ctermfg=255 ctermbg=240 cterm=bold
+hi StatusLineNC guifg=#f1f1f1 guibg=#626262 guisp=#626262 gui=NONE ctermfg=255 ctermbg=240 cterm=NONE
 hi StorageClass guifg=#ecec89 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
 hi String guifg=#bddcdc guibg=NONE guisp=NONE gui=NONE ctermfg=152 ctermbg=NONE cterm=NONE
 hi Structure guifg=#92bfbf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE
@@ -70,7 +70,7 @@ hi Todo guifg=#777777 guibg=NONE guisp=NONE gui=bold ctermfg=243 ctermbg=NONE ct
 hi Type guifg=#92bfbf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE
 hi Typedef guifg=#92bfbf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE
 hi Underlined guifg=NONE guibg=NONE guisp=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=underline
-hi VertSplit guifg=#626262 guibg=#626262 guisp=#626262 gui=NONE ctermfg=241 ctermbg=241 cterm=NONE
+hi VertSplit guifg=#626262 guibg=#626262 guisp=#626262 gui=NONE ctermfg=240 ctermbg=240 cterm=NONE
 hi Visual guifg=NONE guibg=#4c4c4c guisp=#4c4c4c gui=NONE ctermfg=NONE ctermbg=239 cterm=NONE
 hi WarningMsg guifg=#cf5340 guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE
 hi colorcolumn guifg=NONE guibg=#3c3c3c guisp=#3c3c3c gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE
