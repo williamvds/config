@@ -18,7 +18,7 @@
 		}
 	},
 	"clock": {
-		"format": "{:%a%e %B, %I:%M %p}"
+		"format": "{:%I:%M %p │ %A %e %B}"
 	},
 	"battery": {
 		"format": "{icon}",
