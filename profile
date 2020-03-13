@@ -31,11 +31,6 @@ export STACK_ROOT="$HOME/.local/share/stack"
 if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
 	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	export SSH_AUTH_SOCK
-
-	if command -v sway >/dev/null; then
-		SWAYSOCK="$(find "$XDG_RUNTIME_DIR" -name 'sway-*.sock' |head -n 1)"
-		export SWAYSOCK
-	fi
 fi
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
