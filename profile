@@ -112,7 +112,7 @@ fi
 
 alias rss='newsboat'
 alias mail='aerc'
-alias hl='ack --passthru'
+alias hl='ag --passthrough'
 alias totp='oathtool --totp -b'
 
 alias rsync='rsync -h --info=progress2'
