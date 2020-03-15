@@ -50,6 +50,8 @@ exec {
 	steam-native -silent %U
 	nextcloud
 	$TERMINAL -t main
+	$TERMINAL -t chat  -e tmux new -A -s chat
+	$TERMINAL -t music -e tmux new -A -s music
 }
 
 # custom binds
@@ -80,23 +82,20 @@ default_floating_border pixel 2
 # misc
 assign [class="Firefox|Nightly"] 1
 assign [title="^main$"] 2
-assign [app_id="Alacritty"] 2
-assign [class="mpv"] 3
+assign [app_id="mpv"] 3
 assign [class="jetbrains-studio"] 3
 assign [app_id="looking-glass-client"] 4
 assign [class="Steam"] 8
-assign [title="Steam"] 8
 assign [class="Steam" title="Friends List"] 9
-assign [class="TelegramDesktop"] 9
-assign [title="(?i)chat$"] 9
+assign [title="^chat$"] 9
 assign [class="Signal*"] 9
 assign [title="^music$"] 10
 
-for_window [class="Firefox|Nightly"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="pavucontrol|Nm-connection-editor|Pinentry"] floating enable
 for_window [title="Steam Guard"] floating enable
 for_window [app_id="looking-glass-client"] inhibit_idle focus
-for_window [class="mpv"] inhibit_idle focus
+for_window [app_id="mpv"] inhibit_idle focus
 for_window [class="Wine"] inhibit_idle fullscreen
 
 # focus
