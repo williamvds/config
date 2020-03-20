@@ -8,6 +8,7 @@
   --sidebar-expanded: 230px;
 
   --toolbar-bgcolor: var(--theme-bg) !important;
+  --toolbar-bgimage: none;
   --chrome-content-separator-color: none !important;
   --chrome-background-color: var(--theme-bg) !important;
   --chrome-secondary-background-color: var(--theme-bg) !important;
