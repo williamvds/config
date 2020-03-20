@@ -1,74 +1,74 @@
 /* Theming browser pages */
 :root {
-  --theme-bg:            #282828;
-  --theme-bg-darker:     rgba(12, 12, 13, .2);
-  --theme-fg:            #fff;
-  --theme-primary:       #cd3c1b;
-  --theme-primary-alpha: rgba(205, 60, 27, .5);
+	--theme-bg:            #282828;
+	--theme-bg-darker:     rgba(12, 12, 13, .2);
+	--theme-fg:            #fff;
+	--theme-primary:       #cd3c1b;
+	--theme-primary-alpha: rgba(205, 60, 27, .5);
 
-  --in-content-category-text: var(--theme-fg) !important;
-  --in-content-page-color:    var(--theme-fg) !important;
-  --in-content-text-color:    var(--theme-fg) !important;
-  --sidebar-text-color:       var(--theme-fg) !important;
-  --text-color:               var(--theme-fg) !important; /* about: debugging-new#/runtime/this-firefox */
+	--in-content-category-text: var(--theme-fg) !important;
+	--in-content-page-color:    var(--theme-fg) !important;
+	--in-content-text-color:    var(--theme-fg) !important;
+	--sidebar-text-color:       var(--theme-fg) !important;
+	--text-color:               var(--theme-fg) !important; /* about: debugging-new#/runtime/this-firefox */
 
-  --aboutProfiles-table-background: var(--theme-bg) !important;
-  --in-content-box-background:      var(--theme-bg) !important;
-  --in-content-page-background:     var(--theme-bg) !important;
-  --in-content-table-background:    var(--theme-bg) !important;
+	--aboutProfiles-table-background: var(--theme-bg) !important;
+	--in-content-box-background:      var(--theme-bg) !important;
+	--in-content-page-background:     var(--theme-bg) !important;
+	--in-content-table-background:    var(--theme-bg) !important;
 
-  --in-content-border-focus:                  var(--theme-primary) !important;
-  --in-content-category-selected-text:        var(--theme-primary) !important;
-  --in-content-category-text-selected-active: var(--theme-primary) !important;
-  --in-content-category-text-selected:        var(--theme-primary) !important;
-  --in-content-link-color-hover:              var(--theme-primary) !important;
-  --in-content-link-color:                    var(--theme-primary) !important;
-  --in-content-primary-button-background:     var(--theme-primary) !important;
-  --link-color-hover:                         var(--theme-primary) !important;
-  --link-color:                               var(--theme-primary) !important;
-  --in-content-button-background-hover:       var(--theme-primary) !important;
+	--in-content-border-focus:                  var(--theme-primary) !important;
+	--in-content-category-selected-text:        var(--theme-primary) !important;
+	--in-content-category-text-selected-active: var(--theme-primary) !important;
+	--in-content-category-text-selected:        var(--theme-primary) !important;
+	--in-content-link-color-hover:              var(--theme-primary) !important;
+	--in-content-link-color:                    var(--theme-primary) !important;
+	--in-content-primary-button-background:     var(--theme-primary) !important;
+	--link-color-hover:                         var(--theme-primary) !important;
+	--link-color:                               var(--theme-primary) !important;
+	--in-content-button-background-hover:       var(--theme-primary) !important;
 
-  --card-outline-color:              var(--theme-primary-alpha) !important;
-  --in-content-border-active-shadow: var(--theme-primary-alpha) !important;
+	--card-outline-color:              var(--theme-primary-alpha) !important;
+	--in-content-border-active-shadow: var(--theme-primary-alpha) !important;
 
-  --in-content-box-background-active:   var(--theme-bg-darker) !important;
-  --in-content-box-background-hover:    var(--theme-bg-darker) !important;
-  --in-content-table-header-background: var(--theme-bg-darker) !important;
+	--in-content-box-background-active:   var(--theme-bg-darker) !important;
+	--in-content-box-background-hover:    var(--theme-bg-darker) !important;
+	--in-content-table-header-background: var(--theme-bg-darker) !important;
 
-  --in-content-border-active-shadow: transparent !important;
-  --in-content-border-active:        transparent !important;
-  --in-content-box-background-odd:   transparent !important;
-  --in-content-box-border-color:     transparent !important;
+	--in-content-border-active-shadow: transparent !important;
+	--in-content-border-active:        transparent !important;
+	--in-content-box-background-odd:   transparent !important;
+	--in-content-box-border-color:     transparent !important;
 }
 
 @-moz-document url-prefix(about:) {
-  html:not(#ublock0-epicker), html:not(#ublock0-epicker) body {
-    background: var(--theme-bg) !important;
-    color: var(--theme-fg) !important;
-  }
+	html:not(#ublock0-epicker), html:not(#ublock0-epicker) body {
+	  background: var(--theme-bg) !important;
+	  color: var(--theme-fg) !important;
+	}
 
-  .detail-row-complex, .detail-row-label, .detail-row-value /* about:addons > extensions */ {
-    text-shadow: none !important;
-  }
+	.detail-row-complex, .detail-row-label, .detail-row-value /* about:addons > extensions */ {
+	  text-shadow: none !important;
+	}
 
-  #errorPageContainer /* about:robots */,
-  .warningBackground /* about:serviceworkers */ {
-    background: none !important;
-  }
+	#errorPageContainer /* about:robots */,
+	.warningBackground /* about:serviceworkers */ {
+	  background: none !important;
+	}
 
-  .message-bar,
-  .service-worker-multi-process,
-  .notice, .contenttable, /* about:plugins */
-  .warningMessage, /* about:serviceworkers */
-  .stats, .log /* about:webrtc */ {
-    background: var(--theme-darker-bg) !important;
-    color: var(--theme-fg) !important;
-    border: none !important;
-  }
+	.message-bar,
+	.service-worker-multi-process,
+	.notice, .contenttable, /* about:plugins */
+	.warningMessage, /* about:serviceworkers */
+	.stats, .log /* about:webrtc */ {
+	  background: var(--theme-darker-bg) !important;
+	  color: var(--theme-fg) !important;
+	  border: none !important;
+	}
 
-  #tabsToggle /* about:sessionrestore */ {
-    color: var(--theme-primary) !important;
-  }
+	#tabsToggle /* about:sessionrestore */ {
+	  color: var(--theme-primary) !important;
+	}
 }
 
 @-moz-document domain("open.rocket.chat") {

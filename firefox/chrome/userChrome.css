@@ -1,47 +1,47 @@
 /* Theming browser elements */
 :root {
-  --theme-bg: #282828;
-  --theme-fg: #fff;
-  --theme-primary: #cd3c1b;
+	--theme-bg: #282828;
+	--theme-fg: #fff;
+	--theme-primary: #cd3c1b;
 
-  --sidebar-width: 30px;
-  --sidebar-expanded: 230px;
+	--sidebar-width: 30px;
+	--sidebar-expanded: 230px;
 
-  --toolbar-bgcolor: var(--theme-bg) !important;
-  --toolbar-bgimage: none;
-  --toolbar-non-lwt-bgcolor: var(--theme-bg) !important;
-  --lwt-toolbar-field-focus: var(--theme-bg) !important;
-  --lwt-toolbar-field-background-color: var(--theme-bg) !important;
-  --chrome-content-separator-color: none !important;
-  --chrome-background-color: var(--theme-bg) !important;
-  --chrome-secondary-background-color: var(--theme-bg) !important;
-  --toolbox-border-bottom-color: transparent !important; /* below toolbox bar */
-  --tabs-border-color: transparent !important; /* below menu bar */
+	--toolbar-bgcolor: var(--theme-bg) !important;
+	--toolbar-bgimage: none;
+	--toolbar-non-lwt-bgcolor: var(--theme-bg) !important;
+	--lwt-toolbar-field-focus: var(--theme-bg) !important;
+	--lwt-toolbar-field-background-color: var(--theme-bg) !important;
+	--chrome-content-separator-color: none !important;
+	--chrome-background-color: var(--theme-bg) !important;
+	--chrome-secondary-background-color: var(--theme-bg) !important;
+	--toolbox-border-bottom-color: transparent !important; /* below toolbox bar */
+	--tabs-border-color: transparent !important; /* below menu bar */
 }
 
 @-moz-document url("chrome://browser/content/browser.xul") {
-  #TabsToolbar {
-    visibility: collapse !important;
-  }
+	#TabsToolbar {
+		visibility: collapse !important;
+	}
 }
 
 /* toolbox */
 #tabbrowser-tabs {
-  visibility: collapse !important;
+	visibility: collapse !important;
 }
 
 #back-button, #forward-button, .urlbar-history-dropmarker {
-  display: none;
+	display: none;
 }
 
 #urlbar {
-  text-align: center;
-  border: none !important;
-  border-radius: 0px !important;
+	text-align: center;
+	border: none !important;
+	border-radius: 0px !important;
 }
 
 #nav-bar:not([customizing]) {
-  margin-top: -42px;
+	margin-top: -42px;
 }
 
 :root:not([customizing]) :hover > #nav-bar,
@@ -50,23 +50,23 @@
 #identity-box[open="true"],
 #navigator-toolbox:hover > #nav-bar:not([customizing]),
 #toolbar-menubar:not([inactive="true"]) ~ #nav-bar:not([customizing]) {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 /* sidebar */
 
 #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] {
-  overflow: hidden;
-  min-width: var(--sidebar-width);
-  max-width: var(--sidebar-width);
-  z-index: 2;
+	overflow: hidden;
+	min-width: var(--sidebar-width);
+	max-width: var(--sidebar-width);
+	z-index: 2;
 }
 
 #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] #sidebar-header,
 #sidebar #topmenu, #sidebar #topshadow, #sidebar-box ~ #sidebar-splitter {
-  display: none;
+	display: none;
 }
 
 #sidebar-box #sidebar {
-  height: 100vh;
+	height: 100vh;
 }
