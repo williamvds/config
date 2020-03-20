@@ -1,6 +1,4 @@
 /* Theming browser elements */
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
 :root {
   --theme-bg: #282828;
   --theme-fg: #fff;
