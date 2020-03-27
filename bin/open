@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if [ $_OS_GNU_LINUX ]; then
+	xdg-open $@
+elif [ $_OS_MACOS ]; then
+	/usr/bin/open $@
+fi
