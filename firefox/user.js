@@ -367,7 +367,7 @@ user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.autoupdate", false);
 
 // site permissions
-user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.enabled", true);
 user_pref("media.peerconnection.use_document_iceservers", false);
 user_pref("media.peerconnection.video.enabled", false);
 user_pref("media.peerconnection.identity.enabled", false);
@@ -379,17 +379,17 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("media.peerconnection.ice.no_host", true);
 user_pref("webgl.disabled", true);
 user_pref("pdfjs.enableWebGL", true);
-user_pref("webgl.min_capability_mode", true);
-user_pref("webgl.disable-extensions", true);
-user_pref("webgl.disable-fail-if-major-performance-caveat", true);
-user_pref("webgl.enable-debug-renderer-info", false);
-user_pref("webgl.dxgl.enabled", false);
-user_pref("webgl.enable-webgl2", false);
-user_pref("media.getusermedia.screensharing.enabled", false);
+user_pref("webgl.min_capability_mode", false);
+user_pref("webgl.disable-extensions", false);
+user_pref("webgl.disable-fail-if-major-performance-caveat", false);
+user_pref("webgl.enable-debug-renderer-info", true);
+user_pref("webgl.dxgl.enabled", true);
+user_pref("webgl.enable-webgl2", true);
+user_pref("media.getusermedia.screensharing.enabled", true);
 user_pref("media.getusermedia.browser.enabled", false);
 user_pref("media.getusermedia.audiocapture.enabled", false);
-user_pref("permissions.default.camera", 2);
-user_pref("permissions.default.microphone", 2);
+user_pref("permissions.default.camera", 0);
+user_pref("permissions.default.microphone", 0);
 user_pref("canvas.capturestream.enabled", false);
 user_pref("dom.imagecapture.enabled", false);
 user_pref("gfx.offscreencanvas.enabled", false);
@@ -615,7 +615,7 @@ user_pref("extensions.enabledScopes", 1); // (hidden pref)
 user_pref("extensions.autoDisableScopes", 15);
 /* 2670: disable "image/" mime types bypassing CSP (FF51+)
  * [1] https://bugzilla.mozilla.org/1288361 ***/
-user_pref("security.block_script_with_wrong_mime", true);
+user_pref("security.block_script_with_wrong_mime", false);
 /* 2671: disable in-content SVG (Scalable Vector Graphics) (FF53+)
  * [WARNING] SVG is fairly common (~15% of the top 10K sites), so will cause some breakage
  * including youtube player controls. Best left for "hardened" or specific profiles.

@@ -3,7 +3,7 @@
     "General": "custom",
     "Keybindings": "custom",
     "Appearance": "custom",
-    "Blacklist": "default"
+    "Blacklist": "default_copy_1583498614300"
   },
   "profiles": {
     "General": {
@@ -297,60 +297,11 @@
         ],
         "scrollToLeft": [],
         "scrollToRight": [],
-        "zoomIn": [
-          [
-            {
-              "code": "KeyZ",
-              "key": "z"
-            }
-          ]
-        ],
-        "zoomOut": [
-          [
-            {
-              "code": "KeyZ",
-              "key": "Z",
-              "shiftKey": true
-            }
-          ]
-        ],
-        "zoomReset": [
-          [
-            {
-              "code": "KeyZ",
-              "key": "Ω",
-              "altKey": true
-            }
-          ],
-          [
-            {
-              "code": "KeyZ",
-              "key": "¸",
-              "altKey": true,
-              "shiftKey": true
-            }
-          ]
-        ],
-        "newTab": [
-          [
-            {
-              "code": "KeyT",
-              "key": "t"
-            }
-          ]
-        ],
-        "restoreTab": [
-          [
-            {
-              "code": "KeyX",
-              "key": "X",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
+        "zoomIn": [],
+        "zoomOut": [],
+        "zoomReset": [],
+        "newTab": [],
+        "restoreTab": [],
         "duplicateTab": [
           [
             {
@@ -371,130 +322,17 @@
             }
           ]
         ],
-        "newWindow": [
-          [
-            {
-              "code": "KeyN",
-              "key": "n",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "newIncognitoWindow": [
-          [
-            {
-              "code": "KeyN",
-              "key": "N",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "closeTab": [
-          [
-            {
-              "code": "KeyX",
-              "key": "x",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
+        "newWindow": [],
+        "newIncognitoWindow": [],
+        "closeTab": [],
         "closeOtherTabs": [],
         "closeRightTabs": [],
         "closeLeftTabs": [],
-        "refreshTab": [
-          [
-            {
-              "code": "KeyR",
-              "key": "r",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
+        "refreshTab": [],
         "refreshAllTabs": [],
-        "hardRefreshTab": [
-          [
-            {
-              "code": "KeyR",
-              "key": "r",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "nextTab": [
-          [
-            {
-              "code": "KeyJ",
-              "key": "J",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ],
-          [
-            {
-              "code": "KeyG",
-              "key": "g",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            },
-            {
-              "code": "KeyN",
-              "key": "n",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ],
-          [
-            {
-              "code": "KeyG",
-              "key": "g",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            },
-            {
-              "code": "KeyP",
-              "key": "p",
-              "shiftKey": false,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
-        "previousTab": [
-          [
-            {
-              "code": "KeyK",
-              "key": "K",
-              "shiftKey": true,
-              "ctrlKey": false,
-              "altKey": false,
-              "metaKey": false
-            }
-          ]
-        ],
+        "hardRefreshTab": [],
+        "nextTab": [],
+        "previousTab": [],
         "firstTab": [],
         "lastTab": [],
         "moveTabLeft": [
@@ -677,6 +515,9 @@
     "Blacklist": {
       "default": {
         "blacklist": ""
+      },
+      "default_copy_1583498614300": {
+        "blacklist": "ovh.net"
       }
     }
   }
