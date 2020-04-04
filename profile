@@ -73,9 +73,6 @@ export BROWSER=firefox-nightly
 export MANPAGER="$EDITOR -c 'set ft=man nonu nomod nolist' -"
 
 export CLASSPATH="class:src:bin/*:lib/*:/usr/share/java/*:$ANDROID_TOOLS/platforms/android-27/android.jar"
-export CFLAGS='-std=c11'
-export CPPFLAGS='-Wall -g -shared'
-export CXXFLAGS='-std=c++17'
 
 if command -v systemctl >/dev/null; then
 	systemctl --user import-environment \
