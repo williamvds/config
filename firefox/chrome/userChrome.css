@@ -53,6 +53,16 @@
 	margin-top: 0;
 }
 
+.private-browsing-indicator {
+	display: block;
+	position: absolute !important;
+	top: 4px;
+}
+
+.browser-toolbar:not(.titlebar-color) {
+	background-image: none !important;
+}
+
 /* sidebar */
 
 #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] #sidebar-header,
