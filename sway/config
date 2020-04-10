@@ -38,7 +38,6 @@ exec_always {
 }
 
 exec {
-	waybar
 	mako
 	gpg-agent --daemon --enable-ssh-support --sh
 	swayidle \
@@ -53,6 +52,11 @@ exec {
 	$TERMINAL -t chat  -e tmux new -A -s chat
 	$TERMINAL -t music -e tmux new -A -s music
 	$BROWSER
+}
+
+bar {
+	position bottom
+	swaybar_command waybar
 }
 
 # custom binds
