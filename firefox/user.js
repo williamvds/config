@@ -19,6 +19,7 @@ user_pref("general.smoothScroll.mouseWheel.durationMinMS", 200);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
 user_pref("identity.fxaccounts.enabled", true);
 user_pref("identity.sync.tokenserver.uri", "https://sync.williamvds.me/token/1.0/sync/1.5");
+user_pref("services.sync.syncInterval", 180000);
 user_pref("layout.spellcheckDefault", 2);
 user_pref("mousewheel.default.delta_multiplier_y", 500);
 user_pref("network.manage-offline-status", false);
@@ -264,7 +265,7 @@ user_pref("browser.sessionstore.max_tabs_undo", 4);
 user_pref("browser.sessionstore.max_windows_undo", 2);
 user_pref("browser.sessionstore.privacy_level", 1);
 user_pref("browser.sessionstore.resume_from_crash", true);
-user_pref("browser.sessionstore.interval", 120000);
+user_pref("browser.sessionstore.interval", 60000);
 user_pref("browser.shell.shortcutFavicons", false);
 user_pref("browser.chrome.site_icons", true);
 user_pref("browser.chrome.favicons", true);
@@ -386,8 +387,8 @@ user_pref("webgl.enable-debug-renderer-info", true);
 user_pref("webgl.dxgl.enabled", true);
 user_pref("webgl.enable-webgl2", true);
 user_pref("media.getusermedia.screensharing.enabled", true);
-user_pref("media.getusermedia.browser.enabled", false);
-user_pref("media.getusermedia.audiocapture.enabled", false);
+user_pref("media.getusermedia.browser.enabled", true);
+user_pref("media.getusermedia.audiocapture.enabled", true);
 user_pref("permissions.default.camera", 0);
 user_pref("permissions.default.microphone", 0);
 user_pref("canvas.capturestream.enabled", false);
@@ -534,7 +535,7 @@ user_pref("media.navigator.enabled", false);
 user_pref("layers.acceleration.disabled", true);
 /* 2510: disable Web Audio API (FF51+)
  * [1] https://bugzilla.mozilla.org/1288359 ***/
-user_pref("dom.webaudio.enabled", false);
+user_pref("dom.webaudio.enabled", true);
 /* 2516: disable PointerEvents
  * [1] https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent ***/
 user_pref("dom.w3c_pointer_events.enabled", false);
