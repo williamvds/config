@@ -49,8 +49,9 @@ exec {
 	steam-native -silent %U
 	nextcloud
 	$TERMINAL -t main
-	$TERMINAL -t chat  -e tmux new -A -s chat
-	$TERMINAL -t music -e tmux new -A -s music
+	$TERMINAL -t monitor -e tmux new -A -s monitor
+	$TERMINAL -t chat    -e tmux new -A -s chat
+	$TERMINAL -t music   -e tmux new -A -s music
 	$BROWSER
 }
 
@@ -105,6 +106,8 @@ for_window [app_id="looking-glass-client"] inhibit_idle focus
 for_window [app_id="mpv"] inhibit_idle focus
 for_window [class="Wine"] inhibit_idle fullscreen
 
+workspace_layout tabbed
+
 # focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -119,7 +122,6 @@ bindsym $mod+Shift+j move down 50px
 bindsym $mod+Shift+k move up 50px
 bindsym $mod+Shift+l move right 50px
 
-bindsym $mod+v layout toggle split
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+f floating toggle
 
