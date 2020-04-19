@@ -88,6 +88,7 @@ default_floating_border pixel 2
 # misc
 assign [class="Firefox|Nightly"] 1
 assign [title="^main$"] 2
+assign [title="^monitor$"] 2
 assign [app_id="mpv"] 3
 assign [class="jetbrains-studio"] 3
 assign [app_id="looking-glass-client"] 4
