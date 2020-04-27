@@ -197,7 +197,11 @@ mode app {
 	bindsym Shift+equal exec redshiftcmd +
 	bindsym minus exec redshiftcmd -
 
-	bindsym p exec 'killall waybar; waybar'; mode default
+	bindsym p mode default; exec grim -o \
+		$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - \
+		| xclip -i -selection clipboard -t image/png
+	bindsym Shift+p mode default; exec grim -g "$(slurp)" - \
+		| xclip -i -selection clipboard -t image/png
 	bindsym m exec $TERMINAL -t music -e ncmpcpp; mode default
 	bindsym c mode default; \
 		exec rofi -show calc -modi calc -no-show-match -no-sort
