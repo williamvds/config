@@ -21,8 +21,6 @@ user_pref("identity.fxaccounts.enabled", true);
 user_pref("identity.sync.tokenserver.uri", "https://sync.williamvds.me/token/1.0/sync/1.5");
 user_pref("services.sync.syncInterval", 180000);
 user_pref("layout.spellcheckDefault", 2);
-user_pref("mousewheel.default.delta_multiplier_y", 50);
-user_pref("mousewheel.default.delta_multiplier_x", 50);
 user_pref("network.manage-offline-status", false);
 user_pref("reader.parse-on-load.enabled", true);
 user_pref("toolkit.cosmeticAnimations.enabled", false);
