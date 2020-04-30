@@ -12,8 +12,10 @@
 	--sidebar-text-color:       var(--theme-fg) !important;
 	--text-color:               var(--theme-fg) !important; /* about: debugging-new#/runtime/this-firefox */
 
+	--bg-color:                       var(--theme-bg) !important;
 	--aboutProfiles-table-background: var(--theme-bg) !important;
 	--in-content-box-background:      var(--theme-bg) !important;
+	--in-content-box-info-background: var(--theme-bg) !important;
 	--in-content-page-background:     var(--theme-bg) !important;
 	--in-content-table-background:    var(--theme-bg) !important;
 
@@ -24,6 +26,7 @@
 	--in-content-link-color-hover:              var(--theme-primary) !important;
 	--in-content-link-color:                    var(--theme-primary) !important;
 	--in-content-primary-button-background:     var(--theme-primary) !important;
+	--in-content-button-background-mixed:       var(--theme-primary) !important;
 	--link-color-hover:                         var(--theme-primary) !important;
 	--link-color:                               var(--theme-primary) !important;
 	--in-content-button-background-hover:       var(--theme-primary) !important;
