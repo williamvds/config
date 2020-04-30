@@ -72,6 +72,10 @@
 	#tabsToggle /* about:sessionrestore */ {
 	  color: var(--theme-primary) !important;
 	}
+
+	.checkbox-check, input[type="checkbox"] {
+		background-color: -moz-field !important;
+	}
 }
 
 @-moz-document domain("open.rocket.chat") {
