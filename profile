@@ -34,7 +34,6 @@ if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
 fi
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
-	export GDK_BACKEND=wayland
 	export CLUTTER_BACKEND=wayland
 	export SDL_VIDEODRIVER=wayland
 	export QT_WAYLAND_FORCE_DPI=physical
