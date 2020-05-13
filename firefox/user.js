@@ -149,7 +149,7 @@ user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
 
 // tracking & fingerprinting
-user_pref("browser.display.use_document_fonts", 0);
+user_pref("browser.display.use_document_fonts", 1);
 user_pref("browser.safebrowsing.blockedURIs.enabled", true);
 user_pref("browser.ssl_override_behavior", 1);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
@@ -367,17 +367,7 @@ user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.autoupdate", false);
 
 // site permissions
-user_pref("media.peerconnection.enabled", true);
-user_pref("media.peerconnection.use_document_iceservers", false);
-user_pref("media.peerconnection.video.enabled", false);
-user_pref("media.peerconnection.identity.enabled", false);
-user_pref("media.peerconnection.identity.timeout", 1);
-user_pref("media.peerconnection.turn.disable", true);
-user_pref("media.peerconnection.ice.tcp", false);
-user_pref("media.navigator.video.enabled", false);
-user_pref("media.peerconnection.ice.default_address_only", true);
-user_pref("media.peerconnection.ice.no_host", true);
-user_pref("webgl.disabled", true);
+user_pref("webgl.disabled", false);
 user_pref("pdfjs.enableWebGL", true);
 user_pref("webgl.min_capability_mode", false);
 user_pref("webgl.disable-extensions", false);
@@ -449,7 +439,7 @@ user_pref("dom.workers.enabled", false);
 user_pref("dom.serviceWorkers.enabled", false);
 /* 2304: disable web notifications
  * [1] https://developer.mozilla.org/docs/Web/API/Notifications_API ***/
-user_pref("dom.webnotifications.enabled", false); // (FF22+)
+user_pref("dom.webnotifications.enabled", true); // (FF22+)
 user_pref("dom.webnotifications.serviceworker.enabled", false); // (FF44+)
 /* 2305: set a default permission for Notifications (see 2304) (FF58+)
  * [SETTING] to add site exceptions: Page Info>Permissions>Receive Notifications
