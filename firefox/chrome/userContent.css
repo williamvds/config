@@ -46,17 +46,17 @@
 
 @-moz-document url-prefix(about:) {
 	html:not(#ublock0-epicker), html:not(#ublock0-epicker) body {
-	  background: var(--theme-bg) !important;
-	  color: var(--theme-fg) !important;
+		background: var(--theme-bg) !important;
+		color: var(--theme-fg) !important;
 	}
 
 	.detail-row-complex, .detail-row-label, .detail-row-value /* about:addons > extensions */ {
-	  text-shadow: none !important;
+		text-shadow: none !important;
 	}
 
 	#errorPageContainer /* about:robots */,
 	.warningBackground /* about:serviceworkers */ {
-	  background: none !important;
+		background: none !important;
 	}
 
 	.message-bar,
@@ -64,13 +64,13 @@
 	.notice, .contenttable, /* about:plugins */
 	.warningMessage, /* about:serviceworkers */
 	.stats, .log /* about:webrtc */ {
-	  background: var(--theme-darker-bg) !important;
-	  color: var(--theme-fg) !important;
-	  border: none !important;
+		background: var(--theme-darker-bg) !important;
+		color: var(--theme-fg) !important;
+		border: none !important;
 	}
 
 	#tabsToggle /* about:sessionrestore */ {
-	  color: var(--theme-primary) !important;
+		color: var(--theme-primary) !important;
 	}
 
 	.checkbox-check, input[type="checkbox"] {
