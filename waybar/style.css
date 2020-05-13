@@ -1,5 +1,5 @@
 * {
-	font-family: "Noto Sans", "Material Design Icons";
+	font-family: sans-serif, "Material Design Icons";
 }
 
 window {
@@ -46,7 +46,7 @@ label {
 
 #custom-emails, #custom-tasks {
 	background: #ffb52a;
-	border-top: solid #996c18 2px;
+	border-top: solid #996c18 .2em;
 	color: #111;
 }
 
