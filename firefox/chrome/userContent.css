@@ -2,6 +2,7 @@
 :root {
 	--theme-bg:            #282828;
 	--theme-bg-darker:     rgba(12, 12, 13, .2);
+	--theme-bg-lighter:    #444;
 	--theme-fg:            #fff;
 	--theme-primary:       #cd3c1b;
 	--theme-primary-alpha: rgba(205, 60, 27, .5);
@@ -97,22 +98,25 @@
 		border-radius: 100%;
 	}
 
-	.tab-context:not(.hasContext) {
-		background: none !important;
-		margin-right: 1px;
+	.tab {
+		padding-left: 6px;
 	}
 
-	.tab.active {
-		background-color: #444 !important;
+	.tab.active, .tab:hover {
+		background: var(--bg-lighter) !important;
 	}
 
-	.tab:hover {
-		background-color: #444 !important;
+	.tab:not(.hasContext) .tab-context {
+		visibility: hidden !important;
 	}
 
 	.tab-context {
-		background-color: #444 !important;
-		min-width: 4px !important;
+		background-position: 0 0 !important;
+		background: var(--identity-tab-color) !important;
+		min-width: 2px !important;
+		position: absolute;
+		right: 0;
+		width: 2px !important;
 	}
 }
 
