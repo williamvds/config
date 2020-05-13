@@ -78,6 +78,44 @@
 	}
 }
 
+@-moz-document url-prefix("moz-extension://6ea246a0-bdb0-4f24-839d-cb436fb882c7/sidebar") {
+	body {
+		background: var(--theme-bg) !important;
+	}
+
+	#topmenu {
+		display: none !important;
+	}
+
+	#pinnedtablist .tab, #tablist .tab {
+		border-bottom: none !important;
+	}
+
+	#tablist-wrapper.shrinked #tablist .tab-meta-image,
+	#tablist-wrapper.shrinked #pinnedtablist:not(.compact) .tab-meta-image {
+		background: white !important;
+		border-radius: 100%;
+	}
+
+	.tab-context:not(.hasContext) {
+		background: none !important;
+		margin-right: 1px;
+	}
+
+	.tab.active {
+		background-color: #444 !important;
+	}
+
+	.tab:hover {
+		background-color: #444 !important;
+	}
+
+	.tab-context {
+		background-color: #444 !important;
+		min-width: 4px !important;
+	}
+}
+
 @-moz-document domain("open.rocket.chat") {
 	:root {
 		/* thinner sidebar */
