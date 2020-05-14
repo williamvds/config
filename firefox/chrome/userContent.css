@@ -65,7 +65,7 @@
 	.notice, .contenttable, /* about:plugins */
 	.warningMessage, /* about:serviceworkers */
 	.stats, .log /* about:webrtc */ {
-		background: var(--theme-darker-bg) !important;
+		background: var(--theme-bg-darker) !important;
 		color: var(--theme-fg) !important;
 		border: none !important;
 	}
@@ -103,7 +103,7 @@
 	}
 
 	.tab.active, .tab:hover {
-		background: var(--bg-lighter) !important;
+		background: var(--theme-bg-lighter) !important;
 	}
 
 	.tab:not(.hasContext) .tab-context {
