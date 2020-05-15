@@ -82,12 +82,13 @@ bindsym $mod+Print exec \
 bindsym $mod+ctrl+Print exec \
 	"maim -ui $(xdotool getactivewindow) |xclip -se c -t image/png"
 
-# gaps
-gaps inner 6
+# display
+gaps inner 0
 gaps outer 0
 smart_borders on
 default_border pixel 2
 default_floating_border pixel 2
+popup_during_fullscreen smart
 
 # misc
 assign [class="Firefox|Nightly"] 1
@@ -110,8 +111,6 @@ for_window [title="Steam Guard"] floating enable
 for_window [app_id="looking-glass-client"] inhibit_idle focus
 for_window [app_id="mpv"] inhibit_idle focus
 for_window [class="Wine"] inhibit_idle fullscreen
-
-workspace_layout tabbed
 
 # focus
 bindsym $mod+h focus left
