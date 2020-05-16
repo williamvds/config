@@ -1,5 +1,6 @@
 {
 	"layer": "bottom",
+	"height": 28,
 	"position": "bottom",
 	"modules-left": ["sway/workspaces", "sway/mode", "custom/mpd"],
 	"modules-center": ["clock"],
