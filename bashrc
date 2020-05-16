@@ -15,6 +15,7 @@ include "$XDG_CONFIG_HOME"/theme.sh /usr/share/doc/pkgfile/command-not-found.bas
 
 export BASH_COMPLETION_COMPAT_DIR='/usr/local/etc/bash_completion.d'
 include_first /usr/{share/bash_completion,local/etc/profile.d/bash_completion.sh}
+include /usr/share/bash-complete-alias/complete_alias
 
 HISTFILE=$HOME/.cache/bash_history
 HISTCONTROL=ignoreboth:erasedups HISTSIZE='' HISTFILESIZE=''

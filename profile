@@ -90,6 +90,14 @@ alias 4..='../../../..'
 alias 5..='../../../../..'
 
 if [ $_OS_GNU_LINUX ]; then
+	alias sys='systemctl'
+	alias sysu='systemctl --user'
+
+	if command -v _complete_alias >/dev/null; then
+		complete -F _complete_alias sys
+		complete -F _complete_alias sysu
+	fi
+
 	alias reboot='systemctl reboot'
 	alias shutdown='systemctl poweroff'
 	alias hibernate='systemctl hibernate'
