@@ -60,6 +60,7 @@ user_pref("browser.startup.page", 3);
 user_pref("startup.homepage_override_url", "");
 user_pref("startup.homepage_welcome_url", "");
 user_pref("startup.homepage_welcome_url.additional", "");
+user_pref("browser.aboutwelcome.enabled", false);
 
 // devtools
 user_pref("devtools.chrome.enabled", true);
