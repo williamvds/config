@@ -1,3 +1,10 @@
+prepopulate-query-feeds yes
+
+urls-source "ocnews"
+ocnews-url "https://cloud.williamvds.me"
+ocnews-login "william"
+ocnews-passwordeval "pass public/nextcloud |head -n1"
+
 bind-key j down
 bind-key k up
 bind-key j next articlelist
@@ -39,8 +46,8 @@ color listfocus_unread red color235
 color info white default bold
 color article cyan default
 
-external-url-viewer "firefox-nightly"
-browser firefox-nightly
+external-url-viewer "$BROWSER"
+browser $BROWSER
 macro o open-in-browser-and-mark-read
 macro m set browser "mpv %u &>/dev/null & disown"; open-in-browser-and-mark-read ; set browser linkhandler
 macro y set browser "pbcopy <<< "; open-in-browser-and-mark-read ; set browser linkhandler
