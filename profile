@@ -71,7 +71,7 @@ done
 export editor=$EDITOR
 export VISUAL=$EDITOR
 export TERMINAL=alacritty
-export BROWSER=firefox-nightly
+export BROWSER=firefox
 export MANPAGER="$EDITOR -c 'set ft=man nonu nomod nolist' -"
 
 export CLASSPATH="class:src:bin/*:lib/*:/usr/share/java/*:$ANDROID_TOOLS/platforms/android-27/android.jar"
