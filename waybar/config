@@ -43,7 +43,7 @@
 		"format-icons": {
 			"default": ["", "", ""]
 		},
-		"on-click": "pavucontrol"
+		"on-click": "$TERMINAL -t drop -e pulsemixer"
 	},
 	"tray": {
 		"icon-size": 20,

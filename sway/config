@@ -111,6 +111,7 @@ for_window [title="Steam Guard"] floating enable
 for_window [app_id="looking-glass-client"] inhibit_idle focus
 for_window [app_id="mpv"] inhibit_idle focus
 for_window [class="Wine"] inhibit_idle fullscreen
+for_window [title="^drop$"] focus, move container scratchpad, resize set 500px 500px, scratchpad show
 
 # focus
 bindsym $mod+h focus left
@@ -206,8 +207,8 @@ mode app {
 	bindsym Shift+p mode default; exec grim -g "$(slurp)" - \
 		| xclip -i -selection clipboard -t image/png
 	bindsym m exec $TERMINAL -t music -e ncmpcpp; mode default
-	bindsym c mode default; \
-		exec rofi -show calc -modi calc -no-show-match -no-sort
+	bindsym c mode default; exec $TERMINAL -t drop -e qalc
+	bindsym v mode default; exec $TERMINAL -t drop -e pulsemixer
 	bindsym n mode default; \
 		exec nmcli -t --fields NAME con \
 		|rofi -i -p Network -dmenu \
