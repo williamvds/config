@@ -79,7 +79,7 @@
 	}
 }
 
-@-moz-document url-prefix("moz-extension://6ea246a0-bdb0-4f24-839d-cb436fb882c7/sidebar") {
+@-moz-document regexp("moz-extension://.+/sidebar/tabcenter.html$") {
 	body {
 		background: var(--theme-bg) !important;
 	}
