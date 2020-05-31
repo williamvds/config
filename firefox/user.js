@@ -1,12 +1,14 @@
 user_pref("general.warnOnAboutConfig", false);
+user_pref("browser.aboutConfig.showWarning", false);
 
 // behaviour
 user_pref("browser.backspace_action", 2);
 user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.ctrlTab.previews", false);
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 user_pref("browser.tabs.closeWindowWithLastTab", false);
-user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.tabs.warnOnClose", true);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", true);
 user_pref("browser.warnOnQuit", true);
