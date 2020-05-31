@@ -10,6 +10,8 @@ if $_OS_MACOS
 if dein#load_state($DEIN_DIR)
 	call dein#begin($DEIN_DIR)
 
+	call dein#add('dense-analysis/ale')
+	call dein#add('Shougo/deoplete.nvim', {'build': ':UpdateRemotePlugins'})
 	call dein#add('Shougo/neosnippet')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('airblade/vim-gitgutter')
@@ -21,7 +23,6 @@ if dein#load_state($DEIN_DIR)
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('tpope/vim-sleuth')
 	call dein#add('tpope/vim-vinegar')
-	call dein#add('neoclide/coc.nvim', {'rev': 'release'})
 	call dein#add('alvan/vim-closetag', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('tmhedberg/matchit', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('godlygeek/tabular')
@@ -44,36 +45,57 @@ au FileType taskreport set fdm=manual
 
 let g:sleuth_automatic = 0
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
+
 " Neosnippet
 let g:neosnippet#snippets_directory='$XDG_CONFIG_HOME/nvim/snippets'
 
-" Coc
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? coc#_select_confirm() :
-	\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <expr><tab>
+	\ pumvisible() ? "\<C-n>" :
+	\ neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+smap <expr><tab> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+ino <expr>) ")\<C-o>:silent! pc\<cr>"
 
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" ALE
+let g:ale_c_build_dir = '~/.local/share/ale'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_sign_info = ''
+let g:ale_echo_msg_on_ftmat = '%s [%linter%]'
+let g:ale_linters_explicit = 1
+let g:ale_fixers = {
+	\ 'cpp': ['clang-on_ftmat']
+\}
+let g:ale_linters = {
+	\ 'bash': ['shellcheck'],
+	\ 'c': ['ccls', 'clangtidy'],
+	\ 'cpp': ['ccls', 'clangtidy'],
+\}
+let g:ale_cpp_clangtidy_checks = ['*',
+	\ '-misc-unused-parameters',
+	\ '-readability-named-parameter',
+	\ '-*-braces-around-statements',
+	\ '-fuchsia-*']
 
-let g:coc_snippet_next = '<tab>'
+au ColorScheme *
+	\ hi ALEErrorSign ctermfg=167
+	\|hi ALEError ctermfg=167 cterm=underline
+	\|hi ALEWarningSign ctermfg=228
+	\|hi ALEWarning ctermfg=228 cterm=underline
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>rn <Plug>(coc-rename)
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-hi! default link CompletePlaceHolder Comment
-hi! default link CompletePlaceHolderEnds Comment
-
-au FileType tex setl makeprg="xelatex %"
+nmap <silent> ]e <Plug>(ale_next_wrap)
+nmap <silent> [e <Plug>(ale_previous_wrap)
+nmap <silent> gd <Plug>(ale_go_to_definition)
+nmap <silent> gr <Plug>(ale_find_references)
+nmap <silent> <leader>rn <Plug>(ale_rename)
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '┃'
@@ -112,11 +134,10 @@ let g:lightline = {
 \	},
 \	'component_function' : {
 \		 'gitbranch': 'LightlineGitBranch',
-\		 'cocstatus': 'coc#status'
 \	},
 \	'active': {
 \		 'left':	[['mode', 'spell'], ['readonly'], ['relativepath', 'modified']],
-\		 'right':	[['filetype', 'lineinfo'], ['gitbranch', 'cocstatus']],
+\		 'right':	[['filetype', 'lineinfo'], ['gitbranch']],
 \	},
 \	'inactive': {
 \		 'left':	[['relativepath']],
@@ -138,8 +159,6 @@ fu! LightlineGitBranch()
 		\ . (diffcount > 0 ? ' ±' . diffcount : '')
 		\ : ''
 endfu
-
-au User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " ack.vim
 if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
@@ -208,9 +227,6 @@ map <silent> g= :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>
 
 map <silent> ]q :cn!<cr>
 map <silent> [q :cp!<cr>
-
-map <silent> ]e <Plug>(ale_next_wrap)
-map <silent> [e <Plug>(ale_previous_wrap)
 
 nno <silent> [c :if !&diff \|GitGutterPrevHunk \|endif<cr>
 nno <silent> ]c :if !&diff \|GitGutterNextHunk \|endif<cr>
