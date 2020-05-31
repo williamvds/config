@@ -22,8 +22,8 @@ hi CursorLine guifg=NONE guibg=#3c3c3c guisp=#3c3c3c gui=NONE ctermfg=NONE cterm
 hi Debug guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi Define guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
-hi DiffChange ctermbg=238 cterm=NONE
 hi DiffAdd ctermbg=238 cterm=NONE
+hi DiffChange ctermbg=238 cterm=NONE
 hi DiffDelete ctermbg=52 ctermfg=52 cterm=NONE
 hi DiffText ctermbg=28 cterm=NONE
 hi Directory guifg=#ecec89 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
@@ -51,6 +51,7 @@ hi PreCondit guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NO
 hi PreProc guifg=#f49d62 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
 hi Repeat guifg=#92bfbf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE
 hi Search guifg=NONE guibg=#626262 guisp=#626262 gui=NONE ctermfg=NONE ctermbg=241 cterm=NONE
+hi SignColumn ctermbg=235 ctermfg=255
 hi Special guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi SpecialChar guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi SpecialComment guifg=#f1f1f1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
