@@ -91,8 +91,10 @@ au ColorScheme *
 	\|hi ALEWarningSign ctermfg=228
 	\|hi ALEWarning ctermfg=228 cterm=underline
 
-nmap <silent> ]e <Plug>(ale_next_wrap)
-nmap <silent> [e <Plug>(ale_previous_wrap)
+nmap <silent> ]e :ALENext -error<cr>
+nmap <silent> [e :ALEPrevious -error<cr>
+nmap <silent> ]E <Plug>(ale_next_wrap)
+nmap <silent> [E <Plug>(ale_previous_wrap)
 nmap <silent> gd <Plug>(ale_go_to_definition)
 nmap <silent> gr <Plug>(ale_find_references)
 nmap <silent> <leader>rn <Plug>(ale_rename)
