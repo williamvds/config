@@ -38,6 +38,7 @@ fi
 
 if [ -n "$WAYLAND_DISPLAY" ]; then
 	export CLUTTER_BACKEND=wayland
+	export MOZ_ENABLE_WAYLAND=1
 	export SDL_VIDEODRIVER=wayland
 	export QT_WAYLAND_FORCE_DPI=physical
 fi
