@@ -524,7 +524,7 @@ user_pref("media.navigator.enabled", false);
  * and parts of Quantum that utilize the GPU will also be affected as they are rolled out
  * [1] https://wiki.mozilla.org/Platform/GFX/HardwareAcceleration ***/
    // user_pref("gfx.direct2d.disabled", true); // [WINDOWS]
-user_pref("layers.acceleration.disabled", true);
+user_pref("layers.acceleration.disabled", false);
 /* 2510: disable Web Audio API (FF51+)
  * [1] https://bugzilla.mozilla.org/1288359 ***/
 user_pref("dom.webaudio.enabled", true);
