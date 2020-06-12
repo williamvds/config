@@ -12,3 +12,9 @@ icon-path=/usr/share/icons/Papirus-Dark
 max-icon-size=32
 group-by=app-name,summary
 progress-color=source #ffb52acc
+
+[urgency=low]
+default-timeout=1000
+
+[urgency=high]
+ignore-timeout=true
