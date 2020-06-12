@@ -66,12 +66,16 @@
 /* sidebar */
 
 #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] #sidebar-header,
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header,
 #sidebar :-moz-any(#topmenu, #topshadow), #sidebar-box ~ #sidebar-splitter {
 	display: none;
 }
 
 #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"]
-:-moz-any(#sidebar, #sidebar-header) {
+:-moz-any(#sidebar, #sidebar-header),
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
+:-moz-any(#sidebar, #sidebar-header)
+{
   position: relative !important;
   min-width: var(--sidebar-width) !important;
   max-width: var(--sidebar-width) !important;
@@ -80,6 +84,8 @@
 }
 
 #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"]:hover
+:-moz-any(#sidebar),
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover
 :-moz-any(#sidebar) {
 	background-color: var(--toolbar-bgcolor) !important;
 	min-width: var(--sidebar-expanded) !important;
