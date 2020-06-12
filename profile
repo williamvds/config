@@ -30,6 +30,7 @@ export STACK_ROOT="$HOME/.local/share/stack"
 export PYLINTHOME="$HOME/.cache/pylint"
 export PSQL_HISTORY="$HOME/.cache/psql_history"
 export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nv_vulkan_wrapper.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json"
+export CTEST_OUTPUT_ON_FAILURE=1
 
 if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
 	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
