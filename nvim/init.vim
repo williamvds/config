@@ -69,7 +69,8 @@ let g:ale_c_build_dir = '~/.local/share/ale'
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:ale_sign_info = ''
-let g:ale_echo_msg_on_ftmat = '%s [%linter%]'
+let g:ale_echo_msg_on_ftmat = '%s [%severity%/%linter%]'
+let g:ale_lsp_show_message_format = '%s [%severity%/%linter%]'
 let g:ale_linters_explicit = 1
 let g:ale_fixers = {
 	\ 'cpp': ['clang-on_ftmat']
@@ -79,11 +80,6 @@ let g:ale_linters = {
 	\ 'c': ['ccls', 'clangtidy'],
 	\ 'cpp': ['ccls', 'clangtidy'],
 \}
-let g:ale_cpp_clangtidy_checks = ['*',
-	\ '-misc-unused-parameters',
-	\ '-readability-named-parameter',
-	\ '-*-braces-around-statements',
-	\ '-fuchsia-*']
 
 au ColorScheme *
 	\ hi ALEErrorSign ctermfg=167
