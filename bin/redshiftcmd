@@ -23,6 +23,6 @@ esac
 
 echo "$current" > ~/.cache/redshift
 notify-send "Screen temperature" -h int:value:$(((current - 1000)/55)) \
-	-h byte:urgency:0 -i weather-clear -a redshift
+	-h byte:urgency:0 -h string:synchronous:redshift -i weather-clear -a redshift
 pkill -x redshift
 redshift -PO "$current"
