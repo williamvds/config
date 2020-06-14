@@ -79,6 +79,7 @@ let g:ale_linters = {
 	\ 'bash': ['shellcheck'],
 	\ 'c': ['ccls', 'clangtidy'],
 	\ 'cpp': ['ccls', 'clangtidy'],
+	\ 'sh': ['shellcheck'],
 \}
 
 au ColorScheme *
