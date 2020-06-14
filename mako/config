@@ -15,6 +15,3 @@ progress-color=source #ffb52acc
 
 [urgency=low]
 default-timeout=1000
-
-[urgency=high]
-ignore-timeout=true
