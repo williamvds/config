@@ -180,6 +180,7 @@ set_bash_prompt() {
 	CURRENT_BG=NONE
 	PR="$(ansi_single "$(text_effect reset)")"
 	build_prompt
+	printf "¬%$((COLUMNS-1))s\\r"
 	PS1=$PR
 }
 
