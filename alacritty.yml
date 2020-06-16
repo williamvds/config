@@ -28,7 +28,7 @@ font:
 
 colors:
   primary:
-    background: '0x010101'
+    background: '0x262626'
     foreground: '0xeaeaea'
 
   normal:
@@ -63,8 +63,6 @@ colors:
 
 visual_bell:
   duration: 0
-
-background_opacity: .8
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
