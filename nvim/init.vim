@@ -10,26 +10,25 @@ if $_OS_MACOS
 if dein#load_state($DEIN_DIR)
 	call dein#begin($DEIN_DIR)
 
-	call dein#add('dense-analysis/ale')
 	call dein#add('Shougo/deoplete.nvim', {'build': ':UpdateRemotePlugins'})
 	call dein#add('Shougo/neosnippet')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('airblade/vim-gitgutter')
+	call dein#add('alvan/vim-closetag', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('blindFS/vim-taskwarrior')
+	call dein#add('dense-analysis/ale')
+	call dein#add('godlygeek/tabular')
 	call dein#add('itchyny/lightline.vim')
 	call dein#add('mileszs/ack.vim')
 	call dein#add('plasticboy/vim-markdown')
+	call dein#add('tmhedberg/matchit', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('tpope/vim-commentary')
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('tpope/vim-sleuth')
 	call dein#add('tpope/vim-vinegar')
-	call dein#add('alvan/vim-closetag', {'on_ft': ['html', 'xml', 'php']})
-	call dein#add('tmhedberg/matchit', {'on_ft': ['html', 'xml', 'php']})
-	call dein#add('godlygeek/tabular')
 
 	if $_USE_PERSONAL
 		call dein#add('chrisbra/unicode.vim', {'on_ft': ['markdown', 'text']})
-		call dein#add('lervag/vimtex')
 	endif
 
 	call dein#end()
