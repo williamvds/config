@@ -13,7 +13,6 @@ homedot=(
 	bash_profile
 	bashrc
 	editrc
-	inputrc
 	profile
 	subversion
 )
