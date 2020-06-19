@@ -7,30 +7,30 @@ CONFIG="$HOME"/.config
 
 [ -r "$CONFIG/local" ] && . "$CONFIG/local"
 
-export XDG_CONFIG_HOME="$CONFIG"
 export ANDROID_TOOLS=/opt/android-sdk
-export MAILDIR=$HOME/.local/mail
-export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch
+export CTEST_OUTPUT_ON_FAILURE=1
+export DEIN_DIR="$HOME/.local/share/nvim/dein"
 export GNUPGHOME=$XDG_CONFIG_HOME/gpg
+export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0
 export ICEAUTHORITY=$XDG_CONFIG_HOME/ICEauthority
 export LESSHISTFILE=$XDG_CONFIG_HOME/less/history
 export LESSKEY=$XDG_CONFIG_HOME/less/keys
-export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0
+export MAILDIR=$HOME/.local/mail
+export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch
+export PASSWORD_STORE_DIR=$HOME/docs/pass
+export PASSWORD_STORE_GENERATED_LENGTH=100
+export PSQL_HISTORY="$HOME/.cache/psql_history"
+export PYLINTHOME="$HOME/.cache/pylint"
 export PYLINTRC="$XDG_CONFIG_HOME/pylintrc"
+export STACK_ROOT="$HOME/.local/share/stack"
 export TASKDATA="$XDG_CONFIG_HOME/task"
 export TASKRC=$TASKDATA/config
-export PASSWORD_STORE_DIR=$XDG_CONFIG_HOME/pass
-export PASSWORD_STORE_GENERATED_LENGTH=100
+export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nv_vulkan_wrapper.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json"
+export WINEPATH="$HOME/.local/bin"
+export WINEPREFIX="$HOME/.local/wine"
+export XDG_CONFIG_HOME="$CONFIG"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true"
-export DEIN_DIR="$HOME/.local/share/nvim/dein"
-export WINEPREFIX="$HOME/.local/wine"
-export WINEPATH="$HOME/.local/bin"
-export STACK_ROOT="$HOME/.local/share/stack"
-export PYLINTHOME="$HOME/.cache/pylint"
-export PSQL_HISTORY="$HOME/.cache/psql_history"
-export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nv_vulkan_wrapper.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json"
-export CTEST_OUTPUT_ON_FAILURE=1
 
 if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
 	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
