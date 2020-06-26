@@ -493,7 +493,7 @@ user_pref("javascript.options.asmjs", false);
    // user_pref("javascript.options.baselinejit", false);
 /* 2422: disable WebAssembly for now (FF52+)
  * [1] https://developer.mozilla.org/docs/WebAssembly ***/
-user_pref("javascript.options.wasm", false);
+user_pref("javascript.options.wasm", true);
 /* 2426: disable Intersection Observer API (FF53+)
  * Almost a year to complete, three versions late to stable (as default false),
  * number #1 cause of crashes in nightly numerous times, and is (primarily) an
