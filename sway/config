@@ -42,6 +42,7 @@ exec_always {
 }
 
 exec {
+	redshiftcmd =
 	mako
 	gpg-agent --daemon --enable-ssh-support --sh
 	swayidle \
@@ -53,7 +54,7 @@ exec {
 	steam-native -silent %U
 	nextcloud
 	$TERMINAL -t main
-	$TERMINAL -t monitor -e tmux new -A -s monitor
+	[[ "$HOSTNAME" == "kronos" ]] && $TERMINAL -t monitor -e tmux new -A -s monitor
 	$TERMINAL -t chat    -e tmux new -A -s chat
 	$TERMINAL -t music   -e tmux new -A -s music
 	$BROWSER
