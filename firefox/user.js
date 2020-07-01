@@ -28,6 +28,8 @@ user_pref("reader.parse-on-load.enabled", true);
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("view_source.tab", false);
 user_pref("xpinstall.signatures.required", true);
+user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
+user_pref("widget.wayland-dmabuf-webgl.enabled", true);
 
 // appearance
 user_pref("browser.download.autohideButton", true);
