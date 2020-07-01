@@ -41,8 +41,8 @@ show-read-feeds no
 
 color listnormal white default
 color listnormal_unread red default
-color listfocus white color235
-color listfocus_unread red color235
+color listfocus default red
+color listfocus_unread default red
 color info white default bold
 color article cyan default
 
