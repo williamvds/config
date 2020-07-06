@@ -65,9 +65,9 @@ ino <expr>) ")\<C-o>:silent! pc\<cr>"
 
 " ALE
 let g:ale_c_build_dir = '~/.local/share/ale'
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:ale_sign_info = ''
+let g:ale_sign_error = '󰀧'
+let g:ale_sign_warning = '󰀦'
+let g:ale_sign_info = '󰋼'
 let g:ale_echo_msg_on_ftmat = '%s [%severity%/%linter%]'
 let g:ale_lsp_show_message_format = '%s [%severity%/%linter%]'
 let g:ale_linters_explicit = 1
