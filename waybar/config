@@ -9,13 +9,13 @@
 		"all-outputs": true,
 		"format": "{icon}",
 		"format-icons": {
-			"1": "",
-			"2": "",
+			"1": "󰖟",
+			"2": "󰅴",
 			"3": "?",
-			"4": "",
-			"8": "",
-			"9": "",
-			"10": ""
+			"4": "󰊗",
+			"8": "󰓓",
+			"9": "󰭹",
+			"10": "󰎆"
 		}
 	},
 	"clock": {
@@ -23,25 +23,25 @@
 	},
 	"battery": {
 		"format": "{icon}",
-		"format-charging": "{icon}",
-		"format-icons": ["", "", "", "", "", "", "", "", "", ""],
+		"format-charging": "{icon}󰚥",
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
 		"states": {
 			"warning": 25,
 			"critical": 10
 		}
 	},
 	"network": {
-		"format-wifi": "蠟",
-		"format-ethernet": "",
-		"format-disconnected": "來",
+		"format-wifi": "󰤨",
+		"format-ethernet": "󰈀",
+		"format-disconnected": "󰤮",
 		"tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)"
 	},
 	"pulseaudio": {
 		"format": "{icon}",
-		"format-bluetooth": "",
-		"format-muted": "",
+		"format-bluetooth": "󰂰",
+		"format-muted": "󰸈",
 		"format-icons": {
-			"default": ["", "", ""]
+			"default": ["󰕿", "󰖀", "󰕾"]
 		},
 		"on-click": "$TERMINAL -t drop -e pulsemixer"
 	},
@@ -50,22 +50,22 @@
 		"spacing": 10
 	},
 	"custom/rss": {
-		"format": "{}",
+		"format": "󰑫{}",
 		"interval": 1200,
 		"exec": "$HOME/.config/waybar/rss.sh"
 	},
 	"custom/updates": {
-		"format": "{}",
+		"format": "󰇚{}",
 		"interval": 1200,
 		"exec": "$HOME/.config/waybar/updates.sh"
 	},
 	"custom/emails": {
-		"format": "{}",
+		"format": "󰇮{}",
 		"interval": 120,
 		"exec": "$HOME/.config/waybar/emails"
 	},
 	"custom/tasks": {
-		"format": "侮{}",
+		"format": "󰅉{}",
 		"interval": 120,
 		"exec": "$HOME/.config/waybar/tasks"
 	}
