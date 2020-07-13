@@ -36,15 +36,15 @@ feedlist-title-format "All feeds%?T? tagged '%T'? - %u unread"
 itemview-title-format "%T"
 selectfilter-title-format "Formats"
 selecttag-title-format "Tags"
-show-read-articles no
-show-read-feeds no
+show-read-articles yes
+show-read-feeds yes
 
 color listnormal white default
 color listnormal_unread red default
 color listfocus default red
 color listfocus_unread default red
 color info white default bold
-color article cyan default
+color article default default
 
 external-url-viewer "$BROWSER"
 browser $BROWSER
