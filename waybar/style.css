@@ -9,20 +9,21 @@ window {
 	color: #fff;
 }
 
+#workspaces button.focused {
+	border-top: solid white .2em;
+	border-radius: 0;
+}
+
 #workspaces button {
 	padding: 0;
 	min-width: 42px;
-}
-
-#workspaces button:focus {
-	border: none;
 }
 
 #workspaces button:not(.focused) label {
 	color: #aaa;
 }
 
-#clock {
+#mpd, #clock {
 	font-size: 16px;
 }
 
