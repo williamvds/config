@@ -2,7 +2,7 @@
 	"layer": "top",
 	"height": 28,
 	"position": "bottom",
-	"modules-left": ["sway/workspaces", "sway/mode", "custom/mpd"],
+	"modules-left": ["sway/workspaces", "sway/mode", "mpd"],
 	"modules-center": ["clock"],
 	"modules-right": ["custom/emails", "custom/tasks", "custom/updates", "custom/rss", "pulseaudio", "network", "battery", "tray"],
 	"sway/workspaces": {
@@ -17,6 +17,16 @@
 			"9": "󰭹",
 			"10": "󰎆"
 		}
+	},
+	"mpd": {
+		"all-outputs": true,
+		"format": "{stateIcon}{randomIcon}{repeatIcon}{singleIcon}{title:.30} • {artist:.25}",
+		"format-stopped": "",
+		"state-icons": {
+			 "paused": "󰏤",
+			 "playing": ""
+		},
+		"tooltip": false
 	},
 	"clock": {
 		"format": "{:%I:%M %p │ %A %e %B}"
