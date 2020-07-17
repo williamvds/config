@@ -92,7 +92,7 @@ default_floating_border pixel 2
 popup_during_fullscreen smart
 
 # misc
-assign [class="Firefox|Nightly"] 1
+assign [app_id="firefox"] 1
 assign [title="^main$"] 2
 assign [title="^monitor$"] 2
 assign [app_id="mpv"] 3
