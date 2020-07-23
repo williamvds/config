@@ -72,7 +72,7 @@ let g:ale_echo_msg_on_ftmat = '%s [%severity%/%linter%]'
 let g:ale_lsp_show_message_format = '%s [%severity%/%linter%]'
 let g:ale_linters_explicit = 1
 let g:ale_fixers = {
-	\ 'cpp': ['clang-on_ftmat']
+	\ 'cpp': ['clang-format', 'clangtidy']
 \}
 let g:ale_linters = {
 	\ 'bash': ['shellcheck'],
