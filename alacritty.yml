@@ -61,7 +61,7 @@ colors:
     cyan:    '0x66cccc'
     white:   '0xdddddd'
 
-visual_bell:
+bell:
   duration: 0
 
 mouse_bindings:
