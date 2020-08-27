@@ -1,0 +1,13 @@
+ChallengeResponseAuthentication no
+ClientAliveCountMax 2
+Compression no
+LogLevel VERBOSE
+MaxAuthTries 2
+MaxSessions 2
+PasswordAuthentication no
+PermitEmptyPasswords no
+PermitRootLogin no
+PrintMotd no
+Protocol 2
+Subsystem	sftp /usr/lib/ssh/sftp-server
+UsePAM yes
