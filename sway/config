@@ -75,7 +75,7 @@ bindsym $mod+Tab workspace back_and_forth
 
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Escape exec ~/.local/bin/lock
-bindsym $mod+space exec rofi -show
+bindsym $mod+space exec wofi --show drun,run
 bindsym Print exec \
 	"maim -s |xclip -se c -t image/png"
 bindsym $mod+Print exec \
