@@ -11,6 +11,7 @@ export ANDROID_TOOLS=/opt/android-sdk
 export CTEST_OUTPUT_ON_FAILURE=1
 export DEIN_DIR="$HOME/.local/share/nvim/dein"
 export GNUPGHOME=$XDG_CONFIG_HOME/gpg
+export GOPATH="$HOME/.cache/go"
 export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0
 export ICEAUTHORITY=$XDG_CONFIG_HOME/ICEauthority
 export INPUTRC="$XDG_CONFIG_HOME/inputrc"
