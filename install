@@ -30,6 +30,12 @@ packages=(
 	tree
 )
 
+services=(
+)
+
+user_services=(
+)
+
 if [[ ! "$_IS_SERVER" = 1 ]]; then
 	homedot+=(
 		lldbinit
@@ -48,9 +54,14 @@ if [[ $_OS_GNU_LINUX ]]; then
 		nftables
 	)
 
+	services+=(
+		sshd
+	)
+
 	if [[ ! "$_IS_SERVER" = 1 ]]; then
 		packages+=(
 			alacritty
+			avahi
 			bluez-utils
 			dhcpcd
 			grim
@@ -71,6 +82,12 @@ if [[ $_OS_GNU_LINUX ]]; then
 			wofi
 			wpa_supplicant
 			zathura
+		)
+
+		services+=(
+			avahi-daemon
+			winbind
+			smb
 		)
 	fi
 fi
@@ -142,6 +159,12 @@ if [[ "$_IS_PERSONAL" = 1 ]]; then
 		signal-desktop
 	)
 
+	user_services+=(
+		mpd
+		offlineimap
+		pulseaudio
+	)
+
 	private \
 		gpg \
 		mutt/public \
@@ -157,6 +180,8 @@ link "../.config/bin" "$HOME/.local/bin"
 
 if [[ $_OS_ARCH_LINUX ]]; then
 	INSTALL='yay -Sy --needed'
+	ENABLE_SERVICE='systemctl enable --now'
+	ENABLE_USER_SERVICE='systemctl --user enable --now'
 
 	if ! command -v yay &>/dev/null; then
 		echo 'Installing yay (and git)'
@@ -213,7 +238,26 @@ fi
 
 if [ -z "$INSTALL" ]; then
 	>&2 echo "No installation command set for this operating system"
+	>&2 echo "Unable to install: ${packages[*]}"
 else
 	echo "Installing: ${packages[*]}"
 	eval "$INSTALL" "${packages[@]}"
+fi
+
+if [ "${#services}" -gt 0 ]; then
+	if [ -z "$ENABLE_SERVICE" ]; then
+		>&2 echo "No service start command for this operating system"
+	else
+		echo "Enabling services: ${services[*]}"
+		eval "$ENABLE_SERVICE" "${services[@]}"
+	fi
+fi
+
+if [ "${#user_services}" -gt 0 ]; then
+	if [ -z "$ENABLE_USER_SERVICE" ]; then
+		>&2 echo "No user service start command for this operating system"
+	else
+		echo "Enabling user services: ${user_services[*]}"
+		eval "$ENABLE_USER_SERVICE" "${user_services[@]}"
+	fi
 fi
