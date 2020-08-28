@@ -20,8 +20,11 @@ homedot=(
 packages=(
 	bash
 	coreutils
+	git
+	htop
 	neovim
 	rsync
+	tmux
 	tree
 )
 
@@ -47,11 +50,25 @@ if [[ $_OS_GNU_LINUX ]]; then
 	if [[ -z $_SERVER ]]; then
 		packages+=(
 			alacritty
+			bluez
+			dhcpcd
+			grim
+			jq
+			libqalculate
+			mako
 			mpv
+			netctl
+			samba
+			slurp
 			sway
 			swayidle
 			swaylock
 			sxiv
+			vim-dein
+			waybar
+			wofi
+			wpa_supplicant
+			zathura
 		)
 	fi
 fi
@@ -114,6 +131,14 @@ if [[ $_USE_PERSONAL ]]; then
 		ssh
 	)
 
+	packages+=(
+		mpd
+		ncmpcpp
+		nextcloud-client
+		offlineimap
+		signal-desktop
+	)
+
 	private \
 		gpg \
 		mutt/public \
@@ -129,10 +154,11 @@ linkHome "${homedot[@]}"
 link "../.config/bin" "$HOME/.local/bin"
 
 if [[ $_OS_ARCH_LINUX ]]; then
-	INSTALL='sudo pacman -Syy --needed'
+	INSTALL='yay -Sy --needed'
 
 	if ! command -v yay &>/dev/null; then
-		echo Installing yay
+		echo 'Installing yay (and git)'
+		sudo pacman -Sy --needed git
 		git clone https://aur.archlinux.org/yay-bin.git /tmp/yay
 		(cd /tmp/yay && makepkg -si)
 	fi
