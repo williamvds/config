@@ -29,7 +29,7 @@ packages=(
 	tree
 )
 
-if [[ "$_IS_SERVER" = 1 ]]; then
+if [[ ! "$_IS_SERVER" = 1 ]]; then
 	homedot+=(
 		lldbinit
 		Xresources
