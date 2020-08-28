@@ -25,6 +25,7 @@ packages=(
 	neovim
 	rsync
 	task
+	the_silver_searcher
 	tmux
 	tree
 )
@@ -38,7 +39,6 @@ if [[ ! "$_IS_SERVER" = 1 ]]; then
 	packages+=(
 		mpv
 		youtube-dl
-		newsboat
 	)
 fi
 
@@ -136,6 +136,7 @@ if [[ "$_IS_PERSONAL" = 1 ]]; then
 	packages+=(
 		mpd
 		ncmpcpp
+		newsboat
 		nextcloud-client
 		offlineimap
 		signal-desktop
