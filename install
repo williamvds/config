@@ -161,6 +161,9 @@ if [[ "$_IS_PERSONAL" = 1 ]]; then
 		newsboat
 		nextcloud-client
 		offlineimap
+		pass
+		pass-otp
+		passff-host
 		signal-desktop
 	)
 
