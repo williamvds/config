@@ -1,1 +1,5 @@
 #!/usr/bin/env bash
+export _IS_PERSONAL=0
+export _IS_SERVER=0
+
+export DEV_ID=WDS

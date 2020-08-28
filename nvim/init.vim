@@ -27,7 +27,7 @@ if dein#load_state($DEIN_DIR)
 	call dein#add('tpope/vim-sleuth')
 	call dein#add('tpope/vim-vinegar')
 
-	if $_USE_PERSONAL
+	if $_IS_PERSONAL
 		call dein#add('chrisbra/unicode.vim', {'on_ft': ['markdown', 'text']})
 	endif
 
