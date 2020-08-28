@@ -156,6 +156,7 @@ if [[ "$_IS_PERSONAL" = 1 ]]; then
 	)
 
 	packages+=(
+		gnome-keyring
 		mpd
 		ncmpcpp
 		newsboat
@@ -168,6 +169,7 @@ if [[ "$_IS_PERSONAL" = 1 ]]; then
 	)
 
 	user_services+=(
+		gnome-keyring
 		mpd
 		offlineimap
 		pulseaudio
