@@ -51,7 +51,7 @@ if [[ $_OS_GNU_LINUX ]]; then
 	if [[ ! "$_IS_SERVER" = 1 ]]; then
 		packages+=(
 			alacritty
-			bluez-tools
+			bluez-utils
 			dhcpcd
 			grim
 			jq
