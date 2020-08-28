@@ -1,0 +1,19 @@
+polkit.addRule( function( a, s ) {
+  if ( !s.isInGroup( "storage" ) ) return;
+
+  var Y = polkit.Result.YES;
+  var p = {
+    "org.freedesktop.udisks2.filesystem-mount": Y,
+    "org.freedesktop.udisks2.filesystem-mount-system": Y,
+    "org.freedesktop.udisks2.encrypted-unlock": Y,
+    "org.freedesktop.udisks2.eject-media": Y,
+    "org.freedesktop.udisks2.power-off-drive": Y,
+    "org.freedesktop.udisks2.filesystem-mount-other-seat": Y,
+    "org.freedesktop.udisks2.filesystem-unmount-others": Y,
+    "org.freedesktop.udisks2.encrypted-unlock-other-seat": Y,
+    "org.freedesktop.udisks2.eject-media-other-seat": Y,
+    "org.freedesktop.udisks2.power-off-drive-other-seat": Y
+  };
+
+  return p[ a.id ];
+} );
