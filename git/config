@@ -14,6 +14,8 @@
 	sign-commits = filter-branch -f --commit-filter 'git commit-tree -S "$@"' HEAD
 [merge]
 	ff = only
+[pull]
+	rebase = true
 [push]
 	followtags = true
 	default = simple
