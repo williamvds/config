@@ -82,6 +82,10 @@ if [[ $_OS_GNU_LINUX ]]; then
 			wofi
 			wpa_supplicant
 			zathura
+
+			materia-gtk-theme
+			papirus-icon-theme
+			xcursor-breeze
 		)
 
 		services+=(
