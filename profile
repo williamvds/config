@@ -36,7 +36,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true"
 
 if [ $_OS_GNU_LINUX ] && [ -n "$XDG_RUNTIME_DIR" ]; then
-	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+	SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
 	export SSH_AUTH_SOCK
 fi
 

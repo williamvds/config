@@ -3,8 +3,8 @@ Description=Gnome Keyring
 Before=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/gnome-keyring-daemon -sfc pkcs11,secrets
-ExecReload=/usr/bin/gnome-keyring-daemon -rfc pkcs11,secrets
+ExecStart=/usr/bin/gnome-keyring-daemon -sf
+ExecReload=/usr/bin/gnome-keyring-daemon -rf
 
 [Install]
 WantedBy=multi-user.target
