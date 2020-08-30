@@ -22,6 +22,7 @@ packages=(
 	coreutils
 	git
 	htop
+	man-db
 	neovim
 	rsync
 	task
@@ -70,6 +71,7 @@ if [[ $_OS_GNU_LINUX ]]; then
 			mako
 			mpv
 			netctl
+			nss-mdns
 			python-neovim
 			samba
 			slurp
@@ -80,8 +82,11 @@ if [[ $_OS_GNU_LINUX ]]; then
 			udiskie
 			vim-dein
 			waybar
+			wl-clipboard
+			wl-clipboard-x11
 			wofi
 			wpa_supplicant
+			xorg-server-xwayland
 			zathura
 
 			materia-gtk-theme
