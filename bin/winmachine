@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+LGStart() {
+	sudo ivshmem-server -p /tmp/ivshmem.pid -S /tmp/ivshmem_socket -l 16M -n 8
+	(sleep 10; \
+	sudo chmod a+rw /dev/shm/looking-glass; \
+	looking-glass-client -F -m 101 &>/dev/null & ) &
+}
+
+LGStop() {
+	pkill -f looking-glass-client
+	sudo pkill -f ivshmem-server
+}
+
+governor() {
+	(echo "$1" |sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor) &>/dev/null
+}
+
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+sudo sysctl vm.drop_caches=3 vm.compact_memory=1 &>/dev/null
+governor performance
+
+LGStart
+
+export KVM_HUGEPAGES=1
+
+sudo sysctl vm.nr_hugepages=4100 >/dev/null
+sudo mount -t hugetlbfs hugetlbfs /dev/hugepages
+sudo chown "$(whoami)" /dev/hugepages
+
+cp /usr/share/edk2-ovmf/x64/OVMF_VARS.fd /tmp
+sudo chown "$USER:$USER" /tmp/OVMF_VARS.fd
+sudo chmod o+x /dev/bus/usb/*/
+sudo chmod 666 /dev/bus/usb/*/*
+
+trap "echo 'Caught kill'" SIGINT
+
+qemu-system-x86_64 -name Windows \
+-monitor stdio -nodefaults -no-user-config \
+\
+-drive if=pflash,format=raw,readonly,file=/usr/share/edk2-ovmf/x64/OVMF_CODE.fd \
+-drive if=pflash,format=raw,file=/tmp/OVMF_VARS.fd \
+-machine pc,accel=kvm,kernel_irqchip=on -M q35 -enable-kvm \
+-cpu host,-hypervisor,kvm=off,hv_vendor_id=chars,hv_spinlocks=0x1fff,hv_time \
+-smp 4,cores=4,threads=1,sockets=1 \
+-m 8G -mem-path /dev/hugepages -mem-prealloc \
+-rtc base=localtime \
+\
+-object memory-backend-file,id=ivshmem,share=on,mem-path=/dev/shm/looking-glass,size=32M \
+-device ivshmem-plain,memdev=ivshmem,bus=pcie.0 \
+-spice addr=127.0.0.1,port=5900,disable-ticketing \
+-audiodev pa,id=pulse,server=/run/user/1000/pulse/native \
+-device intel-hda -device hda-duplex \
+\
+	`# boot media` \
+-boot order=c \
+-device virtio-scsi-pci,id=scsi \
+-drive index=4,media=cdrom,file=/usr/share/virtio/virtio-win.iso,id=drivers \
+-drive file=/dev/disk/by-id/nvme-CT1000P1SSD8_2013E2967E48,id=disk,format=raw,discard=on,if=none,cache=writeback \
+-device scsi-hd,drive=disk \
+\
+	`# networking` \
+-nic user,id=net1,model=e1000,smb=/data/win,hostfwd=tcp::22222-:22,hostfwd=tcp::8000-:8000 \
+\
+	`# gpu` \
+-device vfio-pci,host=01:00.0,x-vga=on,multifunction=on -device vfio-pci,host=01:00.1 \
+	`# usb controllers` \
+-device ich9-usb-uhci3,id=uhci -device usb-ehci,id=ehci -device nec-usb-xhci,id=xhci \
+	`# evdev keyboard passthrough` \
+`#-object input-linux,id=kbd1,evdev=/dev/input/by-id/usb-BY_Tech_Usb_Gaming_Keyboard-event-kbd,grab_all=on,repeat=on` \
+\
+	`# usb devices` \
+-device usb-host,id=xbox,bus=xhci.0,vendorid=0x045e,productid=0x0291 \
+-device usb-host,id=steamcontroller,bus=xhci.0,vendorid=0x28de,productid=0x1142 \
+-device usb-host,id=head,bus=uhci.0,vendorid=0x0d8c,productid=0x0012 \
+-device usb-host,id=mouse,bus=xhci.0,vendorid=0x1038,productid=0x1384
+
+# object_add memory-backend-ram,id=mem1,size=4G
+# device_add pc-dimm,id=dimm1,memdev=mem1
+# device_add usb-host,id=head,bus=uhci.0,vendorid=0x0d8c,productid=0x0012
+# device_add usb-host,id=mouse,bus=xhci.0,vendorid=0x1038,productid=0x1384
+# device_add usb-host,id=lg,bus=xhci.0,vendorid=0x1004,productid=0x633a
+
+LGStop
+sudo sysctl vm.nr_hugepages=0 >/dev/null
+sudo umount /dev/hugepages
+(echo always |sudo tee /sys/kernel/mm/transparent_hugepage/enabled) >/dev/null
+governor powersave
