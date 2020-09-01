@@ -1,0 +1,11 @@
+[Unit]
+Description=Load user environment
+Before=gnome-keyring.service
+Before=offlineimap.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash %h/.profile
+
+[Install]
+WantedBy=default.target
