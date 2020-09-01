@@ -72,6 +72,7 @@ if [[ $_OS_GNU_LINUX ]]; then
 			mpv
 			netctl
 			nss-mdns
+			pulseaudio-bluetooth
 			python-neovim
 			samba
 			slurp
