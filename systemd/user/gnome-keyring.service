@@ -1,10 +1,9 @@
 [Unit]
 Description=Gnome Keyring
-Before=multi-user.target
 
 [Service]
 ExecStart=/usr/bin/gnome-keyring-daemon -sf
 ExecReload=/usr/bin/gnome-keyring-daemon -rf
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
