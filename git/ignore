@@ -1,6 +1,7 @@
 *.class
 *.out
 *.pyc
-__pycache__/
-*build*/
+compile_commands.json
+build*/
 .ccls-cache/
+__pycache__/
