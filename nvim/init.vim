@@ -1,11 +1,16 @@
 let mapleader = "\<space>"
 
-source ~/.config/nvim/colors/predawn.vim
+let vim_home=expand("<sfile>:h")
+exec 'source' vim_home.'/colors/predawn.vim'
 
 set rtp+=/usr/share/vim/vimfiles
 if $_OS_MACOS
-	\|set rtp+=$DEIN_DIR/repos/github.com/Shougo/dein.vim
-	\|endif
+	set rtp+=$DEIN_DIR/repos/github.com/Shougo/dein.vim
+elseif ! $_OS_GNU_LINUX
+	" Assume Windows
+	let $DEIN_DIR=expand("$HOME/AppData/Local/nvim-data/dein")
+	set rtp+=$DEIN_DIR/repos/github.com/Shougo/dein.vim
+endif
 
 if dein#load_state($DEIN_DIR)
 	call dein#begin($DEIN_DIR)
