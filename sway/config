@@ -212,13 +212,13 @@ mode app {
 	bindsym v mode default; exec $TERMINAL -t drop -e pulsemixer
 	bindsym n mode default; \
 		exec nmcli -t --fields NAME con \
-		|rofi -i -p Network -dmenu \
+		|wofi -i -p Network -dmenu \
 			-mesg "$(nmcli -c no |ack '.+: (.*)$' -1 --output='$1')" -dmenu \
 		|xargs -0d '\n' nmcli con up
 	bindsym b mode default; \
 		exec bluetoothctl paired-devices \
 		|cut -d' ' -f2 \
-		|rofi -i -p Bluetooth -dmenu \
+		|wofi -i -p Bluetooth -dmenu \
 		|xargs -0d '\n' bluetoothctl connect
 	bindsym q       exec notify-send "DUNST_COMMAND_PAUSE";  mode default
 	bindsym Shift+q exec notify-send "DUNST_COMMAND_RESUME"; mode default
