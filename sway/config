@@ -76,12 +76,9 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Escape exec ~/.local/bin/lock
 bindsym $mod+space exec wofi --show drun,run
-bindsym Print exec \
-	"maim -s |xclip -se c -t image/png"
-bindsym $mod+Print exec \
-	"maim -u |xclip -se c -t image/png"
-bindsym $mod+ctrl+Print exec \
-	"maim -ui $(xdotool getactivewindow) |xclip -se c -t image/png"
+bindsym Print exec screenshot --full
+bindsym Shift+Print exec screenshot --region
+bindsym $mod+Print exec screenshot --window
 
 # display
 gaps inner 0
@@ -202,11 +199,9 @@ mode app {
 	bindsym Shift+equal exec redshiftcmd +
 	bindsym minus exec redshiftcmd -
 
-	bindsym p mode default; exec grim -o \
-		$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - \
-		| xclip -i -selection clipboard -t image/png
-	bindsym Shift+p mode default; exec grim -g "$(slurp)" - \
-		| xclip -i -selection clipboard -t image/png
+	bindsym p mode default; exec screenshot --full
+	bindsym Shift+p mode default; exec screenshot --region
+	bindsym $mod+p mode default; exec screenshot --window
 	bindsym m exec $TERMINAL -t music -e ncmpcpp; mode default
 	bindsym c mode default; exec $TERMINAL -t drop -e qalc
 	bindsym v mode default; exec $TERMINAL -t drop -e pulsemixer
