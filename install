@@ -15,6 +15,7 @@ homedot=(
 	editrc
 	profile
 	subversion
+	gdbinit
 )
 
 packages=(
