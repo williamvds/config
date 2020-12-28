@@ -496,14 +496,6 @@ user_pref("javascript.options.asmjs", false);
 /* 2422: disable WebAssembly for now (FF52+)
  * [1] https://developer.mozilla.org/docs/WebAssembly ***/
 user_pref("javascript.options.wasm", true);
-/* 2426: disable Intersection Observer API (FF53+)
- * Almost a year to complete, three versions late to stable (as default false),
- * number #1 cause of crashes in nightly numerous times, and is (primarily) an
- * ad network API for "ad viewability checks" down to a pixel level
- * [1] https://developer.mozilla.org/docs/Web/API/Intersection_Observer_API
- * [2] https://w3c.github.io/IntersectionObserver/
- * [3] https://bugzilla.mozilla.org/1243846 ***/
-user_pref("dom.IntersectionObserver.enabled", false);
 /* 2427: disable Shared Memory (Spectre mitigation)
  * [1] https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md
  * [2] https://blog.mozilla.org/security/2018/01/03/mitigations-landing-new-class-timing-attack/ ***/
