@@ -44,7 +44,6 @@ user_pref("font.name.serif.x-unicode", "serif");
 user_pref("font.name.serif.x-western", "serif");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
-user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("reader.color_scheme", "dark");
 user_pref("reader.content_width", 7);
 user_pref("reader.font_size", 3);

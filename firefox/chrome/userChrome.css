@@ -65,29 +65,28 @@
 
 /* sidebar */
 
-#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] #sidebar-header,
+#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"] #sidebar-header,
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header,
 #sidebar :-moz-any(#topmenu, #topshadow), #sidebar-box ~ #sidebar-splitter {
 	display: none;
 }
 
-#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"]
+#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]
 :-moz-any(#sidebar, #sidebar-header),
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
 :-moz-any(#sidebar, #sidebar-header)
 {
-  position: relative !important;
-  min-width: var(--sidebar-width) !important;
-  max-width: var(--sidebar-width) !important;
-  transition: 0.1s !important;
-  z-index: 1;
+	position: relative !important;
+	min-width: var(--sidebar-width) !important;
+	max-width: var(--sidebar-width) !important;
+	transition: 0.1s !important;
+	z-index: 1;
 }
 
-#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"]:hover
+#sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"]:hover
 :-moz-any(#sidebar),
 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover
 :-moz-any(#sidebar) {
-	background-color: var(--toolbar-bgcolor) !important;
 	min-width: var(--sidebar-expanded) !important;
 	max-width: var(--sidebar-expanded) !important;
 	margin-right: calc((var(--sidebar-expanded) - var(--sidebar-width)) * -1) !important;
