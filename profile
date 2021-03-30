@@ -38,9 +38,8 @@ export STACK_ROOT="$HOME/.local/share/stack"
 export SUBVERSION_HOME="$XDG_CONFIG_HOME/subversion"
 export TASKDATA="$XDG_CONFIG_HOME/task"
 export TASKRC=$TASKDATA/config
-export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nv_vulkan_wrapper.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json"
 export WINEPATH="$HOME/.local/bin"
-export WINEPREFIX="$HOME/.local/wine"
+export WINEPREFIX="$HOME/.local/share/wine"
 export XDG_CONFIG_HOME="$CONFIG"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true"
