@@ -81,8 +81,8 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
 	\ 'bash': ['shellcheck'],
-	\ 'c': ['ccls', 'clangtidy'],
-	\ 'cpp': ['ccls', 'clangtidy'],
+	\ 'c': ['clangd', 'clangtidy'],
+	\ 'cpp': ['clangd', 'clangtidy'],
 	\ 'sh': ['shellcheck'],
 \}
 
