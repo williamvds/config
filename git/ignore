@@ -6,3 +6,4 @@ build*/
 .ccls-cache/
 __pycache__/
 .gdb_history
+.cache
