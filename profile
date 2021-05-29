@@ -19,6 +19,7 @@ export XDG_VIDEOS_DIR="$HOME/vids"
 
 export ANDROID_TOOLS=/opt/android-sdk
 export CTEST_OUTPUT_ON_FAILURE=1
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
 export DEIN_DIR="$HOME/.local/share/nvim/dein"
 export GNUPGHOME=$XDG_CONFIG_HOME/gpg
 export GOPATH="$HOME/.cache/go"
@@ -54,6 +55,7 @@ if [ -n "$WAYLAND_DISPLAY" ]; then
 	export MOZ_ENABLE_WAYLAND=1
 	export SDL_VIDEODRIVER=wayland
 	export QT_WAYLAND_FORCE_DPI=physical
+	dbus-update-activation-environment WAYLAND_DISPLAY
 fi
 
 export PATH="$HOME/.local/bin:$PATH:$ANDROID_TOOLS/tools/bin/"
