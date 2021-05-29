@@ -71,7 +71,7 @@ mouse:
   double_click: { threshold: 250 }
   triple_click: { threshold: 250 }
   hide_when_typing: true
-  url:
+  hints:
     launcher: open
 
 selection:
