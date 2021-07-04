@@ -13,23 +13,19 @@ set $warning	#a03895
 output HDMI1 pos 0 0 res 1920x1080
 output * bg ~/.config/bg.img fill
 
-input * {
-	accel_profile flat
-	repeat_rate 15
+input type:keyboard {
 	repeat_delay 300
-	scroll_method two_finger
-	tap enabled
+	repeat_rate 15
 	xkb_layout gb
 	xkb_options caps:swapescape
 }
 
-input * {
-	scroll_factor 5
-}
-
-input 2:7:SynPS/2_Synaptics_TouchPad {
+input type:touchpad {
+	accel_profile flat
 	natural_scroll enabled
 	scroll_factor 0.4
+	scroll_method two_finger
+	tap enabled
 }
 
 # startup
