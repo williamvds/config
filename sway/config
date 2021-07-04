@@ -207,6 +207,7 @@ mode app {
 			-mesg "$(nmcli -c no |ack '.+: (.*)$' -1 --output='$1')" -dmenu \
 		|xargs -0d '\n' nmcli con up
 	bindsym b mode default; \
+		exec bluetoothctl power on; \
 		exec bluetoothctl paired-devices \
 		|cut -d' ' -f2 \
 		|wofi -i -p Bluetooth -dmenu \
