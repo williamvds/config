@@ -69,7 +69,7 @@ smap <expr><tab> neosnippet#expandable_or_jumpable() ?
 ino <expr>) ")\<C-o>:silent! pc\<cr>"
 
 " ALE
-let g:ale_c_build_dir = '~/.local/share/ale'
+let g:ale_c_build_dir = 'build/'
 let g:ale_sign_error = '󰀧'
 let g:ale_sign_warning = '󰀦'
 let g:ale_sign_info = '󰋼'
