@@ -50,13 +50,12 @@ exec {
 		resume 'swaymsg "output * dpms on"' \
 		before-sleep 'lock'
 	udiskie -sAm flat
-	steam-native -silent %U
-	nextcloud
+
 	$TERMINAL -t main
-	[[ "$HOSTNAME" == "kronos" ]] && $TERMINAL -t monitor -e tmux new -A -s monitor
 	$TERMINAL -t chat    -e tmux new -A -s chat
 	$TERMINAL -t music   -e tmux new -A -s music
-	$BROWSER
+	[[ "$HOSTNAME" == "kronos" ]] && \
+	$TERMINAL -t monitor -e tmux new -A -s monitor
 }
 
 bar {
