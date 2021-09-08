@@ -26,7 +26,7 @@ cd() {
 }
 
 mkcd() {
-  builtin mkdir "$@" && builtin cd "${@: -1}" || return
+  mkdir "$@" && builtin cd "${@: -1}" || return
 }
 
 yts() {
