@@ -16,25 +16,18 @@ if exists('dein') && dein#load_state($DEIN_DIR)
 	call dein#begin($DEIN_DIR)
 
 	call dein#add('Shougo/deoplete.nvim', {'build': ':UpdateRemotePlugins'})
-	call dein#add('Shougo/neosnippet')
-	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('alvan/vim-closetag', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('blindFS/vim-taskwarrior')
 	call dein#add('dense-analysis/ale')
 	call dein#add('godlygeek/tabular')
 	call dein#add('itchyny/lightline.vim')
-	call dein#add('mileszs/ack.vim')
 	call dein#add('plasticboy/vim-markdown')
 	call dein#add('tmhedberg/matchit', {'on_ft': ['html', 'xml', 'php']})
 	call dein#add('tpope/vim-commentary')
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('tpope/vim-sleuth')
 	call dein#add('tpope/vim-vinegar')
-
-	if $_IS_PERSONAL
-		call dein#add('chrisbra/unicode.vim', {'on_ft': ['markdown', 'text']})
-	endif
 
 	call dein#end()
 	if dein#check_install()
@@ -163,9 +156,6 @@ fu! LightlineGitBranch()
 		\ : ''
 endfu
 
-" ack.vim
-if executable("ag") |let g:ackprg = "ag --vimgrep" |endif
-
 syntax enable
 
 set pa=.,*,** mouse=a ar lz ffs=unix,dos,mac spr sb secure ex fdm=syntax ut=1000
@@ -178,6 +168,8 @@ set ic scs hls is magic " searching
 set wmnu wic " wildmenu
 set ts=4 sw=4 ai si noet sta " indent
 set wrap ww+=<,> bs=indent,eol,start " movement
+
+if executable("ag") |let &grepprg = "ag --vimgrep" |endif
 
 let g:netrw_list_hide='\.(o|pyc|class|hi|png|jpg|gif|svg|pdf)$,__pycache__,\.git,build'
 set wig=*.o,*.pyc,*.class,*.hi,*.png,*.jpg,*.gif,*.svg,*.pdf,*.tga,**/__pycache__/**,**/.git/,**/node_modules/,**/build/**
