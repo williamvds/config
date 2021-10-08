@@ -20,6 +20,7 @@ export XDG_VIDEOS_DIR="$HOME/vids"
 export ANDROID_TOOLS=/opt/android-sdk
 export CTEST_OUTPUT_ON_FAILURE=1
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
+export CMAKE_GENERATOR=Ninja
 export DEIN_DIR="$HOME/.local/share/nvim/dein"
 export GNUPGHOME=$XDG_CONFIG_HOME/gpg
 export GOPATH="$HOME/.cache/go"
