@@ -173,7 +173,7 @@ set pa=.,*,** mouse=a ar lz ffs=unix,dos,mac spr sb secure ex fdm=syntax ut=1000
 set noeb novb " sounds
 set dir=~/.local/share/nvim/swap | let &udir=&dir | let &bdir=&dir
 set swf udf " hist
-set sm nu cul cole=2 cc=80 fdc=0 so=5 rnu cocu=ncv lcs=tab:»\ ,space:·,eol:¬ list " visual
+set sm nu cul cole=2 cc=80 fdc=0 so=5 rnu cocu=ncv lcs=tab:»\ ,trail:· list " visual
 set ic scs hls is magic " searching
 set wmnu wic " wildmenu
 set ts=4 sw=4 ai si noet sta " indent
