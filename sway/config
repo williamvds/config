@@ -1,3 +1,6 @@
+set $mod Mod4
+floating_modifier $mod
+
 # appearance
 font pango:'Noto Sans' 10
 
@@ -60,7 +63,10 @@ exec {
 
 bar {
 	position bottom
+	mode dock
+	hidden_state hide
 	swaybar_command waybar
+	modifier $mod
 }
 
 # display
@@ -99,9 +105,6 @@ for_window {
 }
 
 # custom binds
-set $mod Mod4
-floating_modifier $mod
-
 bindsym {
 	$mod+Shift+r reload
 	$mod+shift+q kill
@@ -230,6 +233,8 @@ mode app bindsym {
 
 	i inhibit_idle focus; mode default
 	Shift+i inhibit_idle none; mode default
+
+	f bar mode toggle; mode default
 
 	Return mode default
 	Escape mode default
