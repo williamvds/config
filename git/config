@@ -13,8 +13,6 @@
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
 	sign-commits = filter-branch -f --commit-filter 'git commit-tree -S "$@"' HEAD
 	truncate = "!current_head=$(git rev-parse HEAD); git reset HEAD^ && git commit --allow-empty --no-verify -C \"$current_head\""
-[merge]
-	ff = only
 [rebase]
 	autoSquash = true
 [pull]
