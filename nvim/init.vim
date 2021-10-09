@@ -12,7 +12,7 @@ elseif ! $_OS_GNU_LINUX
 	set rtp+=$DEIN_DIR/repos/github.com/Shougo/dein.vim
 endif
 
-if exists('dein') && dein#load_state($DEIN_DIR)
+if dein#load_state($DEIN_DIR)
 	call dein#begin($DEIN_DIR)
 
 	call dein#add('Shougo/deoplete.nvim', {'build': ':UpdateRemotePlugins'})
